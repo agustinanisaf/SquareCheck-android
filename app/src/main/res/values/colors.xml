@@ -17,8 +17,7 @@
     <color name="black60p">#60000000</color>
     <color name="black87p">#87000000</color>
 
-    <color name="white10p">#10000000</color>
-    <color name="white60p">#60000000</color>
+    <color name="white60p">#60FFFFFF</color>
 
     <color name="gray">#707070</color>
     <color name="background">#f3f3f3</color>
