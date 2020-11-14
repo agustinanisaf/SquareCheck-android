@@ -12,4 +12,9 @@
     <string name="alpa_label">Alpa</string>
     <string name="subject">Mata Kuliah</string>
     <string name="subject_placeholder">Mobile Programming</string>
+    <string name="finish">SELESAI</string>
+    <string name="presence_status_placeholder">Tepat Waktu</string>
+    <string name="presence_time_placeholder">08:02</string>
+    <string name="notification_design_desc">Notification Art</string>
+    <string name="profile_desc">Profile Image</string>
 </resources>
