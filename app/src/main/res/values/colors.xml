@@ -1,6 +1,25 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <color name="colorPrimary">#6200EE</color>
-    <color name="colorPrimaryDark">#3700B3</color>
-    <color name="colorAccent">#03DAC5</color>
+    <!--  Base Color  -->
+    <color name="primary">#ffffff</color>
+    <color name="secondary">#0288d1</color>
+    <color name="secondary_lighter">#0da9fd</color>
+    <color name="secondary_darker">#01579b</color>
+    <color name="disabled">#15000000</color>
+    <!--  Status Absensi  -->
+    <color name="alpa">#db504a</color>
+    <color name="hadir">#00b152</color>
+    <color name="ijin">#f3aa00</color>
+    <color name="telat">#454e9e</color>
+    <!--  Additional Color  -->
+    <color name="black">#444444</color>
+    <color name="black10p">#10000000</color>
+    <color name="black60p">#60000000</color>
+    <color name="black87p">#87000000</color>
+
+    <color name="white60p">#60FFFFFF</color>
+
+    <color name="gray">#707070</color>
+    <color name="background">#f3f3f3</color>
+    <color name="whitebone">#ececec</color>
 </resources>
