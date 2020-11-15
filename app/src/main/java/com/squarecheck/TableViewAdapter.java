@@ -21,7 +21,7 @@ public class TableViewAdapter extends RecyclerView.Adapter {
     @NonNull
     @Override
     public RecyclerView.ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-        View itemView = LayoutInflater.from(parent.getContext()).inflate(R.layout.table_list_item, parent, false);
+        View itemView = LayoutInflater.from(parent.getContext()).inflate(R.layout.attendance_layout, parent, false);
 
         return new RowViewHolder(itemView);
     }
@@ -62,8 +62,8 @@ public class TableViewAdapter extends RecyclerView.Adapter {
 
         RowViewHolder(View itemView) {
             super(itemView);
-            txtDate = itemView.findViewById(R.id.txtDate);
-            txtTime = itemView.findViewById(R.id.txtTime);
+//            txtDate = itemView.findViewById(R.id.txtDate);
+//            txtTime = itemView.findViewById(R.id.txtTime);
         }
     }
 }

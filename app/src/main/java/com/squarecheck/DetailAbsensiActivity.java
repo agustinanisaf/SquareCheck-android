@@ -15,7 +15,8 @@ public class DetailAbsensiActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_detail_absensi);
-        RecyclerView recyclerView = findViewById(R.id.recyclerViewPresenceList);
+        // TODO: Fix Recycler View
+        RecyclerView recyclerView = findViewById(R.id.attendance_recycler);
         TableViewAdapter adapter = new TableViewAdapter(getPresenceList());
         LinearLayoutManager linearLayoutManager = new LinearLayoutManager(this);
         recyclerView.setLayoutManager(linearLayoutManager);
