@@ -4,4 +4,30 @@
     <string name="email">Email</string>
     <string name="password">Password</string>
     <string name="welcome">Selamat Datang</string>
+    <string name="presence_btn">ABSEN</string>
+    <string name="summary_label">Rekap Total</string>
+    <string name="hadir_label">Hadir</string>
+    <string name="izin_label">Izin</string>
+    <string name="terlambat_label">Terlambat</string>
+    <string name="alpa_label">Alpa</string>
+    <string name="subject">Mata Kuliah</string>
+    <string name="finish">SELESAI</string>
+    <string name="notification_design_desc">Notification Art</string>
+    <string name="profile_desc">Profile Image</string>
+    <string name="attendance_summary_label">Rekap List</string>
+
+    <string name="hadir_placeholder">102</string>
+    <string name="izin_placeholder">12</string>
+    <string name="terlambat_placeholder">23</string>
+    <string name="alpa_placeholder">2</string>
+    <string name="subject_placeholder">Mobile Programming</string>
+    <string name="presence_status_placeholder">Tepat Waktu</string>
+    <string name="presence_time_placeholder">08:02</string>
+    <string name="classroom_placeholder">3 D4 Informatika A</string>
+    <string name="schedule_placeholder">Selasa, 20 Oktober 2020</string>
+    <string name="student_id_placeholder">2110181001</string>
+    <string name="student_name_placeholder">M Riza Bachtiar</string>
+    <string name="student_id_header">NIM</string>
+    <string name="student_name_header">Nama</string>
+    <string name="student_status_header">Status</string>
 </resources>
