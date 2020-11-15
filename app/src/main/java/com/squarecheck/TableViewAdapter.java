@@ -38,16 +38,16 @@ public class TableViewAdapter extends RecyclerView.Adapter {
             //rowViewHolder.txtDate.setBackgroundResource(R.drawable.table_header_cell_bg);
             //rowViewHolder.txtTime.setBackgroundResource(R.drawable.table_header_cell_bg);
 
-            rowViewHolder.txtDate.setText("Date");
-            rowViewHolder.txtTime.setText("Time");
+//            rowViewHolder.txtDate.setText("Date");
+//            rowViewHolder.txtTime.setText("Time");
         } else {
             PresenceModel modal = (PresenceModel) presenceList.get(rowPos - 1);
 
             //rowViewHolder.txtDate.setBackgroundResource(R.drawable.table_content_cell_bg);
             //rowViewHolder.txtTime.setBackgroundResource(R.drawable.table_content_cell_bg);
 
-            rowViewHolder.txtDate.setText(modal.getDate() + "");
-            rowViewHolder.txtTime.setText(modal.getTime());
+//            rowViewHolder.txtDate.setText(modal.getDate() + "");
+//            rowViewHolder.txtTime.setText(modal.getTime());
         }
     }
 

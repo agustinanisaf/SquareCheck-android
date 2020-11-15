@@ -9,21 +9,21 @@
         android:id="@+id/tv_schedule_day"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:textColor="@color/black"
         android:layout_marginStart="@dimen/gutter"
         android:layout_toStartOf="@id/tv_schedule_time"
+        android:textColor="@color/black"
         tools:text="@string/schedule_day_placeholder" />
 
     <TextView
         android:id="@+id/tv_schedule_date"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:textSize="14sp"
-        android:textStyle="bold"
-        android:textColor="@color/black"
         android:layout_below="@id/tv_schedule_day"
         android:layout_marginStart="@dimen/gutter"
         android:layout_toStartOf="@id/tv_schedule_time"
+        android:textColor="@color/black"
+        android:textSize="14sp"
+        android:textStyle="bold"
         tools:text="@string/attendance_date_placeholder" />
 
     <TextView
