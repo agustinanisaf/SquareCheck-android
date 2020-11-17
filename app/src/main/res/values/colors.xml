@@ -22,4 +22,6 @@
     <color name="gray">#707070</color>
     <color name="background">#f3f3f3</color>
     <color name="whitebone">#ececec</color>
+
+    <color name="uts_bg">#32F3AA00</color>
 </resources>
