@@ -1,0 +1,110 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:gravity="center_horizontal"
+    android:clipToPadding="false">
+
+<!--  App bar  -->
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Selasa"
+        android:fontFamily="@font/montserrat_semi_bold"
+        android:textStyle="bold"
+        android:textSize="24sp"
+        android:textColor="@color/secondary_darker"
+        android:layout_marginTop="32dp"/>
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="20 Oktober 2020"
+        android:fontFamily="@font/montserrat_semi_bold"
+        android:textStyle="bold"
+        android:textSize="14sp"
+        android:textColor="@color/secondary_darker"
+        android:layout_marginBottom="36dp"/>
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@drawable/bel_absen"
+        android:gravity="center">
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@drawable/absen_box">
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:paddingVertical="16dp"
+                android:paddingHorizontal="31dp"
+                android:gravity="center">
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="18"
+                        style="@style/AbsenNumberTextStyle"
+                        android:textColor="@color/secondary"/>
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text=" / "
+                        style="@style/AbsenNumberTextStyle"
+                        android:textColor="@color/secondary"/>
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="30"
+                        style="@style/AbsenNumberTextStyle"
+                        android:textColor="@color/black"/>
+                </LinearLayout>
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/attend"
+                    android:textSize="12sp"
+                    android:textColor="@color/secondary_darker"
+                    android:fontFamily="@font/montserrat_semi_bold"/>
+            </LinearLayout>
+        </LinearLayout>
+    </LinearLayout>
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="36.3dp"
+        android:background="@drawable/rounded_corner_blue_button"
+        android:text="@string/open_absen"
+        style="@style/AbsenButtonStyle"
+        android:textColor="@android:color/white"/>
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="18dp"
+        android:background="@drawable/white_absen_box"
+        android:text="@string/delete_absen"
+        style="@style/AbsenButtonStyle"
+        android:textColor="@color/black"/>
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:background="@drawable/white_absen_box"
+        android:text="@string/recap_absen"
+        style="@style/AbsenButtonStyle"
+        android:textColor="@color/black"/>
+</LinearLayout>

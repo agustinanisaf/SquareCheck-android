@@ -4,4 +4,9 @@
     <string name="email">Email</string>
     <string name="password">Password</string>
     <string name="welcome">Selamat Datang</string>
+    <string name="class_subject">Kelas - Matakuliah</string>
+    <string name="attend">Hadir</string>
+    <string name="open_absen">Buka Absensi</string>
+    <string name="delete_absen">HAPUS ABSENSI</string>
+    <string name="recap_absen">REKAP ABSENSI</string>
 </resources>
