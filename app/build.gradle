@@ -31,10 +31,15 @@ dependencies {
     implementation fileTree(dir: "libs", include: ["*.jar"])
     implementation 'androidx.appcompat:appcompat:1.2.0'
     implementation 'androidx.constraintlayout:constraintlayout:2.0.4'
+    implementation 'androidx.coordinatorlayout:coordinatorlayout:1.1.0'
+    implementation 'androidx.cardview:cardview:1.0.0'
+    implementation 'com.google.android.material:material:1.2.1'
     implementation 'androidx.recyclerview:recyclerview:1.1.0'
 
+    implementation 'com.github.bumptech.glide:glide:4.11.0'
+
     implementation 'com.google.code.gson:gson:2.8.5'
-    def retrofit_ver = "2.9.0";
+    def retrofit_ver = "2.9.0"
     implementation "com.squareup.retrofit2:retrofit:$retrofit_ver"
     implementation "com.squareup.retrofit2:converter-gson:$retrofit_ver"
     implementation 'com.squareup.okhttp3:logging-interceptor:4.2.1'
