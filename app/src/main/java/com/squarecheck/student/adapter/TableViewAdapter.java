@@ -1,4 +1,4 @@
-package com.squarecheck;
+package com.squarecheck.student.adapter;
 
 import android.annotation.SuppressLint;
 import android.view.LayoutInflater;
@@ -8,6 +8,9 @@ import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
+
+import com.squarecheck.R;
+import com.squarecheck.student.model.PresenceModel;
 
 import java.util.List;
 
@@ -21,7 +24,7 @@ public class TableViewAdapter extends RecyclerView.Adapter {
     @NonNull
     @Override
     public RecyclerView.ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-        View itemView = LayoutInflater.from(parent.getContext()).inflate(R.layout.attendance_layout, parent, false);
+        View itemView = LayoutInflater.from(parent.getContext()).inflate(R.layout.lecturer_attendance_layout, parent, false);
 
         return new RowViewHolder(itemView);
     }

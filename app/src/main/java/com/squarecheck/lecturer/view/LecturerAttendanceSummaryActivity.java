@@ -1,4 +1,4 @@
-package com.squarecheck;
+package com.squarecheck.lecturer.view;
 
 import android.graphics.Color;
 import android.os.Bundle;
@@ -15,6 +15,7 @@ import com.github.mikephil.charting.components.Legend;
 import com.github.mikephil.charting.data.Entry;
 import com.github.mikephil.charting.data.LineData;
 import com.github.mikephil.charting.data.LineDataSet;
+import com.squarecheck.R;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -24,7 +25,7 @@ public class LecturerAttendanceSummaryActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_lecturer_attendance_summary);
+        setContentView(R.layout.lecturer_attendance_summary_toolbar);
         setupRecyclerStats();
     }
 

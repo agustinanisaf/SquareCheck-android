@@ -1,4 +1,4 @@
-package com.squarecheck;
+package com.squarecheck.student.view;
 
 import android.os.Bundle;
 import android.util.Log;
@@ -11,16 +11,19 @@ import com.github.mikephil.charting.charts.PieChart;
 import com.github.mikephil.charting.data.PieData;
 import com.github.mikephil.charting.data.PieDataSet;
 import com.github.mikephil.charting.data.PieEntry;
+import com.squarecheck.R;
+import com.squarecheck.student.adapter.TableViewAdapter;
+import com.squarecheck.student.model.PresenceModel;
 
 import java.util.ArrayList;
 import java.util.List;
 
-public class DetailAbsensiActivity extends AppCompatActivity {
+public class StudentAttendanceDetailActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_detail_absensi);
+//        setContentView(R.layout.activity_student_attendance_detail);
         // TODO: Fix Recycler View
         RecyclerView recyclerView = findViewById(R.id.attendance_recycler);
         TableViewAdapter adapter = new TableViewAdapter(getPresenceList());

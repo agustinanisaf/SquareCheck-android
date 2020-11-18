@@ -1,4 +1,4 @@
-package com.squarecheck;
+package com.squarecheck.student.model;
 
 public class PresenceModel {
     private String date;

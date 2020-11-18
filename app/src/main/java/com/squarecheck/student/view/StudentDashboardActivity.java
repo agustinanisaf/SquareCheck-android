@@ -1,16 +1,18 @@
-package com.squarecheck;
+package com.squarecheck.student.view;
 
 import android.os.Bundle;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 
+import com.squarecheck.R;
+
 public class StudentDashboardActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_mahasiswa_dashboard);
+//        setContentView(R.layout.activity_student_dashboard);
         Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
     }
