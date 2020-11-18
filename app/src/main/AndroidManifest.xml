@@ -10,7 +10,15 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
         <activity android:name=".DetailAbsensiActivity" />
-        <activity android:name=".CalendarActivity">
+        <activity android:name=".CalendarActivity" />
+        <activity android:name=".LecturerAttendanceSummaryDetailActivity">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity android:name=".LecturerAttendanceSummaryActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
