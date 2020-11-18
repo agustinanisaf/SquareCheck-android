@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:padding="@dimen/gutter">
+
+    <TextView
+        android:id="@+id/tv_schedule_day"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/gutter"
+        android:layout_toStartOf="@id/tv_schedule_time"
+        android:textColor="@color/black"
+        tools:text="@string/schedule_day_placeholder" />
+
+    <TextView
+        android:id="@+id/tv_schedule_date"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/tv_schedule_day"
+        android:layout_marginStart="@dimen/gutter"
+        android:layout_toStartOf="@id/tv_schedule_time"
+        android:textColor="@color/black"
+        android:textSize="14sp"
+        android:textStyle="bold"
+        tools:text="@string/attendance_date_placeholder" />
+
+    <TextView
+        android:id="@+id/tv_schedule_time"
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:layout_alignBottom="@id/tv_schedule_date"
+        android:layout_alignParentEnd="true"
+        android:layout_marginEnd="@dimen/gutter"
+        android:gravity="center_vertical"
+        android:textSize="20sp"
+        tools:text="@string/presence_time_placeholder"
+        tools:textColor="@color/hadir" />
+
+</RelativeLayout>

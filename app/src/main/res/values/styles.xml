@@ -1,7 +1,66 @@
 <resources>
     <!-- Base application theme. -->
     <style name="AppTheme" parent="Theme.AppCompat.Light.NoActionBar">
-        <item name="android:fontFamily">@font/montserrat_regular</item>
         <!-- Customize your theme here. -->
+        <item name="colorPrimary">@color/primary</item>
+        <item name="colorSecondary">@color/secondary</item>
+        <item name="colorSecondaryLighter">@color/secondary_lighter</item>
+        <item name="colorSecondaryDarker">@color/secondary_darker</item>
+        <item name="fontFamily">@font/montserrat_medium</item>
     </style>
+
+    <style name="AppTheme.NoActionBar">
+        <item name="windowActionBar">false</item>
+        <item name="windowNoTitle">true</item>
+    </style>
+
+    <style name="AppTheme.AppBarOverlay" parent="ThemeOverlay.AppCompat.Dark.ActionBar" />
+
+    <style name="AppTheme.PopupOverlay" parent="ThemeOverlay.AppCompat.Light" />
+
+    <style name="CalendarLegendStyle">
+        <item name="android:layout_width">0dp</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_weight">1</item>
+        <item name="android:gravity">center</item>
+        <item name="android:textColor">@color/black</item>
+        <item name="android:textSize">12sp</item>
+    </style>
+
+    <style name="AbsenTextStyle">
+        <item name="android:fontFamily">@font/montserrat_semi_bold</item>
+        <item name="android:textColor">@color/secondary_darker</item>
+    </style>
+
+    <style name="AttendanceNumberTextStyle">
+        <item name="android:fontFamily">@font/montserrat_bold</item>
+        <item name="android:textSize">28sp</item>
+    </style>
+
+    <style name="AttendanceButtonStyle">
+        <item name="android:textSize">14sp</item>
+        <item name="android:paddingBottom">7dp</item>
+        <item name="android:letterSpacing">0.089</item>
+        <item name="android:elevation">2dp</item>
+        <item name="android:width">150dp</item>
+        <item name="android:textAlignment">center</item>
+        <item name="android:minHeight">0dp</item>
+        <item name="android:padding">6dp</item>
+    </style>
+
+    <style name="EtLoginBox" parent="LoginViewWidth">
+        <item name="android:fontFamily">@font/roboto</item>
+        <item name="android:textSize">16sp</item>
+        <item name="android:background">@drawable/rounded_corner_gray</item>
+        <item name="android:paddingStart">16dp</item>
+        <item name="android:paddingTop">16dp</item>
+        <item name="android:paddingBottom">19dp</item>
+        <item name="android:textColor">@color/black60p</item>
+        <item name="android:elevation">00dp</item>
+    </style>
+
+    <style name="LoginViewWidth">
+        <item name="android:width">297dp</item>
+    </style>
+
 </resources>

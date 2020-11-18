@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_height="match_parent"
+    android:layout_width="match_parent"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:orientation="vertical">
+<!--  Dosen topbar  -->
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/class_subject"
+        android:textStyle="bold"
+        android:textSize="14sp"
+        android:layout_marginHorizontal="25dp"
+        android:layout_marginTop="32dp"
+        android:layout_marginBottom="@dimen/gutter16dp"
+        android:letterSpacing="0.007" />
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:listitem="@layout/lecturer_class_subject" />
+
+</LinearLayout>

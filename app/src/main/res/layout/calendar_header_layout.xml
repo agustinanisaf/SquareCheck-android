@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/legendLayout"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:gravity="center"
+    android:orientation="horizontal"
+    android:paddingTop="10dp"
+    android:paddingBottom="10dp">
+
+    <TextView
+        android:id="@+id/tv_calendar_legend_mon"
+        style="@style/CalendarLegendStyle"
+        android:text="@string/calendar_legend_mon"
+        tools:ignore="SmallSp" />
+
+    <TextView
+        android:id="@+id/tv_calendar_legend_tue"
+        style="@style/CalendarLegendStyle"
+        android:text="@string/calendar_legend_tue"
+        tools:ignore="SmallSp" />
+
+    <TextView
+        android:id="@+id/tv_calendar_legend_wed"
+        style="@style/CalendarLegendStyle"
+        android:text="@string/calendar_legend_wed"
+        tools:ignore="SmallSp" />
+
+    <TextView
+        android:id="@+id/tv_calendar_legend_thu"
+        style="@style/CalendarLegendStyle"
+        android:text="@string/calendar_legend_thu"
+        tools:ignore="SmallSp" />
+
+    <TextView
+        android:id="@+id/tv_calendar_legend_fri"
+        style="@style/CalendarLegendStyle"
+        android:text="@string/calendar_legend_fri"
+        tools:ignore="SmallSp" />
+
+    <TextView
+        android:id="@+id/tv_calendar_legend_sat"
+        style="@style/CalendarLegendStyle"
+        android:text="@string/calendar_legend_sat"
+        tools:ignore="SmallSp" />
+
+    <TextView
+        android:id="@+id/tv_calendar_legend_sun"
+        style="@style/CalendarLegendStyle"
+        android:text="@string/calendar_legend_sun"
+        tools:ignore="SmallSp" />
+
+</LinearLayout>

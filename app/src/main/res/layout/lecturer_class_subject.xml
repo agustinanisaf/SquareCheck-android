@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginHorizontal="@dimen/gutter"
+    android:layout_marginBottom="@dimen/gutter16dp"
+    android:background="@android:color/white"
+    app:cardElevation="2dp">
+
+    <TextView
+        android:id="@+id/tv_class_subject"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:letterSpacing=".018"
+        android:padding="@dimen/gutter16dp"
+        app:drawableEndCompat="@drawable/ic_next_gray"
+        tools:drawableEnd="@drawable/ic_next_gray"
+        tools:text="@string/class_subject_placeholder" />
+
+</androidx.cardview.widget.CardView>

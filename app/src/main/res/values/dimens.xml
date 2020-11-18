@@ -1,0 +1,6 @@
+<resources>
+    <dimen name="gutter">24dp</dimen>
+    <dimen name="appbar_corner_radius">16dp</dimen>
+    <dimen name="margin8dp">8dp</dimen>
+    <dimen name="gutter16dp">16dp</dimen>
+</resources>
