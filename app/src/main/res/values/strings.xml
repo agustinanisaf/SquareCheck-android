@@ -34,6 +34,8 @@
     <string name="lecturer_placeholder">Fadilah Fahrul</string>
     <string name="schedule_day_placeholder">Jum\'at</string>
     <string name="attendance_date_placeholder">2 Okt 21</string>
+    <string name="class_subject_placeholder">3 D4 IT A - Mobile Programming</string>
+
     <string name="calendar_title">Kalendar Akademik</string>
     <string name="calendar_legend_mon">Senin</string>
     <string name="calendar_legend_tue">Selasa</string>
@@ -51,4 +53,14 @@
     <string name="open_absen">Buka Absensi</string>
     <string name="delete_absen">HAPUS ABSENSI</string>
     <string name="recap_absen">REKAP ABSENSI</string>
+    <string name="dash">-</string>
+    <string name="login_title">Login</string>
+    <string name="attendance_day_placeholder">Selasa</string>
+    <string name="attendance_date_2_placeholder">20 Oktober 2020</string>
+    <string name="attendance_hadir_placeholder">18</string>
+    <string name="slash">/</string>
+    <string name="attendance_total_placeholder">30</string>
+    <string name="profile_name_placeholder">Abraham Maulana</string>
+    <string name="profile_id_placeholder">2110181026</string>
+    <string name="profile_class_placeholder">D4 Informatika 2018</string>
 </resources>

@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginStart="@dimen/margin8dp"
+    android:layout_marginEnd="@dimen/margin8dp"
+    android:layout_toStartOf="@id/menu_calendar"
+    android:layout_toEndOf="@id/menu_prev"
+    android:orientation="vertical">
+
+    <TextView
+        android:id="@+id/tv_subject"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textAlignment="center"
+        android:textColor="@color/primary"
+        android:textSize="16sp"
+        tools:text="@string/subject_placeholder" />
+
+    <TextView
+        android:id="@+id/tv_classroom"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textAlignment="center"
+        android:textColor="@color/white60p"
+        android:textSize="10sp"
+        tools:ignore="SmallSp"
+        tools:text="@string/classroom_placeholder" />
+
+</LinearLayout>

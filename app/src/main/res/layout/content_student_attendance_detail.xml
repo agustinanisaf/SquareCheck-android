@@ -37,6 +37,6 @@
         android:layout_marginTop="42dp"
         android:layout_marginEnd="@dimen/gutter"
         tools:itemCount="7"
-        tools:listitem="@layout/attendance_layout" />
+        tools:listitem="@layout/student_attendance_layout" />
 
 </RelativeLayout>

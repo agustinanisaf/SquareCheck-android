@@ -10,7 +10,7 @@
     app:cardElevation="4dp">
 
     <TextView
-        android:id="@+id/tv_schedule"
+        android:id="@+id/tv_mata_kuliah"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_gravity="center_vertical"
@@ -19,5 +19,5 @@
         android:textColor="@color/black"
         app:drawableEndCompat="@drawable/ic_next"
         tools:drawableEnd="@drawable/ic_next"
-        tools:text="@string/schedule_placeholder" />
+        tools:text="@string/subject_placeholder" />
 </androidx.cardview.widget.CardView>

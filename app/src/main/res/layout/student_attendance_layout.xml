@@ -39,35 +39,3 @@
         tools:textColor="@color/hadir" />
 
 </RelativeLayout>
-<!-- TODO: Use TableLayout to make good looking table -->
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
-    android:layout_height="wrap_content"
-    android:padding="@dimen/gutter">
-
-    <TextView
-        android:id="@+id/tv_student_id"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_weight="1"
-        android:textAlignment="center"
-        tools:text="@string/student_id_placeholder" />
-
-    <TextView
-        android:id="@+id/tv_student_name"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_weight="1"
-        android:textAlignment="center"
-        tools:text="@string/student_name_placeholder" />
-
-    <TextView
-        android:id="@+id/tv_student_status"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_weight="1"
-        android:textAlignment="center"
-        tools:text="@string/hadir_label"
-        tools:textColor="@color/hadir" />
-</LinearLayout>

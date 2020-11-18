@@ -12,7 +12,6 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="32dp"
-        android:fontFamily="@font/montserrat_medium"
         android:padding="@dimen/gutter"
         android:text="@string/schedule_placeholder"
         android:textColor="?colorSecondary"
@@ -63,5 +62,5 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         tools:itemCount="6"
-        tools:listitem="@layout/attendance_layout" />
+        tools:listitem="@layout/lecturer_attendance_layout" />
 </LinearLayout>

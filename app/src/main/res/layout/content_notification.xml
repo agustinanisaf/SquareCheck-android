@@ -27,7 +27,7 @@
         android:adjustViewBounds="true"
         android:contentDescription="@string/notification_design_desc"
         android:scaleType="fitCenter"
-        app:srcCompat="@drawable/notification_design" />
+        app:srcCompat="@drawable/notification" />
 
     <TextView
         android:id="@+id/tv_presence_time"

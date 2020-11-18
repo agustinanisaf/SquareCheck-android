@@ -20,7 +20,6 @@
         android:id="@+id/tv_attendance_summary_label"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:fontFamily="@font/montserrat_medium"
         android:padding="@dimen/gutter"
         android:text="@string/attendance_summary_label"
         android:textColor="@color/black"

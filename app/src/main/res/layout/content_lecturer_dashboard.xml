@@ -12,17 +12,14 @@
         android:text="@string/class_subject"
         android:textStyle="bold"
         android:textSize="14sp"
-        android:layout_marginTop="31dp"
-        android:layout_marginBottom="19dp"
-        android:layout_marginLeft="25dp"
-        android:letterSpacing="0.007"/>
+        android:layout_marginHorizontal="25dp"
+        android:layout_marginTop="32dp"
+        android:layout_marginBottom="@dimen/gutter16dp"
+        android:letterSpacing="0.007" />
 
     <androidx.recyclerview.widget.RecyclerView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_marginStart="25dp"
-        android:layout_marginEnd="25dp"
-        tools:listitem="@layout/dosen_class_subject_item"
-        android:padding="12dp"/>
+        tools:listitem="@layout/lecturer_class_subject" />
 
 </LinearLayout>
