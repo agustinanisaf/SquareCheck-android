@@ -31,11 +31,9 @@
     <string name="student_id_header">NIM</string>
     <string name="student_name_header">Nama</string>
     <string name="student_status_header">Status</string>
-<<<<<<< HEAD
     <string name="lecturer_placeholder">Fadilah Fahrul</string>
     <string name="schedule_day_placeholder">Jum\'at</string>
     <string name="attendance_date_placeholder">2 Okt 21</string>
-=======
     <string name="calendar_title">Kalendar Akademik</string>
     <string name="calendar_legend_mon">Senin</string>
     <string name="calendar_legend_tue">Selasa</string>
@@ -48,5 +46,9 @@
     <string name="information_label">Keterangan</string>
     <string name="information_desc_placeholder">Pekan Ujian Akhir</string>
     <string name="information_date_placeholder">6 – 15</string>
->>>>>>> 50f0d092c1abc569fc8030f86de930859536963b
+    <string name="class_subject">Kelas - Matakuliah</string>
+    <string name="attend">Hadir</string>
+    <string name="open_absen">Buka Absensi</string>
+    <string name="delete_absen">HAPUS ABSENSI</string>
+    <string name="recap_absen">REKAP ABSENSI</string>
 </resources>
