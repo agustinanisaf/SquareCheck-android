@@ -21,7 +21,7 @@ public class JWTAuthenticationInterceptor implements Interceptor {
         Request original = chain.request();
 
         Request.Builder builder = original.newBuilder()
-                .header("Authorization", token);
+                .header("Authorization", "Bearer " + token);
 
         Request request = builder.build();
         return chain.proceed(request);
