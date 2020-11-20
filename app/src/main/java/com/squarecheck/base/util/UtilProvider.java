@@ -34,7 +34,7 @@ public class UtilProvider {
         static UtilInterface create(@NonNull Context context, @NonNull Class<? extends UtilInterface> modelClass) {
             try {
                 UtilInterface utilInterface = modelClass.newInstance();
-                return utilInterface.initialize(context);
+                return utilInterface.create(context);
             } catch (IllegalAccessException | InstantiationException e) {
                 throw new RuntimeException("Cannot create an instance of " + modelClass, e);
             }

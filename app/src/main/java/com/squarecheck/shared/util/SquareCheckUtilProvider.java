@@ -8,7 +8,8 @@ public class SquareCheckUtilProvider extends UtilProvider {
     public static void initialize(Context context) {
         UtilProvider.initialize(
                 context,
-                UserUtil.class
+                UserUtil.class,
+                TokenUtil.class
         );
     }
 }
