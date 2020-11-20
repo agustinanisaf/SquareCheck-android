@@ -1,0 +1,103 @@
+{
+  "data": [
+    {
+      "id": 59,
+      "subject": {
+        "id": 4,
+        "name": "Mobile Programming"
+      },
+      "time": "2021-01-20 04:20:42",
+      "start_time": null,
+      "end_time": null,
+      "attendance": []
+    },
+    {
+      "id": 60,
+      "subject": {
+        "id": 4,
+        "name": "Mobile Programming"
+      },
+      "time": "2021-01-27 04:20:42",
+      "start_time": null,
+      "end_time": null,
+      "attendance": []
+    },
+    {
+      "id": 61,
+      "subject": {
+        "id": 4,
+        "name": "Mobile Programming"
+      },
+      "time": "2021-02-03 04:20:42",
+      "start_time": null,
+      "end_time": null,
+      "attendance": []
+    },
+    {
+      "id": 62,
+      "subject": {
+        "id": 4,
+        "name": "Mobile Programming"
+      },
+      "time": "2021-02-10 04:20:42",
+      "start_time": null,
+      "end_time": null,
+      "attendance": []
+    },
+    {
+      "id": 63,
+      "subject": {
+        "id": 4,
+        "name": "Mobile Programming"
+      },
+      "time": "2021-02-17 04:20:42",
+      "start_time": null,
+      "end_time": null,
+      "attendance": []
+    },
+    {
+      "id": 64,
+      "subject": {
+        "id": 4,
+        "name": "Mobile Programming"
+      },
+      "time": "2021-02-24 04:20:42",
+      "start_time": null,
+      "end_time": null,
+      "attendance": []
+    },
+    {
+      "id": 49,
+      "subject": {
+        "id": 4,
+        "name": "Mobile Programming"
+      },
+      "time": "2020-11-11 04:20:42",
+      "start_time": "2020-11-20 08:51:23",
+      "end_time": null,
+      "attendance": [
+        {
+          "student": {
+            "id": 1,
+            "name": "Eluh Santoso"
+          },
+          "time": "2020-11-20 08:51:45",
+          "status": "hadir"
+        }
+      ]
+    }
+  ],
+  "links": {
+    "first": "http:\/\/localhost\/api\/subjects\/4\/attendances?page=1",
+    "last": null,
+    "prev": "http:\/\/localhost\/api\/subjects\/4\/attendances?page=1",
+    "next": null
+  },
+  "meta": {
+    "current_page": 2,
+    "from": 10,
+    "path": "http:\/\/localhost\/api\/subjects\/4\/attendances",
+    "per_page": 9,
+    "to": 16
+  }
+}
