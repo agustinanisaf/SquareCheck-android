@@ -23,6 +23,8 @@ android {
             buildConfigField 'String', 'baseUrl', '"http://10.0.2.2/api/"'
         }
         release {
+            // TODO: Change to Server IP
+            buildConfigField 'String', 'baseUrl', '"http://10.0.2.2/api/"'
             minifyEnabled false
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
         }
