@@ -13,7 +13,6 @@ import com.github.mikephil.charting.data.PieDataSet;
 import com.github.mikephil.charting.data.PieEntry;
 import com.squarecheck.R;
 import com.squarecheck.student.adapter.TableViewAdapter;
-import com.squarecheck.student.model.PresenceModel;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -60,12 +59,6 @@ public class StudentAttendanceDetailActivity extends AppCompatActivity {
 
     private List getPresenceList() {
         List presenceList = new ArrayList<>();
-
-        presenceList.add(new PresenceModel("Jumat, 2 Nov 20", "08:03"));
-        presenceList.add(new PresenceModel("Jumat, 9 Nov 20", "08:05"));
-        presenceList.add(new PresenceModel("Jumat, 16 Nov 20", "08:00"));
-        presenceList.add(new PresenceModel("Jumat, 23 Nov 20", "08:02"));
-        presenceList.add(new PresenceModel("Jumat, 30 Nov 20", "08:04"));
 
         return presenceList;
     }
