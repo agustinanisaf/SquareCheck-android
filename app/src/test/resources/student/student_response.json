@@ -1,0 +1,23 @@
+{
+  "data": {
+    "id": 1,
+    "name": "Eluh Santoso",
+    "nrp": "6959128627",
+    "department": {
+      "id": 1,
+      "name": "Cyber Security"
+    },
+    "classroom": {
+      "id": 1,
+      "name": "1 D3 Cyber Security A",
+      "slug": "1 D3 CS A"
+    },
+    "user": {
+      "id": 51,
+      "name": "Eluh Santoso",
+      "email": "jenkins.ramon@example.com",
+      "role": "student",
+      "photo": "MLYQJG792q.png"
+    }
+  }
+}

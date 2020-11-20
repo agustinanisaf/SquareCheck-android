@@ -16,6 +16,7 @@ import com.squarecheck.base.presenter.BasePresenter;
 public abstract class BaseFragment<T extends FragmentActivity, U extends BasePresenter> extends Fragment {
 
     protected View titleLayout;
+    protected T activity;
     protected String title;
     protected T activity;
     protected View fragmentView;

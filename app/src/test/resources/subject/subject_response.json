@@ -1,0 +1,170 @@
+{
+  "data": [
+    {
+      "id": 1,
+      "name": "Mobile Programming",
+      "lecturer": {
+        "id": 7,
+        "name": "Gaman Wibisono S.E."
+      },
+      "classroom": {
+        "id": 1,
+        "name": "1 D3 Cyber Security A",
+        "slug": "1 D3 CS A",
+        "department": {
+          "id": 1,
+          "name": "Cyber Security"
+        }
+      }
+    },
+    {
+      "id": 2,
+      "name": "Computer Graphic",
+      "lecturer": {
+        "id": 2,
+        "name": "Olga Sitorus"
+      },
+      "classroom": {
+        "id": 1,
+        "name": "1 D3 Cyber Security A",
+        "slug": "1 D3 CS A",
+        "department": {
+          "id": 1,
+          "name": "Cyber Security"
+        }
+      }
+    },
+    {
+      "id": 3,
+      "name": "Mathematic",
+      "lecturer": {
+        "id": 5,
+        "name": "Muni Utama"
+      },
+      "classroom": {
+        "id": 1,
+        "name": "1 D3 Cyber Security A",
+        "slug": "1 D3 CS A",
+        "department": {
+          "id": 1,
+          "name": "Cyber Security"
+        }
+      }
+    },
+    {
+      "id": 4,
+      "name": "Mobile Programming",
+      "lecturer": {
+        "id": 4,
+        "name": "Anita Puspita"
+      },
+      "classroom": {
+        "id": 1,
+        "name": "1 D3 Cyber Security A",
+        "slug": "1 D3 CS A",
+        "department": {
+          "id": 1,
+          "name": "Cyber Security"
+        }
+      }
+    },
+    {
+      "id": 5,
+      "name": "Computer Graphic",
+      "lecturer": {
+        "id": 3,
+        "name": "Najwa Purnawati S.IP"
+      },
+      "classroom": {
+        "id": 1,
+        "name": "1 D3 Cyber Security A",
+        "slug": "1 D3 CS A",
+        "department": {
+          "id": 1,
+          "name": "Cyber Security"
+        }
+      }
+    },
+    {
+      "id": 6,
+      "name": "Software Development",
+      "lecturer": {
+        "id": 4,
+        "name": "Anita Puspita"
+      },
+      "classroom": {
+        "id": 1,
+        "name": "1 D3 Cyber Security A",
+        "slug": "1 D3 CS A",
+        "department": {
+          "id": 1,
+          "name": "Cyber Security"
+        }
+      }
+    },
+    {
+      "id": 7,
+      "name": "Software Development",
+      "lecturer": {
+        "id": 5,
+        "name": "Muni Utama"
+      },
+      "classroom": {
+        "id": 1,
+        "name": "1 D3 Cyber Security A",
+        "slug": "1 D3 CS A",
+        "department": {
+          "id": 1,
+          "name": "Cyber Security"
+        }
+      }
+    },
+    {
+      "id": 8,
+      "name": "Computer Graphic",
+      "lecturer": {
+        "id": 5,
+        "name": "Muni Utama"
+      },
+      "classroom": {
+        "id": 1,
+        "name": "1 D3 Cyber Security A",
+        "slug": "1 D3 CS A",
+        "department": {
+          "id": 1,
+          "name": "Cyber Security"
+        }
+      }
+    },
+    {
+      "id": 9,
+      "name": "Software Development",
+      "lecturer": {
+        "id": 3,
+        "name": "Najwa Purnawati S.IP"
+      },
+      "classroom": {
+        "id": 1,
+        "name": "1 D3 Cyber Security A",
+        "slug": "1 D3 CS A",
+        "department": {
+          "id": 1,
+          "name": "Cyber Security"
+        }
+      }
+    }
+  ],
+  "links": {
+    "first": "http:\/\/localhost\/api\/subjects?page=1",
+    "last": null,
+    "prev": null,
+    "next": "http:\/\/localhost\/api\/subjects?page=2"
+  },
+  "meta": {
+    "current_page": 1,
+    "from": 1,
+    "path": "http:\/\/localhost\/api\/subjects",
+    "per_page": 9,
+    "to": 9
+  }
+}

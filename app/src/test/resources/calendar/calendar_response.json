@@ -1,0 +1,38 @@
+{
+  "data": [
+    {
+      "id": 1,
+      "name": "Titus Bruen",
+      "description": "Velit rerum molestiae laboriosam nihil. Consequuntur ipsa excepturi ad omnis corporis eaque nihil fuga. Esse mollitia eius non hic velit ab voluptates iure.",
+      "type": "UTS",
+      "date": null
+    },
+    {
+      "id": 2,
+      "name": "Ms. Estell Russel MD",
+      "description": "Voluptatum aut quia quis veniam quisquam a ut. Laboriosam ut ipsum ut esse.",
+      "type": "UTS",
+      "date": null
+    },
+    {
+      "id": 3,
+      "name": "Dr. Beulah Robel",
+      "description": "Accusamus nostrum sint qui occaecati ea. Commodi dolorum soluta ducimus cupiditate. Laudantium et aut ut vitae.",
+      "type": "UTS",
+      "date": null
+    }
+  ],
+  "links": {
+    "first": "http:\/\/localhost\/api\/academic-calendars?page=1",
+    "last": null,
+    "prev": null,
+    "next": null
+  },
+  "meta": {
+    "current_page": 1,
+    "from": 1,
+    "path": "http:\/\/localhost\/api\/academic-calendars",
+    "per_page": 9,
+    "to": 3
+  }
+}
