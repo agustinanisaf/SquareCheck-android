@@ -1,14 +1,15 @@
 package com.squarecheck.login.retrofit;
 
+import com.squarecheck.MockResponseFileReader;
 import com.squarecheck.login.model.Token;
 import com.squarecheck.login.model.User;
 import com.squarecheck.shared.model.APIResponse;
 import com.squarecheck.shared.model.APIResponseCollection;
 import com.squarecheck.shared.retrofit.JWTAuthenticationInterceptor;
 
-import org.junit.After;
-import org.junit.Before;
-import org.junit.Test;
+import org.junit.jupiter.api.AfterEach;
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
 
 import java.io.IOException;
 
@@ -26,19 +27,19 @@ import static org.junit.Assert.assertEquals;
 
 public class LoginServiceTest {
 
+    private MockResponseFileReader fileReader = new MockResponseFileReader();
+
     private MockWebServer server = new MockWebServer();
 
     private LoginService loginService;
 
     private LoginService loginAuthenticatedService;
 
-    private String authToken;
+    private String authToken = fileReader.readJson("auth_token.txt");
 
-    @Before
+    @BeforeEach
     public void setup() throws IOException {
         server.start();
-
-        authToken = "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOlwvXC9sb2NhbGhvc3RcL2FwaVwvYXV0aFwvbG9naW4iLCJpYXQiOjE2MDU3NTc3NDgsImV4cCI6MTYwNTc2MTM0OCwibmJmIjoxNjA1NzU3NzQ4LCJqdGkiOiIwVjhpeFljU0NvQ05tQ2tnIiwic3ViIjo1MSwicHJ2IjoiMjNiZDVjODk0OWY2MDBhZGIzOWU3MDFjNDAwODcyZGI3YTU5NzZmNyJ9.J01uqo9wuTpJ6PBxHi40uflnM0zoxN4ZX9Qg8c7bK9c";
 
         loginService = new Retrofit.Builder()
                 .baseUrl(server.url("/"))
@@ -55,23 +56,22 @@ public class LoginServiceTest {
                 .create(LoginService.class);
     }
 
-    @After
+    @AfterEach
     public void teardown() throws IOException {
         server.shutdown();
     }
 
     @Test
-    public void testLogin() throws IOException {
+    public void login() throws IOException {
         // Assign
-        String responseBody = "{\"token\":\"eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOlwvXC9sb2NhbGhvc3RcL2FwaVwvYXV0aFwvbG9naW4iLCJpYXQiOjE2MDU3NTc3NDgsImV4cCI6MTYwNTc2MTM0OCwibmJmIjoxNjA1NzU3NzQ4LCJqdGkiOiIwVjhpeFljU0NvQ05tQ2tnIiwic3ViIjo1MSwicHJ2IjoiMjNiZDVjODk0OWY2MDBhZGIzOWU3MDFjNDAwODcyZGI3YTU5NzZmNyJ9.J01uqo9wuTpJ6PBxHi40uflnM0zoxN4ZX9Qg8c7bK9c\",\"token_type\":\"bearer\",\"expires_in\":3600}";
+        String json = fileReader.readJson("login/login_success_response.json");
+        assert json != null;
         MockResponse response = new MockResponse()
                 .setResponseCode(HTTP_OK)
-                .setBody(responseBody);
+                .setBody(json);
         server.enqueue(response);
 
-        User user = new User();
-        user.setEmail("jenkins.ramon@example.com");
-        user.setPassword("password");
+        User user = new User("jenkins.ramon@example.com", "password");
         Call<Token> login = loginService.login(user);
 
         // Act
@@ -80,16 +80,17 @@ public class LoginServiceTest {
         // Assert
         assertEquals(response.toString().contains("200"), String.valueOf(tokenResponse.code()).contains("200"));
         assert tokenResponse.body() != null;
-        assertEquals("eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOlwvXC9sb2NhbGhvc3RcL2FwaVwvYXV0aFwvbG9naW4iLCJpYXQiOjE2MDU3NTc3NDgsImV4cCI6MTYwNTc2MTM0OCwibmJmIjoxNjA1NzU3NzQ4LCJqdGkiOiIwVjhpeFljU0NvQ05tQ2tnIiwic3ViIjo1MSwicHJ2IjoiMjNiZDVjODk0OWY2MDBhZGIzOWU3MDFjNDAwODcyZGI3YTU5NzZmNyJ9.J01uqo9wuTpJ6PBxHi40uflnM0zoxN4ZX9Qg8c7bK9c", tokenResponse.body().getToken());
+        assertEquals(321, tokenResponse.body().getToken().length());
     }
 
     @Test
-    public void testFailedLogin() throws IOException {
+    public void failedLogin() throws IOException {
         // Assign
-        String responseBody = "{\"code\":401,\"message\":\"Unauthorized\",\"description\":\"User unauthorized.\"}";
+        String json = fileReader.readJson("login/login_failed_response.json");
+        assert json != null;
         MockResponse response = new MockResponse()
                 .setResponseCode(HTTP_UNAUTHORIZED)
-                .setBody(responseBody);
+                .setBody(json);
         server.enqueue(response);
 
         User user = new User("jenkins@gmail.com", "password");
@@ -101,17 +102,18 @@ public class LoginServiceTest {
         // Assert
         assertEquals(response.toString().contains("401"), String.valueOf(tokenResponse.code()).contains("401"));
         assert tokenResponse.errorBody() != null;
-        assertEquals(responseBody, tokenResponse.errorBody().string());
+        assertEquals(json, tokenResponse.errorBody().string());
     }
 
     @Test
-    public void testLogout() throws IOException {
+    public void logout() throws IOException {
         // Assign
-        String responseBody = "{\"message\":\"Successfully logged out\"}";
+        String json = fileReader.readJson("login/logout_response.json");
+        assert json != null;
         MockResponse response = new MockResponse()
                 .addHeader("Authorization", "Bearer " + authToken)
                 .setResponseCode(HTTP_OK)
-                .setBody(responseBody);
+                .setBody(json);
         server.enqueue(response);
 
         Call<APIResponse> logout = loginAuthenticatedService.logout();
@@ -127,11 +129,12 @@ public class LoginServiceTest {
     @Test
     public void refresh() throws IOException {
         // Assign
-        String responseBody = "{\"token\":\"eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOlwvXC9sb2NhbGhvc3RcL2FwaVwvYXV0aFwvbG9naW4iLCJpYXQiOjE2MDU3NTc3NDgsImV4cCI6MTYwNTc2MTM0OCwibmJmIjoxNjA1NzU3NzQ4LCJqdGkiOiIwVjhpeFljU0NvQ05tQ2tnIiwic3ViIjo1MSwicHJ2IjoiMjNiZDVjODk0OWY2MDBhZGIzOWU3MDFjNDAwODcyZGI3YTU5NzZmNyJ9.J01uqo9wuTpJ6PBxHi40uflnM0zoxN4ZX9Qg8c7bK9c\",\"token_type\":\"bearer\",\"expires_in\":3600}";
+        String json = fileReader.readJson("login/refresh_response.json");
+        assert json != null;
         MockResponse response = new MockResponse()
                 .addHeader("Authorization", "Bearer " + authToken)
                 .setResponseCode(HTTP_OK)
-                .setBody(responseBody);
+                .setBody(json);
         server.enqueue(response);
 
         Call<Token> refresh = loginAuthenticatedService.refresh();
@@ -147,11 +150,12 @@ public class LoginServiceTest {
     @Test
     public void me() throws IOException {
         // Assign
-        String responseBody = "{\"data\":{\"id\":51,\"name\":\"Eluh Santoso\",\"email\":\"jenkins.ramon@example.com\",\"role\":\"student\",\"photo\":\"MLYQJG792q.png\"}}";
+        String json = fileReader.readJson("login/me_response.json");
+        assert json != null;
         MockResponse response = new MockResponse()
                 .addHeader("Authorization", "Bearer " + authToken)
                 .setResponseCode(HTTP_OK)
-                .setBody(responseBody);
+                .setBody(json);
         server.enqueue(response);
 
         Call<APIResponseCollection<User>> me = loginAuthenticatedService.me();

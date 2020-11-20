@@ -2,6 +2,7 @@ package com.squarecheck.student.model;
 
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
+import com.squarecheck.login.model.User;
 
 public class StudentModel {
     @SerializedName("id")
@@ -19,9 +20,9 @@ public class StudentModel {
     @SerializedName("classroom")
     @Expose
     private ClassroomModel classroom;
-//    @SerializedName("user")
-//    @Expose
-//    private User user;
+    @SerializedName("user")
+    @Expose
+    private User user;
 
     public Integer getId() {
         return id;
@@ -63,11 +64,11 @@ public class StudentModel {
         this.classroom = classroom;
     }
 
-//    public User getUser() {
-//        return user;
-//    }
-//
-//    public void setUser(User user) {
-//        this.user = user;
-//    }
+    public User getUser() {
+        return user;
+    }
+
+    public void setUser(User user) {
+        this.user = user;
+    }
 }

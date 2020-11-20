@@ -2,6 +2,8 @@ package com.squarecheck.shared.retrofit;
 
 import android.text.TextUtils;
 
+import com.google.gson.Gson;
+import com.google.gson.GsonBuilder;
 import com.squarecheck.BuildConfig;
 
 import okhttp3.OkHttpClient;
@@ -12,10 +14,18 @@ import retrofit2.converter.gson.GsonConverterFactory;
 public class ServiceGenerator {
     private static final String BASE_URL = BuildConfig.baseUrl;
 
+    private static Gson gson = new GsonBuilder()
+            .enableComplexMapKeySerialization()
+            .serializeNulls()
+            .setDateFormat("yyyy-MM-dd HH:mm:ss")
+            .setPrettyPrinting()
+            .setVersion(1.0)
+            .create();
+
     private static Retrofit.Builder builder =
             new Retrofit.Builder()
                     .baseUrl(BASE_URL)
-                    .addConverterFactory(GsonConverterFactory.create());
+                    .addConverterFactory(GsonConverterFactory.create(gson));
 
     private static Retrofit retrofit = builder.build();
 

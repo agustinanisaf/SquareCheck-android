@@ -26,3 +26,7 @@ jobs:
       # Build the android app to test for error
       - name: Build the app
         run: ./gradlew build
+
+      # Unit Test android for debug flavor
+      - name: Unit Test the app for Debug Flavor
+        run: ./gradlew testDebug

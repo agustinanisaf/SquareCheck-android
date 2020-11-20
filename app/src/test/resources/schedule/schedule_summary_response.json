@@ -1,0 +1,71 @@
+{
+  "data": [
+    {
+      "id": 1,
+      "subject": {
+        "id": 1,
+        "name": "Mobile Programming",
+        "lecturer": {
+          "id": 7,
+          "name": "Gaman Wibisono S.E."
+        },
+        "classroom": {
+          "id": 1,
+          "name": "1 D3 Cyber Security A",
+          "slug": "1 D3 CS A",
+          "department": {
+            "id": 1,
+            "name": "Cyber Security"
+          }
+        }
+      },
+      "time": "2020-11-14 11:02:28",
+      "start_time": "2020-11-17 15:11:18",
+      "end_time": "2020-11-17 15:11:30",
+      "hadir": 0,
+      "izin": 0,
+      "terlambat": 0,
+      "alpa": 1
+    },
+    {
+      "id": 49,
+      "subject": {
+        "id": 4,
+        "name": "Mobile Programming",
+        "lecturer": {
+          "id": 4,
+          "name": "Anita Puspita"
+        },
+        "classroom": {
+          "id": 1,
+          "name": "1 D3 Cyber Security A",
+          "slug": "1 D3 CS A",
+          "department": {
+            "id": 1,
+            "name": "Cyber Security"
+          }
+        }
+      },
+      "time": "2020-11-11 04:20:42",
+      "start_time": "2020-11-14 14:23:55",
+      "end_time": "2020-11-14 14:27:02",
+      "hadir": 1,
+      "izin": 0,
+      "terlambat": 0,
+      "alpa": 0
+    }
+  ],
+  "links": {
+    "first": "http:\/\/localhost\/api\/schedules\/summarize?order_by=-end_time&page=1",
+    "last": null,
+    "prev": null,
+    "next": null
+  },
+  "meta": {
+    "current_page": 1,
+    "from": 1,
+    "path": "http:\/\/localhost\/api\/schedules\/summarize",
+    "per_page": 9,
+    "to": 2
+  }
+}

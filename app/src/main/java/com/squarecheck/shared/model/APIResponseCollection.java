@@ -2,9 +2,8 @@ package com.squarecheck.shared.model;
 
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
-import com.squarecheck.base.model.BaseModel;
 
-public class APIResponseCollection<T extends BaseModel> {
+public class APIResponseCollection<T> {
     @SerializedName("data")
     @Expose
     private T data = null;

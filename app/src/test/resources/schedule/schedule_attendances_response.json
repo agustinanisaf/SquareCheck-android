@@ -1,0 +1,244 @@
+{
+  "data": [
+    {
+      "student": {
+        "id": 2,
+        "name": "Calista Mardhiyah"
+      },
+      "time": null,
+      "status": "alpa"
+    },
+    {
+      "student": {
+        "id": 3,
+        "name": "Yulia Rahmawati"
+      },
+      "time": null,
+      "status": "alpa"
+    },
+    {
+      "student": {
+        "id": 4,
+        "name": "Cagak Prakosa Prayoga"
+      },
+      "time": null,
+      "status": "alpa"
+    },
+    {
+      "student": {
+        "id": 5,
+        "name": "Ika Utami"
+      },
+      "time": null,
+      "status": "alpa"
+    },
+    {
+      "student": {
+        "id": 6,
+        "name": "Muni Kuswoyo"
+      },
+      "time": null,
+      "status": "alpa"
+    },
+    {
+      "student": {
+        "id": 7,
+        "name": "Yuni Rahayu"
+      },
+      "time": null,
+      "status": "alpa"
+    },
+    {
+      "student": {
+        "id": 8,
+        "name": "Vinsen Prabowo S.Sos"
+      },
+      "time": null,
+      "status": "alpa"
+    },
+    {
+      "student": {
+        "id": 9,
+        "name": "Karya Hardi Damanik S.H."
+      },
+      "time": null,
+      "status": "alpa"
+    },
+    {
+      "student": {
+        "id": 10,
+        "name": "Umi Cornelia Winarsih M.Pd"
+      },
+      "time": null,
+      "status": "alpa"
+    },
+    {
+      "student": {
+        "id": 11,
+        "name": "Ega Kamidin Latupono"
+      },
+      "time": null,
+      "status": "alpa"
+    },
+    {
+      "student": {
+        "id": 12,
+        "name": "Puspa Rahayu"
+      },
+      "time": null,
+      "status": "alpa"
+    },
+    {
+      "student": {
+        "id": 13,
+        "name": "Kezia Riyanti"
+      },
+      "time": null,
+      "status": "alpa"
+    },
+    {
+      "student": {
+        "id": 14,
+        "name": "Kardi Marpaung S.Kom"
+      },
+      "time": null,
+      "status": "alpa"
+    },
+    {
+      "student": {
+        "id": 15,
+        "name": "Ani Agustina"
+      },
+      "time": null,
+      "status": "alpa"
+    },
+    {
+      "student": {
+        "id": 16,
+        "name": "Winda Rahayu S.Pt"
+      },
+      "time": null,
+      "status": "alpa"
+    },
+    {
+      "student": {
+        "id": 17,
+        "name": "Karna Waskita S.H."
+      },
+      "time": null,
+      "status": "alpa"
+    },
+    {
+      "student": {
+        "id": 18,
+        "name": "Tiara Kiandra Hassanah S.Kom"
+      },
+      "time": null,
+      "status": "alpa"
+    },
+    {
+      "student": {
+        "id": 19,
+        "name": "Sari Namaga S.E.I"
+      },
+      "time": null,
+      "status": "alpa"
+    },
+    {
+      "student": {
+        "id": 20,
+        "name": "Lanang Kasim Sihotang"
+      },
+      "time": null,
+      "status": "alpa"
+    },
+    {
+      "student": {
+        "id": 21,
+        "name": "Teguh Jasmani Nababan"
+      },
+      "time": null,
+      "status": "alpa"
+    },
+    {
+      "student": {
+        "id": 22,
+        "name": "Kartika Laksita"
+      },
+      "time": null,
+      "status": "alpa"
+    },
+    {
+      "student": {
+        "id": 23,
+        "name": "Bajragin Sabri Nainggolan"
+      },
+      "time": null,
+      "status": "alpa"
+    },
+    {
+      "student": {
+        "id": 24,
+        "name": "Lukman Ramadan M.Ak"
+      },
+      "time": null,
+      "status": "alpa"
+    },
+    {
+      "student": {
+        "id": 25,
+        "name": "Irnanto Pradana"
+      },
+      "time": null,
+      "status": "alpa"
+    },
+    {
+      "student": {
+        "id": 26,
+        "name": "Tantri Handayani"
+      },
+      "time": null,
+      "status": "alpa"
+    },
+    {
+      "student": {
+        "id": 27,
+        "name": "Qori Pertiwi"
+      },
+      "time": null,
+      "status": "alpa"
+    },
+    {
+      "student": {
+        "id": 28,
+        "name": "Okta Tamba S.IP"
+      },
+      "time": null,
+      "status": "alpa"
+    },
+    {
+      "student": {
+        "id": 29,
+        "name": "Clara Novitasari"
+      },
+      "time": null,
+      "status": "alpa"
+    },
+    {
+      "student": {
+        "id": 30,
+        "name": "Mahesa Wacana"
+      },
+      "time": null,
+      "status": "alpa"
+    },
+    {
+      "student": {
+        "id": 1,
+        "name": "Eluh Santoso"
+      },
+      "time": "2020-11-14 14:24:00",
+      "status": "hadir"
+    }
+  ]
+}
