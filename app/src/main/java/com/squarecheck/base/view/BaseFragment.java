@@ -17,6 +17,7 @@ public abstract class BaseFragment<T extends FragmentActivity, U extends BasePre
 
     protected View titleLayout;
     protected String title;
+    protected T activity;
     protected View fragmentView;
     protected U presenter;
     protected FragmentListener fragmentListener;
@@ -30,6 +31,7 @@ public abstract class BaseFragment<T extends FragmentActivity, U extends BasePre
     @Override
     public void onAttach(@NonNull Context context) {
         super.onAttach(context);
+        this.activity = (T) context;
         this.fragmentListener = (FragmentListener) context;
     }
 
