@@ -1,0 +1,224 @@
+{
+  "data": [
+    {
+      "id": 2,
+      "subject": {
+        "id": 1,
+        "name": "Mobile Programming",
+        "lecturer": {
+          "id": 7,
+          "name": "Gaman Wibisono S.E."
+        },
+        "classroom": {
+          "id": 1,
+          "name": "1 D3 Cyber Security A",
+          "slug": "1 D3 CS A",
+          "department": {
+            "id": 1,
+            "name": "Cyber Security"
+          }
+        }
+      },
+      "time": "2020-11-21 11:02:28",
+      "start_time": null,
+      "end_time": null
+    },
+    {
+      "id": 18,
+      "subject": {
+        "id": 2,
+        "name": "Computer Graphic",
+        "lecturer": {
+          "id": 2,
+          "name": "Olga Sitorus"
+        },
+        "classroom": {
+          "id": 1,
+          "name": "1 D3 Cyber Security A",
+          "slug": "1 D3 CS A",
+          "department": {
+            "id": 1,
+            "name": "Cyber Security"
+          }
+        }
+      },
+      "time": "2020-11-22 23:04:52",
+      "start_time": null,
+      "end_time": null
+    },
+    {
+      "id": 34,
+      "subject": {
+        "id": 3,
+        "name": "Mathematic",
+        "lecturer": {
+          "id": 5,
+          "name": "Muni Utama"
+        },
+        "classroom": {
+          "id": 1,
+          "name": "1 D3 Cyber Security A",
+          "slug": "1 D3 CS A",
+          "department": {
+            "id": 1,
+            "name": "Cyber Security"
+          }
+        }
+      },
+      "time": "2020-11-21 22:57:56",
+      "start_time": null,
+      "end_time": null
+    },
+    {
+      "id": 50,
+      "subject": {
+        "id": 4,
+        "name": "Mobile Programming",
+        "lecturer": {
+          "id": 4,
+          "name": "Anita Puspita"
+        },
+        "classroom": {
+          "id": 1,
+          "name": "1 D3 Cyber Security A",
+          "slug": "1 D3 CS A",
+          "department": {
+            "id": 1,
+            "name": "Cyber Security"
+          }
+        }
+      },
+      "time": "2020-11-18 04:20:42",
+      "start_time": null,
+      "end_time": null
+    },
+    {
+      "id": 66,
+      "subject": {
+        "id": 5,
+        "name": "Computer Graphic",
+        "lecturer": {
+          "id": 3,
+          "name": "Najwa Purnawati S.IP"
+        },
+        "classroom": {
+          "id": 1,
+          "name": "1 D3 Cyber Security A",
+          "slug": "1 D3 CS A",
+          "department": {
+            "id": 1,
+            "name": "Cyber Security"
+          }
+        }
+      },
+      "time": "2020-11-18 03:08:44",
+      "start_time": null,
+      "end_time": null
+    },
+    {
+      "id": 82,
+      "subject": {
+        "id": 6,
+        "name": "Software Development",
+        "lecturer": {
+          "id": 4,
+          "name": "Anita Puspita"
+        },
+        "classroom": {
+          "id": 1,
+          "name": "1 D3 Cyber Security A",
+          "slug": "1 D3 CS A",
+          "department": {
+            "id": 1,
+            "name": "Cyber Security"
+          }
+        }
+      },
+      "time": "2020-11-21 12:48:25",
+      "start_time": null,
+      "end_time": null
+    },
+    {
+      "id": 98,
+      "subject": {
+        "id": 7,
+        "name": "Software Development",
+        "lecturer": {
+          "id": 5,
+          "name": "Muni Utama"
+        },
+        "classroom": {
+          "id": 1,
+          "name": "1 D3 Cyber Security A",
+          "slug": "1 D3 CS A",
+          "department": {
+            "id": 1,
+            "name": "Cyber Security"
+          }
+        }
+      },
+      "time": "2020-11-19 05:58:48",
+      "start_time": null,
+      "end_time": null
+    },
+    {
+      "id": 114,
+      "subject": {
+        "id": 8,
+        "name": "Computer Graphic",
+        "lecturer": {
+          "id": 5,
+          "name": "Muni Utama"
+        },
+        "classroom": {
+          "id": 1,
+          "name": "1 D3 Cyber Security A",
+          "slug": "1 D3 CS A",
+          "department": {
+            "id": 1,
+            "name": "Cyber Security"
+          }
+        }
+      },
+      "time": "2020-11-18 18:49:53",
+      "start_time": null,
+      "end_time": null
+    },
+    {
+      "id": 130,
+      "subject": {
+        "id": 9,
+        "name": "Software Development",
+        "lecturer": {
+          "id": 3,
+          "name": "Najwa Purnawati S.IP"
+        },
+        "classroom": {
+          "id": 1,
+          "name": "1 D3 Cyber Security A",
+          "slug": "1 D3 CS A",
+          "department": {
+            "id": 1,
+            "name": "Cyber Security"
+          }
+        }
+      },
+      "time": "2020-11-20 08:02:14",
+      "start_time": null,
+      "end_time": null
+    }
+  ],
+  "links": {
+    "first": "http:\/\/localhost\/api\/schedules?page=1",
+    "last": null,
+    "prev": null,
+    "next": "http:\/\/localhost\/api\/schedules?page=2"
+  },
+  "meta": {
+    "current_page": 1,
+    "from": 1,
+    "path": "http:\/\/localhost\/api\/schedules",
+    "per_page": 9,
+    "to": 9
+  }
+}

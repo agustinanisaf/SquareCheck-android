@@ -1,27 +1,47 @@
 package com.squarecheck.student.model;
 
-public class PresenceModel {
-    private String date;
-    private String time;
+import com.google.gson.annotations.Expose;
+import com.google.gson.annotations.SerializedName;
 
-    public PresenceModel(String date, String time) {
-        this.date = date;
+import java.util.Date;
+
+public class PresenceModel {
+    @SerializedName("status")
+    @Expose
+    private String status;
+    @SerializedName("time")
+    @Expose
+    private Date time;
+    @SerializedName("student")
+    @Expose
+    private StudentModel student;
+
+    public PresenceModel(String status, Date time) {
+        this.status = status;
         this.time = time;
     }
 
-    public String getDate() {
-        return date;
+    public String getStatus() {
+        return status;
     }
 
-    public void setDate(String date) {
-        this.date = date;
+    public void setStatus(String status) {
+        this.status = status;
     }
 
-    public String getTime() {
+    public Date getTime() {
         return time;
     }
 
-    public void setTime(String time) {
+    public void setTime(Date time) {
         this.time = time;
+    }
+
+    public StudentModel getStudent() {
+        return student;
+    }
+
+    public void setStudent(StudentModel student) {
+        this.student = student;
     }
 }
