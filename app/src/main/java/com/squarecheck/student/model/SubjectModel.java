@@ -35,4 +35,19 @@ public class SubjectModel {
         this.name = name;
     }
 
+    public LecturerModel getLecturer() {
+        return lecturer;
+    }
+
+    public void setLecturer(LecturerModel lecturer) {
+        this.lecturer = lecturer;
+    }
+
+    public ClassroomModel getClassroom() {
+        return classroom;
+    }
+
+    public void setClassroom(ClassroomModel classroom) {
+        this.classroom = classroom;
+    }
 }

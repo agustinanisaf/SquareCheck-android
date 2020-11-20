@@ -118,4 +118,8 @@ public class ScheduleModel {
     public void setAttendances(List<PresenceModel> attendances) {
         this.attendances = attendances;
     }
+
+    public String getClassSubject() {
+        return String.format("%s - %s", subject.getClassroom().getSlug(), subject.getName());
+    }
 }
