@@ -18,7 +18,6 @@ public abstract class BaseFragment<T extends FragmentActivity, U extends BasePre
     protected View titleLayout;
     protected T activity;
     protected String title;
-    protected T activity;
     protected View fragmentView;
     protected U presenter;
     protected FragmentListener fragmentListener;
