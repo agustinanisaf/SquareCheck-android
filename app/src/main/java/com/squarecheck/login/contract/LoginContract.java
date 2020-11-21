@@ -2,13 +2,43 @@ package com.squarecheck.login.contract;
 
 import com.squarecheck.base.presenter.BasePresenter;
 import com.squarecheck.base.view.BaseView;
+import com.squarecheck.login.model.Token;
+import com.squarecheck.login.model.User;
+import com.squarecheck.shared.callback.RequestCallback;
+import com.squarecheck.shared.model.APIResponse;
 
 public interface LoginContract {
     interface View extends BaseView<Presenter> {
-        void redirectToHome();
+        void startLoading();
+
+        void stopLoading();
+
+        void showError(String errorMessage);
+
+        void redirectToHome(String role);
     }
 
     interface Presenter extends BasePresenter {
-        void performLogin(String email, String pass);
+        void authenticate(String email, String pass);
+
+        void saveToken(Token apiToken);
+
+        void requestUser(Token apiToken);
+
+        void saveUser(User user);
+
+        void registerFCMToken(Token apiToken);
+    }
+
+    interface Interactor {
+        void requestLogin(String email, String pass, RequestCallback<Token> callback);
+
+        void requestSaveToken(Token token);
+
+        void requestUser(Token token, RequestCallback<User> callback);
+
+        void requestSaveUser(User user);
+
+        void requestRegisterFCMToken(Token apiToken, Token fcmToken, RequestCallback<APIResponse> callback);
     }
 }
