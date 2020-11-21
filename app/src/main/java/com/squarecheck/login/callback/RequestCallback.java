@@ -1,4 +1,6 @@
 package com.squarecheck.login.callback;
 
-public class RequestCallback {
+public interface RequestCallback<T> {
+    void requestSuccess(T data);
+    void requestFailed(String errorMessage);
 }
