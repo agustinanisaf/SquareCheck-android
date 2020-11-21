@@ -1,10 +1,12 @@
 package com.squarecheck.login.view;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -12,42 +14,69 @@ import androidx.annotation.Nullable;
 import com.squarecheck.R;
 import com.squarecheck.base.view.BaseFragment;
 import com.squarecheck.databinding.ContentLoginBinding;
+import com.squarecheck.lecturer.view.LecturerDashboardActivity;
 import com.squarecheck.login.contract.LoginContract;
+import com.squarecheck.student.view.StudentDashboardActivity;
 
 public class LoginFragment extends BaseFragment<LoginActivity, LoginContract.Presenter> implements LoginContract.View {
 
     private static final String TAG = LoginFragment.class.getSimpleName();
+    private ContentLoginBinding binding;
 
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-//        super.onCreateView(inflater, container, savedInstanceState);
-        ContentLoginBinding binding = ContentLoginBinding.inflate(inflater, container, true);
-
-        Log.d(TAG, "onCreateView: check");
-//        presenter.start();
-
-        binding.btnLogin.setOnClickListener(view -> {
-        });
-        Log.d(TAG, "onCreateView: " + binding);
-
         title = getResources().getString(R.string.login_title);
+        binding = ContentLoginBinding.inflate(inflater, container, true);
+        presenter.start();
 
         return fragmentView;
     }
 
     @Override
-    public void redirectToHome() {
+    public void startLoading() {
+        binding.btnLogin.setVisibility(View.GONE);
+        binding.progressCircular.setVisibility(View.VISIBLE);
+    }
 
+    @Override
+    public void stopLoading() {
+        binding.btnLogin.setVisibility(View.VISIBLE);
+        binding.progressCircular.setVisibility(View.GONE);
+    }
+
+    @Override
+    public void showError(String errorMessage) {
+        Toast.makeText(getContext(), errorMessage, Toast.LENGTH_SHORT).show();
+    }
+
+    @Override
+    public void redirectToHome(String role) {
+        // TODO: Find the *Best* Way to this
+        Intent intent = null;
+        if (role.equals("student")) {
+            intent = new Intent(getContext(), StudentDashboardActivity.class);
+            Log.d(TAG, "redirectToHome: redirect to student");
+        } else if (role.equals("lecturer")) {
+            intent = new Intent(getContext(), LecturerDashboardActivity.class);
+            Log.d(TAG, "redirectToHome: redirect to lecturer");
+        }
+        startActivity(intent);
+        requireActivity().finish();
     }
 
     @Override
     public void setPresenter(LoginContract.Presenter presenter) {
-
+        this.presenter = presenter;
     }
 
     @Override
     public void initView() {
-
+        binding.btnLogin.setOnClickListener(view -> {
+            String email = binding.etEmail.getText().toString();
+            String pass = binding.etPassword.getText().toString();
+            Log.d(TAG, "initView: test");
+            presenter.authenticate(email, pass);
+        });
     }
 }
