@@ -19,7 +19,7 @@ public class TokenUtil extends SharedPreferencesUtil<Token> {
     }
 
     @Override
-    Token getSessionData() {
+    public Token getSessionData() {
         String sessionDataJson = sharedPrefs.getString(SESSION_TOKEN, null);
         if (sessionDataJson != null) {
             return new Gson().fromJson(sessionDataJson, Token.class);
