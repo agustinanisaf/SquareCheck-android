@@ -1,32 +1,48 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
-    android:layout_height="wrap_content"
-    android:layout_marginStart="@dimen/margin8dp"
-    android:layout_marginEnd="@dimen/margin8dp"
-    android:orientation="vertical">
+<layout xmlns:android="http://schemas.android.com/apk/res/android">
 
-    <TextView
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:textColor="@color/primary"
-        android:textSize="16sp"
-        tools:text="@string/profile_name_placeholder" />
+        android:gravity="center"
+        android:padding="16dp">
 
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:textColor="@color/white60p"
-        android:textSize="10sp"
-        tools:ignore="SmallSp"
-        tools:text="@string/profile_id_placeholder" />
+        <ImageView
+            android:layout_width="38dp"
+            android:layout_height="38dp"/>
+        <LinearLayout
+            xmlns:tools="http://schemas.android.com/tools"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/margin8dp"
+            android:layout_marginEnd="@dimen/margin8dp"
+            android:orientation="vertical">
 
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:textColor="@color/white60p"
-        android:textSize="10sp"
-        tools:ignore="SmallSp"
-        tools:text="@string/profile_class_placeholder" />
-</LinearLayout>
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textColor="@color/primary"
+                android:textSize="16sp"
+                tools:text="@string/profile_name_placeholder"
+                android:id="@+id/tv_profile_name"/>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textColor="@color/white60p"
+                android:textSize="10sp"
+                tools:ignore="SmallSp"
+                tools:text="@string/profile_id_placeholder"
+                android:id="@+id/tv_profile_nrp"/>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textColor="@color/white60p"
+                android:textSize="10sp"
+                tools:ignore="SmallSp"
+                tools:text="@string/profile_class_placeholder"
+                android:id="@+id/tv_profile_class"/>
+        </LinearLayout>
+    </LinearLayout>
+</layout>
