@@ -31,8 +31,7 @@ public class StudentDashboardFragment extends BaseFragment<StudentDashboardActiv
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-        super.onCreateView(inflater, container, savedInstanceState);
-        binding = ContentStudentDashboardBinding.inflate(inflater, container, false);
+        binding = ContentStudentDashboardBinding.inflate(inflater, container, true);
         presenter.start();
 
         return fragmentView;

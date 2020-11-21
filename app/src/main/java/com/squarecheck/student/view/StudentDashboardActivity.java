@@ -10,6 +10,8 @@ import com.squarecheck.R;
 import com.squarecheck.base.view.BaseFragmentHolderActivity;
 import com.squarecheck.databinding.StudentDashboardToolbarBinding;
 import com.squarecheck.student.contract.StudentDashboardContract;
+import com.squarecheck.student.interactor.StudentDashboardInteractor;
+import com.squarecheck.student.presenter.StudentDashboardPresenter;
 
 public class StudentDashboardActivity extends BaseFragmentHolderActivity{
     StudentDashboardFragment studentDashboardFragment;
@@ -25,9 +27,8 @@ public class StudentDashboardActivity extends BaseFragmentHolderActivity{
 
     @Override
     protected void initializeFragment() {
-        initializeView();
-
         studentDashboardFragment = new StudentDashboardFragment();
+        studentDashboardFragment.setPresenter(new StudentDashboardPresenter(studentDashboardFragment, new StudentDashboardInteractor()));
         setCurrentFragment(studentDashboardFragment, false);
     }
 }
