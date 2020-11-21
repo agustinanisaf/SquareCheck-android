@@ -19,7 +19,7 @@ public class StudentDashboardPresenter implements StudentDashboardContract.Prese
 
     @Override
     public ArrayList<String> requestSubjectsList() {
-
+        interactor.requestSubjectsList();
     }
 
     @Override
