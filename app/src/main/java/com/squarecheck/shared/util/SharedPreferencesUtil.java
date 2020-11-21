@@ -16,7 +16,7 @@ public abstract class SharedPreferencesUtil<T> implements UtilInterface {
         this.sharedPrefs = context.getSharedPreferences(SharedPrefsName, Context.MODE_PRIVATE);
     }
 
-    T initialize(T sessionData) {
+    public T initialize(T sessionData) {
         setSessionData(sessionData);
 
         return getSessionData();
@@ -26,11 +26,11 @@ public abstract class SharedPreferencesUtil<T> implements UtilInterface {
 
     abstract void setSessionData(T sessionData);
 
-    void destroy() {
+    public void destroy() {
         sharedPrefs.edit().clear().apply();
     }
 
-    void update(T sessionData) {
+    public void update(T sessionData) {
         destroy();
         setSessionData(sessionData);
     }
