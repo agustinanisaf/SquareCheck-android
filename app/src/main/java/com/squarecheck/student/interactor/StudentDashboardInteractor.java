@@ -23,15 +23,15 @@ import retrofit2.Callback;
 import retrofit2.Response;
 
 public class StudentDashboardInteractor implements StudentDashboardContract.Interactor {
-    public StudentDashboardInteractor() {
-        UserUtil userUtil =
-        // TODO: Get Token from UserUtil
-        String token = (TokenUtil) UtilProvider.getUtil(TokenUtil.class).get;;
+    String token;
 
+    public StudentDashboardInteractor() {
+        String token = ((TokenUtil) UtilProvider.getUtil(TokenUtil.class)).getSessionData().getToken();
     }
+    
     @Override
     public void requestSubjectsList(RequestCallback<List<SubjectModel>> requestCallback) {
-        SubjectService service = ServiceGenerator.retrofit().create(SubjectService.class);
+        SubjectService service = ServiceGenerator.createService(SubjectService.class, token);
         Call<APIResponseCollection<List<SubjectModel>>> call = service.getSubjects();
 
         call.enqueue(new Callback<APIResponseCollection<List<SubjectModel>>>(){
@@ -54,7 +54,7 @@ public class StudentDashboardInteractor implements StudentDashboardContract.Inte
 
     @Override
     public void requestDetail(RequestCallback<StudentModel> requestCallback) {
-        StudentService service = ServiceGenerator.retrofit().create(StudentService.class);
+        StudentService service = ServiceGenerator.createService(StudentService.class);
         Call<APIResponseCollection<StudentModel>> call = service.getStudent();
 
         call.enqueue(new Callback<APIResponseCollection<StudentModel>>(){
