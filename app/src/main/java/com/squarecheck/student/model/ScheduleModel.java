@@ -122,4 +122,20 @@ public class ScheduleModel {
     public String getClassSubject() {
         return String.format("%s - %s", subject.getClassroom().getSlug(), subject.getName());
     }
+
+    public String getAttendancesPresence() {
+        long count = 0L;
+        if (attendances != null) {
+            count = attendances.stream().filter(attendance -> attendance.getStatus().equals("hadir")).count();
+        }
+        return String.valueOf(count);
+    }
+
+    public String getAttendancesSize() {
+        int size = 0;
+        if (attendances != null) {
+            size = attendances.size();
+        }
+        return String.valueOf(size);
+    }
 }
