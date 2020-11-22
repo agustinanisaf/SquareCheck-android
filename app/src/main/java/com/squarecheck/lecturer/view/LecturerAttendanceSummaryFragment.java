@@ -40,7 +40,7 @@ public class LecturerAttendanceSummaryFragment
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         binding = ContentLecturerAttendanceSummaryBinding.inflate(inflater, container, true);
-        fragmentListener.setTitleLayout(R.layout.lecturer_attendance_summary_toolbar);
+        setTitleLayout(R.layout.lecturer_attendance_summary_toolbar);
         return fragmentView;
     }
 
@@ -72,7 +72,7 @@ public class LecturerAttendanceSummaryFragment
 
     @Override
     public void showTitle(Title title) {
-        ((LecturerAttendanceSummaryToolbarBinding) fragmentListener.getTitleLayout()).setTitle(title);
+        ((LecturerAttendanceSummaryToolbarBinding) getTitleLayout()).setTitle(title);
     }
 
     @Override

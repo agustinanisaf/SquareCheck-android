@@ -4,6 +4,7 @@ import com.squarecheck.base.presenter.BasePresenter;
 import com.squarecheck.base.view.BaseView;
 import com.squarecheck.shared.callback.RequestCallback;
 import com.squarecheck.shared.model.APIResponse;
+import com.squarecheck.shared.model.Title;
 import com.squarecheck.student.model.PresenceModel;
 import com.squarecheck.student.model.ScheduleModel;
 
@@ -20,6 +21,10 @@ public interface LecturerScheduleActionContract {
         void showSchedule(ScheduleModel schedule);
 
         void showAttendances(String presence, String total);
+
+        void showTitle(Title title);
+
+        void setTitle(String title);
     }
 
     interface Presenter extends BasePresenter {
