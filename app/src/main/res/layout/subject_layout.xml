@@ -1,7 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+<layout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
+    xmlns:tools="http://schemas.android.com/tools">
+    <data>
+        <variable
+            name="subject"
+            type="com.squarecheck.student.model.SubjectModel" />
+    </data>
+<androidx.cardview.widget.CardView
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:layout_marginStart="@dimen/gutter"
@@ -19,5 +26,6 @@
         android:textColor="@color/black"
         app:drawableEndCompat="@drawable/ic_next"
         tools:drawableEnd="@drawable/ic_next"
-        tools:text="@string/subject_placeholder" />
+        tools:text="@{subject.name}" />
 </androidx.cardview.widget.CardView>
+</layout>

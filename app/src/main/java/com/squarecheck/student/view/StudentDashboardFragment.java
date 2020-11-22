@@ -2,27 +2,20 @@ package com.squarecheck.student.view;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
 import androidx.annotation.Nullable;
 import androidx.recyclerview.widget.LinearLayoutManager;
-import androidx.recyclerview.widget.RecyclerView;
 
-import com.squarecheck.R;
 import com.squarecheck.base.view.BaseFragment;
-import com.squarecheck.databinding.ContentLecturerDashboardBinding;
 import com.squarecheck.databinding.ContentStudentDashboardBinding;
-import com.squarecheck.shared.util.SquareCheckUtilProvider;
+import com.squarecheck.student.adapter.ListSubjectRecyclerViewAdapter;
 import com.squarecheck.student.contract.StudentDashboardContract;
-import com.squarecheck.student.interactor.StudentDashboardInteractor;
 import com.squarecheck.student.model.StudentModel;
 import com.squarecheck.student.model.SubjectModel;
-import com.squarecheck.student.presenter.StudentDashboardPresenter;
 
-import java.util.ArrayList;
 import java.util.List;
 
 public class StudentDashboardFragment extends BaseFragment<StudentDashboardActivity, StudentDashboardContract.Presenter> implements StudentDashboardContract.View {
@@ -47,17 +40,7 @@ public class StudentDashboardFragment extends BaseFragment<StudentDashboardActiv
 
     @Override
     public void showSubjectsList(List<SubjectModel> SubjectsList) {
-        binding.recycler.setHasFixedSize(true);
-        //mAdapter = new RecyclerViewAdapterTodolist(SubjectsList);
-
-//        ((RecyclerViewAdapterTodolist) mAdapter).setOnItemClickListener(new RecyclerViewAdapterTodolist.MyClickListener() {
-//            @Override
-//            public void onItemClick(int position, View v) {
-//                String id = data.get(position).getId();
-//                redirectToAttendanceDetail(id);
-//            }
-//        });
-//        binding.recycler.setAdapter(mAdapter);
+        binding.recycler.setAdapter(new ListSubjectRecyclerViewAdapter(getContext(), SubjectsList));
     }
 
     @Override
