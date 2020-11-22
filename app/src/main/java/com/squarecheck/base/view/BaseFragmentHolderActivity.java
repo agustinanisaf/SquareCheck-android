@@ -1,9 +1,7 @@
 package com.squarecheck.base.view;
 
-import android.view.View;
-import android.widget.RelativeLayout;
-
 import androidx.databinding.DataBindingUtil;
+import androidx.databinding.ViewDataBinding;
 
 import com.squarecheck.R;
 import com.squarecheck.databinding.ActivityBaseBinding;
@@ -11,6 +9,7 @@ import com.squarecheck.databinding.ActivityBaseBinding;
 public abstract class BaseFragmentHolderActivity extends BaseActivity {
 
     protected ActivityBaseBinding binding;
+    protected ViewDataBinding titleToolbarBinding;
 
     @Override
     protected void initializeView() {
@@ -22,10 +21,12 @@ public abstract class BaseFragmentHolderActivity extends BaseActivity {
     }
 
     @Override
-    public void setTitleLayout(View titleLayout) {
-        RelativeLayout toolbarLayout = this.binding.toolbarLayout;
-        final int index = toolbarLayout.indexOfChild(titleLayout);
-        toolbarLayout.removeView(titleLayout);
-        toolbarLayout.addView(titleLayout, index);
+    public ViewDataBinding getTitleLayout() {
+        return titleToolbarBinding;
+    }
+
+    @Override
+    public void setTitleLayout(int layoutId) {
+        titleToolbarBinding = DataBindingUtil.inflate(getLayoutInflater(), layoutId, this.binding.titleLayout, true);
     }
 }

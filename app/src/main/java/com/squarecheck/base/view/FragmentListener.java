@@ -1,7 +1,9 @@
 package com.squarecheck.base.view;
 
-import android.view.View;
+import androidx.databinding.ViewDataBinding;
 
 public interface FragmentListener {
-    void setTitleLayout(View titleLayout);
+    ViewDataBinding getTitleLayout();
+
+    void setTitleLayout(int layoutId);
 }

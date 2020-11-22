@@ -13,6 +13,7 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 
 import com.squarecheck.base.view.BaseFragment;
 import com.squarecheck.databinding.ContentLecturerDashboardBinding;
+import com.squarecheck.lecturer.adapter.ScheduleClickListener;
 import com.squarecheck.lecturer.adapter.SchedulesAdapter;
 import com.squarecheck.lecturer.contract.LecturerDashboardContract;
 import com.squarecheck.student.model.ScheduleModel;
@@ -21,7 +22,7 @@ import java.util.List;
 
 public class LecturerDashboardFragment extends BaseFragment<LecturerDashboardActivity, LecturerDashboardContract.Presenter> implements LecturerDashboardContract.View {
 
-    public static final String SCHEDULE_ID = "SUBJECT_ID";
+    public static final String SUBJECT_ID = "SUBJECT_ID";
 
     private ContentLecturerDashboardBinding binding;
 
@@ -29,8 +30,13 @@ public class LecturerDashboardFragment extends BaseFragment<LecturerDashboardAct
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         binding = ContentLecturerDashboardBinding.inflate(inflater, container, true);
-        presenter.start();
         return fragmentView;
+    }
+
+    @Override
+    public void onStart() {
+        super.onStart();
+        presenter.start();
     }
 
     @Override
@@ -62,9 +68,9 @@ public class LecturerDashboardFragment extends BaseFragment<LecturerDashboardAct
 
     @Override
     public void showSchedules(List<ScheduleModel> schedules) {
-        SchedulesAdapter.ScheduleClickListener clickListener = schedule -> {
+        ScheduleClickListener clickListener = schedule -> {
             Intent intent = new Intent(getContext(), LecturerScheduleActionActivity.class);
-            intent.putExtra(SCHEDULE_ID, schedule.getId());
+            intent.putExtra(SUBJECT_ID, schedule.getId());
             startActivity(intent);
         };
         binding.rvSchedules.setAdapter(new SchedulesAdapter(clickListener, schedules));
