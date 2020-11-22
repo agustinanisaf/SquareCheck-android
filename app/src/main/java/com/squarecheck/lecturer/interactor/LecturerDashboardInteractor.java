@@ -6,7 +6,7 @@ import com.squarecheck.shared.callback.RequestCallback;
 import com.squarecheck.shared.model.APIResponseCollection;
 import com.squarecheck.shared.retrofit.ErrorUtil;
 import com.squarecheck.shared.retrofit.ServiceGenerator;
-import com.squarecheck.shared.util.UserUtil;
+import com.squarecheck.shared.util.TokenUtil;
 import com.squarecheck.student.model.ScheduleModel;
 import com.squarecheck.student.retrofit.ScheduleService;
 
@@ -23,9 +23,7 @@ public class LecturerDashboardInteractor implements LecturerDashboardContract.In
     private ScheduleService service;
 
     public LecturerDashboardInteractor() {
-        UserUtil userUtil = (UserUtil) UtilProvider.getUtil(UserUtil.class);
-        // TODO: Get Token from UserUtil
-        String token = null;
+        String token = ((TokenUtil) UtilProvider.getUtil(TokenUtil.class)).getSessionData().getToken();
         service = ServiceGenerator.createService(ScheduleService.class, token);
     }
 

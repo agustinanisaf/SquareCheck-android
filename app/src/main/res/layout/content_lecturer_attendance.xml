@@ -1,111 +1,138 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:clipToPadding="false"
-    android:gravity="center_horizontal"
-    android:orientation="vertical">
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools">
 
-    <!--  App bar  -->
+    <data>
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="32dp"
-        android:fontFamily="@font/montserrat_semi_bold"
-        android:textColor="@color/secondary_darker"
-        android:textSize="24sp"
-        android:textStyle="bold"
-        tools:text="@string/attendance_day_placeholder" />
+        <variable
+            name="day"
+            type="String" />
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginBottom="36dp"
-        android:fontFamily="@font/montserrat_semi_bold"
-        android:textColor="@color/secondary_darker"
-        android:textSize="14sp"
-        android:textStyle="bold"
-        tools:text="@string/attendance_date_2_placeholder" />
+        <variable
+            name="date"
+            type="String" />
+
+        <variable
+            name="presence"
+            type="String" />
+
+        <variable
+            name="total"
+            type="String" />
+    </data>
 
     <LinearLayout
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:background="@drawable/notification"
-        android:gravity="center">
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:clipToPadding="false"
+        android:gravity="center_horizontal"
+        android:orientation="vertical">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="32dp"
+            android:fontFamily="@font/montserrat_semi_bold"
+            android:text="@{day}"
+            android:textColor="@color/secondary_darker"
+            android:textSize="24sp"
+            android:textStyle="bold"
+            tools:text="@string/attendance_day_placeholder" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="36dp"
+            android:fontFamily="@font/montserrat_semi_bold"
+            android:text="@{date}"
+            android:textColor="@color/secondary_darker"
+            android:textSize="14sp"
+            android:textStyle="bold"
+            tools:text="@string/attendance_date_2_placeholder" />
 
         <LinearLayout
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:background="@drawable/absen_box"
-            android:gravity="center"
-            android:orientation="vertical"
-            android:paddingHorizontal="31dp"
-            android:paddingVertical="16dp">
+            android:background="@drawable/notification"
+            android:gravity="center">
 
             <LinearLayout
                 android:layout_width="wrap_content"
-                android:layout_height="wrap_content">
-
-                <TextView
-                    android:id="@+id/tv_attendance_hadir"
-                    style="@style/AttendanceNumberTextStyle"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:textColor="@color/secondary"
-                    tools:text="@string/attendance_hadir_placeholder" />
-
-                <TextView
-                    style="@style/AttendanceNumberTextStyle"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="@string/slash"
-                    android:textColor="@color/secondary" />
-
-                <TextView
-                    android:id="@+id/tv_attendance_total"
-                    style="@style/AttendanceNumberTextStyle"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="@string/attendance_total_placeholder"
-                    android:textColor="@color/black" />
-            </LinearLayout>
-
-            <TextView
-                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:fontFamily="@font/montserrat_semi_bold"
-                android:text="@string/attend"
-                android:textColor="@color/secondary_darker"
-                android:textSize="12sp" />
+                android:background="@drawable/absen_box"
+                android:gravity="center"
+                android:orientation="vertical"
+                android:paddingHorizontal="31dp"
+                android:paddingVertical="16dp">
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content">
+
+                    <TextView
+                        android:id="@+id/tv_attendance_hadir"
+                        style="@style/AttendanceNumberTextStyle"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@{presence}"
+                        android:textColor="@color/secondary"
+                        tools:text="@string/attendance_hadir_placeholder" />
+
+                    <TextView
+                        style="@style/AttendanceNumberTextStyle"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/slash"
+                        android:textColor="@color/secondary" />
+
+                    <TextView
+                        android:id="@+id/tv_attendance_total"
+                        style="@style/AttendanceNumberTextStyle"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@{total}"
+                        android:textColor="@color/black"
+                        tools:text="@string/attendance_total_placeholder" />
+                </LinearLayout>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/montserrat_semi_bold"
+                    android:text="@string/attend"
+                    android:textColor="@color/secondary_darker"
+                    android:textSize="12sp" />
+            </LinearLayout>
         </LinearLayout>
+
+        <Button
+            android:id="@+id/btn_open_attendance"
+            style="@style/AttendanceButtonStyle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="36.3dp"
+            android:background="@drawable/rounded_corner_blue_button"
+            android:text="@string/open_attendance"
+            android:textColor="@android:color/white" />
+
+        <Button
+            android:id="@+id/btn_remove_attendance"
+            style="@style/AttendanceButtonStyle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="18dp"
+            android:background="@drawable/white_attendance_box"
+            android:text="@string/remove_attendance"
+            android:textColor="@color/black" />
+
+        <Button
+            android:id="@+id/btn_summary_attendance"
+            style="@style/AttendanceButtonStyle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:background="@drawable/white_attendance_box"
+            android:text="@string/attendance_summary"
+            android:textColor="@color/black" />
     </LinearLayout>
-
-    <Button
-        style="@style/AttendanceButtonStyle"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="36.3dp"
-        android:background="@drawable/rounded_corner_blue_button"
-        android:text="@string/open_absen"
-        android:textColor="@android:color/white" />
-
-    <Button
-        style="@style/AttendanceButtonStyle"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="18dp"
-        android:background="@drawable/white_absen_box"
-        android:text="@string/delete_absen"
-        android:textColor="@color/black" />
-
-    <Button
-        style="@style/AttendanceButtonStyle"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="16dp"
-        android:background="@drawable/white_absen_box"
-        android:text="@string/recap_absen"
-        android:textColor="@color/black" />
-</LinearLayout>
+</layout>
