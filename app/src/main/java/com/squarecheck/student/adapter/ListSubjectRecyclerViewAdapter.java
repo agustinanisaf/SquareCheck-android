@@ -31,6 +31,7 @@ public class ListSubjectRecyclerViewAdapter extends RecyclerView.Adapter<ListSub
     @Override
     public void onBindViewHolder(@NonNull SubjectViewHolder holder, int position) {
         SubjectModel mCurrent = mSubjectList.get(position);
+        holder.binding.setSubject(mCurrent);
     }
 
     @Override
@@ -38,7 +39,7 @@ public class ListSubjectRecyclerViewAdapter extends RecyclerView.Adapter<ListSub
         return (mSubjectList != null) ? mSubjectList.size() : 0;
     }
 
-    public class SubjectViewHolder extends RecyclerView.ViewHolder{
+    public static class SubjectViewHolder extends RecyclerView.ViewHolder {
         SubjectLayoutBinding binding;
 
         public SubjectViewHolder(SubjectLayoutBinding binding) {
