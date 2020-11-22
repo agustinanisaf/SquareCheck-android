@@ -25,7 +25,7 @@ public class UserUtil extends SharedPreferencesUtil<User> {
     }
 
     @Override
-    User getSessionData() {
+    public User getSessionData() {
         String sessionDataJson = sharedPrefs.getString(SESSION_USER, null);
         if (sessionDataJson != null) {
             return new Gson().fromJson(sessionDataJson, User.class);
