@@ -84,10 +84,10 @@ public class LoginPresenter implements LoginContract.Presenter {
     }
 
     public void checkIfAlreadyLogin(){
-        User user = ((UserUtil) UtilProvider.getUtil(UserUtil.class)).getSessionData();
+        Token token = ((TokenUtil) UtilProvider.getUtil(TokenUtil.class)).getSessionData();
 
-        if(user != null){
-            view.redirectToHome(user.getRole());
+        if(token != null){
+            this.requestUser(token);
         }
     }
 }
