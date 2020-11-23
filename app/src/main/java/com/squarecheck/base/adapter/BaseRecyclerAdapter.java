@@ -42,6 +42,8 @@ public abstract class BaseRecyclerAdapter<T extends Collection, U> extends Recyc
 
     protected abstract View.OnClickListener setOnClickListener(int position);
 
+    protected abstract int getLayoutIdForType(int viewType);
+
     protected abstract U getDataAtPosition(int position);
 
     public static class ViewHolder<U> extends RecyclerView.ViewHolder {

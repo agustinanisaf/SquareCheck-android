@@ -22,7 +22,7 @@ import java.util.List;
 
 public class LecturerDashboardFragment extends BaseFragment<LecturerDashboardActivity, LecturerDashboardContract.Presenter> implements LecturerDashboardContract.View {
 
-    public static final String SUBJECT_ID = "SUBJECT_ID";
+    public static final String SCHEDULE_ID = "SUBJECT_ID";
 
     private ContentLecturerDashboardBinding binding;
 
@@ -70,7 +70,7 @@ public class LecturerDashboardFragment extends BaseFragment<LecturerDashboardAct
     public void showSchedules(List<ScheduleModel> schedules) {
         ScheduleClickListener clickListener = schedule -> {
             Intent intent = new Intent(getContext(), LecturerScheduleActionActivity.class);
-            intent.putExtra(SUBJECT_ID, schedule.getId());
+            intent.putExtra(SCHEDULE_ID, schedule.getId());
             startActivity(intent);
         };
         binding.rvSchedules.setAdapter(new SchedulesAdapter(clickListener, schedules));

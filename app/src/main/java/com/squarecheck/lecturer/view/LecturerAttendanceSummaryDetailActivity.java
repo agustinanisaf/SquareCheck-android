@@ -1,14 +1,26 @@
 package com.squarecheck.lecturer.view;
 
-import android.os.Bundle;
+import android.content.Intent;
 
-import androidx.appcompat.app.AppCompatActivity;
+import com.google.gson.Gson;
+import com.squarecheck.base.view.BaseFragmentHolderActivity;
+import com.squarecheck.lecturer.interactor.LecturerAttendanceSummaryDetailInteractor;
+import com.squarecheck.lecturer.presenter.LecturerAttendanceSummaryDetailPresenter;
+import com.squarecheck.shared.model.Title;
 
-public class LecturerAttendanceSummaryDetailActivity extends AppCompatActivity {
+import static com.squarecheck.lecturer.view.LecturerDashboardFragment.SCHEDULE_ID;
+import static com.squarecheck.lecturer.view.LecturerScheduleActionFragment.TITLE_ID;
+
+public class LecturerAttendanceSummaryDetailActivity extends BaseFragmentHolderActivity {
 
     @Override
-    protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-//        setContentView(R.layout.activity_lecturer_attendance_summary_detail);
+    protected void initializeFragment() {
+        Intent intent = getIntent();
+        int scheduleId = intent.getIntExtra(SCHEDULE_ID, 1);
+        Title title = new Gson().fromJson(intent.getStringExtra(TITLE_ID), Title.class);
+
+        LecturerAttendanceSummaryDetailFragment currentFragment = new LecturerAttendanceSummaryDetailFragment(scheduleId, title);
+        currentFragment.setPresenter(new LecturerAttendanceSummaryDetailPresenter(currentFragment, new LecturerAttendanceSummaryDetailInteractor()));
+        setCurrentFragment(currentFragment, true);
     }
 }
