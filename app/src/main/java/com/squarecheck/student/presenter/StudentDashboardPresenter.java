@@ -1,17 +1,14 @@
 package com.squarecheck.student.presenter;
 
 import android.util.Log;
-import android.widget.TextView;
 
+import com.google.gson.Gson;
 import com.squarecheck.shared.callback.RequestCallback;
+import com.squarecheck.shared.model.Title;
 import com.squarecheck.student.contract.StudentDashboardContract;
-import com.squarecheck.student.model.ScheduleModel;
 import com.squarecheck.student.model.StudentModel;
 import com.squarecheck.student.model.SubjectModel;
 
-import org.w3c.dom.Text;
-
-import java.util.ArrayList;
 import java.util.List;
 
 public class StudentDashboardPresenter implements StudentDashboardContract.Presenter {
@@ -51,7 +48,11 @@ public class StudentDashboardPresenter implements StudentDashboardContract.Prese
                 Log.d("1", message);
             }
         });
-        
+    }
+
+    @Override
+    public String showNextTitle(SubjectModel subject) {
+        return new Gson().toJson(new Title(subject.getName(), subject.getLecturer().getName()));
     }
 
     @Override

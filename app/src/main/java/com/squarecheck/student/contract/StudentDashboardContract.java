@@ -10,18 +10,24 @@ import java.util.List;
 
 public interface StudentDashboardContract {
     interface View extends BaseView<StudentDashboardContract.Presenter> {
-        void redirectToAttendanceDetail(String id);
+        void redirectToAttendanceDetail(SubjectModel subject);
+
         void showSubjectsList(List<SubjectModel> SubjectsList);
+
         void showDetailProfile(StudentModel student);
     }
 
     interface Presenter extends BasePresenter {
         void requestSubjectsList();
+
         void requestDetail();
+
+        String showNextTitle(SubjectModel subject);
     }
 
     interface Interactor {
         void requestSubjectsList(RequestCallback<List<SubjectModel>> requestCallback);
+
         void requestDetail(RequestCallback<StudentModel> requestCallback);
     }
 }

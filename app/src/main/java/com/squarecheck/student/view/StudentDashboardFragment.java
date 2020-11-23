@@ -16,31 +16,43 @@ import com.squarecheck.student.contract.StudentDashboardContract;
 import com.squarecheck.student.model.StudentModel;
 import com.squarecheck.student.model.SubjectModel;
 
+import org.jetbrains.annotations.NotNull;
+
 import java.util.List;
 
 public class StudentDashboardFragment extends BaseFragment<StudentDashboardActivity, StudentDashboardContract.Presenter> implements StudentDashboardContract.View {
     private ContentStudentDashboardBinding binding;
 
+    public final static String SUBJECT_ID = "SUBJECT_ID";
+    public final static String TITLE_ID = "TITLE_ID";
+
     @Nullable
     @Override
-    public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
+    public View onCreateView(@NotNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         binding = ContentStudentDashboardBinding.inflate(inflater, container, true);
-        presenter.start();
-
         return fragmentView;
     }
 
     @Override
-    public void redirectToAttendanceDetail(String id) {
+    public void onStart() {
+        super.onStart();
+        presenter.start();
+    }
+
+    @Override
+    public void redirectToAttendanceDetail(SubjectModel subject) {
         Intent intent = new Intent(activity, StudentAttendanceDetailActivity.class);
 
-        intent.putExtra("id", id);
+        intent.putExtra(SUBJECT_ID, subject.getId());
+        intent.putExtra(TITLE_ID, presenter.showNextTitle(subject));
         startActivity(intent);
     }
 
     @Override
     public void showSubjectsList(List<SubjectModel> SubjectsList) {
-        binding.recycler.setAdapter(new ListSubjectRecyclerViewAdapter(getContext(), SubjectsList));
+        ListSubjectRecyclerViewAdapter adapter = new ListSubjectRecyclerViewAdapter(getContext(), SubjectsList);
+        adapter.setListener(this::redirectToAttendanceDetail);
+        binding.recycler.setAdapter(adapter);
     }
 
     @Override

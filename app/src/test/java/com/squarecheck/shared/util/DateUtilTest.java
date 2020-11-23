@@ -27,6 +27,17 @@ public class DateUtilTest {
     }
 
     @Test
+    public void getNullDay() {
+        // Assign
+
+        // Act
+        String day = DateUtil.getDay(null);
+
+        // Assert
+        assert day == null;
+    }
+
+    @Test
     public void getDate() throws ParseException {
         // Assign
         Date currentDate = df.parse(now);
@@ -40,6 +51,17 @@ public class DateUtilTest {
     }
 
     @Test
+    public void getNullDate() {
+        // Assign
+
+        // Act
+        String date = DateUtil.getDate(null);
+
+        // Assert
+        assert date == null;
+    }
+
+    @Test
     public void getFullDate() throws ParseException {
         // Assign
         Date currentDate = df.parse(now);
@@ -50,5 +72,39 @@ public class DateUtilTest {
         // Assert
         assert fullDate != null;
         assertEquals("Sunday, 22 November 2020", fullDate);
+    }
+
+    @Test
+    public void getNullFullDate() {
+        // Assign
+
+        // Act
+        String fullDate = DateUtil.getFullDate(null);
+
+        // Assert
+        assert fullDate == null;
+    }
+
+    @Test
+    public void getTime() throws ParseException {
+        // Assign
+        Date currentDate = df.parse(now);
+
+        // Act
+        String time = DateUtil.getTime(currentDate);
+
+        // Assert
+        assertEquals("09:11", time);
+    }
+
+    @Test
+    public void getNullTime() {
+        // Assign
+
+        // Act
+        String time = DateUtil.getTime(null);
+
+        // Assert
+        assertEquals("-- : --", time);
     }
 }
