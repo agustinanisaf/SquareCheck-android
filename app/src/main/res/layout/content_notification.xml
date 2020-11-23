@@ -1,67 +1,82 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:orientation="vertical"
-    android:padding="90dp">
+    xmlns:tools="http://schemas.android.com/tools">
 
-    <TextView
-        android:id="@+id/tv_subject"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_gravity="center"
-        android:textAlignment="center"
-        android:textColor="?colorSecondaryDarker"
-        android:textSize="24sp"
-        android:textStyle="bold"
-        tools:text="@string/subject_placeholder" />
+    <data>
+        <variable
+            name="subject"
+            type="String" />
+        <variable
+            name="time"
+            type="String" />
+        <variable
+            name="status"
+            type="String" />
+    </data>
 
-    <ImageView
-        android:id="@+id/imageView"
+    <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_gravity="center"
-        android:layout_marginTop="42dp"
-        android:adjustViewBounds="true"
-        android:contentDescription="@string/notification_design_desc"
-        android:scaleType="fitCenter"
-        app:srcCompat="@drawable/notification" />
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:padding="90dp">
 
-    <TextView
-        android:id="@+id/tv_presence_time"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_gravity="center"
-        android:layout_marginTop="30dp"
-        android:textSize="60sp"
-        android:textStyle="bold"
-        tools:text="@string/presence_time_placeholder"
-        tools:textColor="@color/hadir" />
+        <TextView
+            android:id="@+id/tv_subject"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:textAlignment="center"
+            android:textColor="?colorSecondaryDarker"
+            android:textSize="24sp"
+            android:textStyle="bold"
+            tools:text="@{subject}" />
 
-    <TextView
-        android:id="@+id/tv_presence_status"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_gravity="center"
-        android:layout_marginTop="4dp"
-        android:textColor="@color/gray"
-        android:textStyle="bold"
-        tools:text="@string/presence_status_placeholder" />
+        <ImageView
+            android:id="@+id/imageView"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginTop="42dp"
+            android:adjustViewBounds="true"
+            android:contentDescription="@string/notification_design_desc"
+            android:scaleType="fitCenter"
+            app:srcCompat="@drawable/notification" />
 
-    <Button
-        android:id="@+id/btn_notification_finish"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_gravity="center"
-        android:layout_marginTop="32dp"
-        android:backgroundTint="?attr/colorSecondary"
-        android:paddingStart="48dp"
-        android:paddingTop="@dimen/margin8dp"
-        android:paddingEnd="48dp"
-        android:paddingBottom="@dimen/margin8dp"
-        android:text="@string/finish"
-        android:textColor="?attr/colorPrimary"
-        android:textStyle="bold" />
-</LinearLayout>
+        <TextView
+            android:id="@+id/tv_presence_time"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginTop="30dp"
+            android:textSize="60sp"
+            android:textStyle="bold"
+            tools:text="@{time}"
+            tools:textColor="@color/hadir" />
+
+        <TextView
+            android:id="@+id/tv_presence_status"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginTop="4dp"
+            android:textColor="@color/gray"
+            android:textStyle="bold"
+            tools:text="@{status}" />
+
+        <Button
+            android:id="@+id/btn_notification_finish"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginTop="32dp"
+            android:backgroundTint="?attr/colorSecondary"
+            android:paddingStart="48dp"
+            android:paddingTop="@dimen/margin8dp"
+            android:paddingEnd="48dp"
+            android:paddingBottom="@dimen/margin8dp"
+            android:text="@string/finish"
+            android:textColor="?attr/colorPrimary"
+            android:textStyle="bold" />
+    </LinearLayout>
+</layout>
