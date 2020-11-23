@@ -25,6 +25,7 @@ public class StudentAttendanceNotificationFragment extends
         binding = ContentNotificationBinding.inflate(getLayoutInflater());
         setTitleLayout(R.layout.lecturer_attendance_summary_toolbar);
         intent = getActivity().getIntent();
+        binding.btnNotificationFinish.setOnClickListener(v -> backToDashboard());
         return fragmentView;
     }
 
@@ -47,8 +48,20 @@ public class StudentAttendanceNotificationFragment extends
 
     @Override
     public void initView() {
-        binding.tvPresenceStatus.setText(intent.getStringExtra("status"));
         binding.tvPresenceTime.setText(intent.getStringExtra("time"));
+        switch (intent.getStringExtra("status")) {
+            case "hadir":
+                binding.tvPresenceTime.setTextColor(getResources().getColor(R.color.hadir));
+                binding.tvPresenceStatus.setText("Hadir Tepat Waktu");
+                break;
+            case "telat" :
+                binding.tvPresenceTime.setTextColor(getResources().getColor(R.color.telat));
+                binding.tvPresenceStatus.setText("Hadir Terlambat");
+                break;
+            default:
+                break;
+        }
+
         binding.tvSubject.setText(intent.getStringExtra("subject"));
     }
 }
