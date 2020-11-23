@@ -25,7 +25,7 @@ public abstract class BaseRecyclerAdapter<T extends Collection, U> extends Recyc
     @Override
     public ViewHolder<U> onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
         LayoutInflater layoutInflater = LayoutInflater.from(parent.getContext());
-        ViewDataBinding binding = DataBindingUtil.inflate(layoutInflater, getLayoutIdForType(viewType), parent, false);
+        ViewDataBinding binding = DataBindingUtil.inflate(layoutInflater, viewType, parent, false);
         return new ViewHolder<>(binding);
     }
 
@@ -41,8 +41,6 @@ public abstract class BaseRecyclerAdapter<T extends Collection, U> extends Recyc
     }
 
     protected abstract View.OnClickListener setOnClickListener(int position);
-
-    protected abstract int getLayoutIdForType(int viewType);
 
     protected abstract U getDataAtPosition(int position);
 

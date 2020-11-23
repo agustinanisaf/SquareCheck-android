@@ -29,7 +29,7 @@
                 android:layout_height="wrap_content"
                 android:text="@{data.total}"
                 android:textAlignment="center"
-                android:textColor="@{data.color}"
+                android:textColor="@{context.getColor(data.color)}"
                 android:textSize="28sp"
                 android:textStyle="bold"
                 tools:text="@string/hadir_placeholder"

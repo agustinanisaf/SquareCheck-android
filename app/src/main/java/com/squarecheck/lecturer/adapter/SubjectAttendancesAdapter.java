@@ -24,7 +24,7 @@ public class SubjectAttendancesAdapter extends BaseRecyclerAdapter<List<Schedule
     }
 
     @Override
-    protected int getLayoutIdForType(int viewType) {
+    public int getItemViewType(int position) {
         return R.layout.schedule_layout;
     }
 

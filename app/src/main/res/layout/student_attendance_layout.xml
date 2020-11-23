@@ -11,7 +11,8 @@
 
     <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@{context.getColor(data.background)}"
         android:padding="@dimen/gutter">
 
         <TextView
@@ -46,7 +47,7 @@
             android:layout_marginEnd="@dimen/gutter"
             android:gravity="center_vertical"
             android:text="@{data.time}"
-            android:textColor="@{data.color}"
+            android:textColor="@{context.getColor(data.color)}"
             android:textSize="20sp"
             tools:text="@string/presence_time_placeholder"
             tools:textColor="@color/hadir" />
