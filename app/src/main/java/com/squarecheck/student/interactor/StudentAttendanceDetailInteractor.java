@@ -16,16 +16,16 @@ import retrofit2.Call;
 
 public class StudentAttendanceDetailInteractor implements StudentAttendanceDetailContract.Interactor {
     private final static String TAG = StudentAttendanceDetailInteractor.class.getSimpleName();
-    private final SubjectService service;
+    private final SubjectService subjectService;
 
     public StudentAttendanceDetailInteractor() {
         String token = ((TokenUtil) UtilProvider.getUtil(TokenUtil.class)).getSessionData().getToken();
-        service = ServiceGenerator.createService(SubjectService.class, token);
+        subjectService = ServiceGenerator.createService(SubjectService.class, token);
     }
 
     @Override
     public void requestAttendances(int subjectId, RequestCallback<List<ScheduleModel>> callback) {
-        Call<APIResponseCollection<List<ScheduleModel>>> call = service.getAttendances(subjectId);
+        Call<APIResponseCollection<List<ScheduleModel>>> call = subjectService.getAttendances(subjectId);
         call.enqueue(new RetrofitCallback<>(callback, TAG, "requestAttendances"));
     }
 }

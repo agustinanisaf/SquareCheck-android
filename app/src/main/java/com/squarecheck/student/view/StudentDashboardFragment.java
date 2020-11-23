@@ -12,7 +12,6 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import com.squarecheck.base.view.BaseFragment;
 import com.squarecheck.databinding.ContentStudentDashboardBinding;
 import com.squarecheck.student.adapter.ListSubjectRecyclerViewAdapter;
-import com.squarecheck.student.adapter.SubjectClickListener;
 import com.squarecheck.student.contract.StudentDashboardContract;
 import com.squarecheck.student.model.StudentModel;
 import com.squarecheck.student.model.SubjectModel;
@@ -25,6 +24,7 @@ public class StudentDashboardFragment extends BaseFragment<StudentDashboardActiv
     private ContentStudentDashboardBinding binding;
 
     public final static String SUBJECT_ID = "SUBJECT_ID";
+    public final static String TITLE_ID = "TITLE_ID";
 
     @Nullable
     @Override
@@ -40,18 +40,18 @@ public class StudentDashboardFragment extends BaseFragment<StudentDashboardActiv
     }
 
     @Override
-    public void redirectToAttendanceDetail(int subjectId) {
+    public void redirectToAttendanceDetail(SubjectModel subject) {
         Intent intent = new Intent(activity, StudentAttendanceDetailActivity.class);
 
-        intent.putExtra(SUBJECT_ID, subjectId);
+        intent.putExtra(SUBJECT_ID, subject.getId());
+        intent.putExtra(TITLE_ID, presenter.showNextTitle(subject));
         startActivity(intent);
     }
 
     @Override
     public void showSubjectsList(List<SubjectModel> SubjectsList) {
         ListSubjectRecyclerViewAdapter adapter = new ListSubjectRecyclerViewAdapter(getContext(), SubjectsList);
-        SubjectClickListener listener = subject -> redirectToAttendanceDetail(subject.getId());
-        adapter.setListener(listener);
+        adapter.setListener(this::redirectToAttendanceDetail);
         binding.recycler.setAdapter(adapter);
     }
 

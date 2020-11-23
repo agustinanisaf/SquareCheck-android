@@ -19,6 +19,8 @@ import com.github.mikephil.charting.data.PieEntry;
 import com.squarecheck.R;
 import com.squarecheck.base.view.BaseFragment;
 import com.squarecheck.databinding.ContentStudentAttendanceDetailBinding;
+import com.squarecheck.databinding.StudentAttendanceDetailToolbarBinding;
+import com.squarecheck.shared.model.Title;
 import com.squarecheck.student.adapter.AttendanceRecyclerViewAdapter;
 import com.squarecheck.student.adapter.AttendanceSummaryRecyclerViewAdapter;
 import com.squarecheck.student.contract.StudentAttendanceDetailContract;
@@ -35,11 +37,13 @@ public class StudentAttendanceDetailFragment
         implements StudentAttendanceDetailContract.View {
 
     private final int subjectId;
+    private final Title title;
     private ContentStudentAttendanceDetailBinding binding;
 
-    public StudentAttendanceDetailFragment(int subjectId) {
+    public StudentAttendanceDetailFragment(int subjectId, Title title) {
         super();
         this.subjectId = subjectId;
+        this.title = title;
     }
 
     @Override
@@ -64,18 +68,25 @@ public class StudentAttendanceDetailFragment
 
     @Override
     public void initView() {
+        showTitle(title);
         binding.attendanceRecycler.setLayoutManager(new LinearLayoutManager(getContext()));
         binding.attendanceSummaryRecycler.setLayoutManager(new GridLayoutManager(getContext(), 2));
     }
 
     @Override
     public void startLoading() {
-
+        binding.attendanceSummaryRecycler.setVisibility(View.GONE);
+        binding.attendanceRecycler.setVisibility(View.GONE);
+        binding.attendanceChart.setVisibility(View.GONE);
+        binding.progressCircular.setVisibility(View.VISIBLE);
     }
 
     @Override
     public void endLoading() {
-
+        binding.attendanceSummaryRecycler.setVisibility(View.VISIBLE);
+        binding.attendanceRecycler.setVisibility(View.VISIBLE);
+        binding.attendanceChart.setVisibility(View.VISIBLE);
+        binding.progressCircular.setVisibility(View.GONE);
     }
 
     @Override
@@ -94,6 +105,11 @@ public class StudentAttendanceDetailFragment
         showChart(attendanceStats);
     }
 
+    @Override
+    public void showTitle(Title title) {
+        ((StudentAttendanceDetailToolbarBinding) getTitleLayout()).setData(title);
+    }
+
     private void showChart(List<AttendanceStatusItem> attendanceStats) {
         PieChart pieChart = binding.attendanceChart;
         Log.d("TAG", "onCreate: " + pieChart.getHoleRadius());
@@ -106,7 +122,13 @@ public class StudentAttendanceDetailFragment
         pieChart.setData(data);
         pieChart.invalidate();
 
-        AttendanceStatusItem item = attendanceStats.stream().max((Comparator<AttendanceStatusItem>) (t0, t1) -> (Integer.parseInt(t0.getTotal()) >= Integer.parseInt(t1.getTotal())) ? 1 : -1).orElseThrow(NoSuchElementException::new);
+        AttendanceStatusItem item = attendanceStats.stream().max((Comparator<AttendanceStatusItem>) (t0, t1) -> {
+            int i0 = Integer.parseInt(t0.getTotal());
+            int i1 = Integer.parseInt(t1.getTotal());
+            if (i0 > i1) return 1;
+            else if (i0 == i1) return 0;
+            return -1;
+        }).orElseThrow(NoSuchElementException::new);
         pieChart.setDescription(null);
         pieChart.setCenterText(Math.round(Float.parseFloat(item.getTotal()) / attendanceStats.stream().mapToInt(v -> Integer.parseInt(v.getTotal())).sum() * 100) + "%");
         pieChart.setCenterTextColor(getResources().getColor(item.getColor()));

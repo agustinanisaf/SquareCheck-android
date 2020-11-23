@@ -3,6 +3,7 @@ package com.squarecheck.student.contract;
 import com.squarecheck.base.presenter.BasePresenter;
 import com.squarecheck.base.view.BaseView;
 import com.squarecheck.shared.callback.RequestCallback;
+import com.squarecheck.shared.model.Title;
 import com.squarecheck.student.model.AttendanceItem;
 import com.squarecheck.student.model.AttendanceStatusItem;
 import com.squarecheck.student.model.ScheduleModel;
@@ -20,6 +21,8 @@ public interface StudentAttendanceDetailContract {
         void showAttendances(List<AttendanceItem> attendances);
 
         void showAttendanceStats(List<AttendanceStatusItem> attendanceStats);
+
+        void showTitle(Title title);
     }
 
     interface Presenter extends BasePresenter {
