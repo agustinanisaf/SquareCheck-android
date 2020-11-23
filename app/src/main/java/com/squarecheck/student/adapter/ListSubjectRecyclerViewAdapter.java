@@ -16,6 +16,7 @@ import java.util.List;
 public class ListSubjectRecyclerViewAdapter extends RecyclerView.Adapter<ListSubjectRecyclerViewAdapter.SubjectViewHolder> {
     private List<SubjectModel> mSubjectList;
     private LayoutInflater mInflater;
+    private SubjectClickListener listener;
 
     public ListSubjectRecyclerViewAdapter(Context context, List<SubjectModel> subjectList){
         mInflater = LayoutInflater.from(context);
@@ -32,11 +33,16 @@ public class ListSubjectRecyclerViewAdapter extends RecyclerView.Adapter<ListSub
     public void onBindViewHolder(@NonNull SubjectViewHolder holder, int position) {
         SubjectModel mCurrent = mSubjectList.get(position);
         holder.binding.setSubject(mCurrent);
+        holder.binding.getRoot().setOnClickListener(v -> listener.onSubjectClick(mCurrent));
     }
 
     @Override
     public int getItemCount() {
         return (mSubjectList != null) ? mSubjectList.size() : 0;
+    }
+
+    public void setListener(SubjectClickListener listener) {
+        this.listener = listener;
     }
 
     public static class SubjectViewHolder extends RecyclerView.ViewHolder {

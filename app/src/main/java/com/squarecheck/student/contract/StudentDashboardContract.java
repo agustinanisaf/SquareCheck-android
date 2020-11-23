@@ -10,8 +10,10 @@ import java.util.List;
 
 public interface StudentDashboardContract {
     interface View extends BaseView<StudentDashboardContract.Presenter> {
-        void redirectToAttendanceDetail(String id);
+        void redirectToAttendanceDetail(int subjectId);
+
         void showSubjectsList(List<SubjectModel> SubjectsList);
+
         void showDetailProfile(StudentModel student);
     }
 
