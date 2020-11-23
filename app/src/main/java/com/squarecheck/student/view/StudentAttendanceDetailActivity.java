@@ -1,9 +1,8 @@
 package com.squarecheck.student.view;
 
-import android.os.Bundle;
+import android.content.Intent;
 import android.util.Log;
 
-import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
@@ -12,17 +11,27 @@ import com.github.mikephil.charting.data.PieData;
 import com.github.mikephil.charting.data.PieDataSet;
 import com.github.mikephil.charting.data.PieEntry;
 import com.squarecheck.R;
+import com.squarecheck.base.view.BaseFragmentHolderActivity;
 import com.squarecheck.student.adapter.TableViewAdapter;
 
 import java.util.ArrayList;
 import java.util.List;
 
-public class StudentAttendanceDetailActivity extends AppCompatActivity {
+import static com.squarecheck.student.view.StudentDashboardFragment.SUBJECT_ID;
+
+public class StudentAttendanceDetailActivity extends BaseFragmentHolderActivity {
 
     @Override
-    protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-//        setContentView(R.layout.activity_student_attendance_detail);
+    protected void initializeFragment() {
+        Intent intent = getIntent();
+        int subjectId = intent.getIntExtra(SUBJECT_ID, 1);
+
+        StudentAttendanceDetailFragment currentFragment = new StudentAttendanceDetailFragment(subjectId);
+        currentFragment.setPresenter(null);
+        setCurrentFragment(currentFragment, true);
+    }
+
+    private void initView() {
         // TODO: Fix Recycler View
         RecyclerView recyclerView = findViewById(R.id.attendance_recycler);
         TableViewAdapter adapter = new TableViewAdapter(getPresenceList());
