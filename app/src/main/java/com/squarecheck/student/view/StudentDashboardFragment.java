@@ -45,10 +45,11 @@ public class StudentDashboardFragment extends BaseFragment<StudentDashboardActiv
     }
 
     @Override
-    public void redirectToAttendanceDetail(String id) {
+    public void redirectToAttendanceDetail(SubjectModel subject) {
         Intent intent = new Intent(activity, StudentAttendanceDetailActivity.class);
 
-        intent.putExtra("id", id);
+        intent.putExtra(SUBJECT_ID, subject.getId());
+        intent.putExtra(TITLE_ID, presenter.showNextTitle(subject));
         startActivity(intent);
     }
 
