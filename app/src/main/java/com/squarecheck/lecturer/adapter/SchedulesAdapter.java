@@ -43,10 +43,6 @@ public class SchedulesAdapter extends RecyclerView.Adapter<ViewHolder> {
         return (schedules == null) ? 0 : schedules.size();
     }
 
-    public interface ScheduleClickListener {
-        void onScheduleClick(ScheduleModel schedule);
-    }
-
     static class ViewHolder extends RecyclerView.ViewHolder {
 
         private final LecturerClassSubjectBinding binding;

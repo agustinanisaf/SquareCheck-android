@@ -21,6 +21,7 @@ public interface StudentDashboardContract {
         void requestSubjectsList();
         void requestDetail();
         void logout();
+        String showNextTitle(SubjectModel subject);
     }
 
     interface Interactor {

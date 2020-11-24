@@ -1,8 +1,10 @@
 package com.squarecheck.lecturer.presenter;
 
+import com.google.gson.Gson;
 import com.squarecheck.lecturer.contract.LecturerScheduleActionContract;
 import com.squarecheck.shared.callback.RequestCallback;
 import com.squarecheck.shared.model.APIResponse;
+import com.squarecheck.shared.model.Title;
 import com.squarecheck.student.model.PresenceModel;
 import com.squarecheck.student.model.ScheduleModel;
 
@@ -28,9 +30,10 @@ public class LecturerScheduleActionPresenter implements LecturerScheduleActionCo
         interactor.requestSchedule(scheduleId, new RequestCallback<ScheduleModel>() {
             @Override
             public void requestSuccess(ScheduleModel data) {
-                view.endLoading();
                 view.showSchedule(data);
                 view.showAttendances("0", "0");
+                processTitle(data);
+                requestAttendances(scheduleId);
             }
 
             @Override
@@ -39,6 +42,12 @@ public class LecturerScheduleActionPresenter implements LecturerScheduleActionCo
                 view.showError(message);
             }
         });
+    }
+
+    private void processTitle(ScheduleModel data) {
+        Title title = new Title(data.getSubject().getName(), data.getSubject().getClassroom().getName());
+        view.showTitle(title);
+        view.setTitle(new Gson().toJson(title, Title.class));
     }
 
     @Override

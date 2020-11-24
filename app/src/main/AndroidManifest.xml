@@ -29,8 +29,10 @@
             android:resource="@array/preloaded_fonts" />
 
         <activity android:name=".student.view.StudentDashboardActivity" />
+        <activity android:name=".student.view.StudentAttendanceDetailActivity" />
         <activity android:name=".lecturer.view.LecturerDashboardActivity" />
         <activity android:name=".lecturer.view.LecturerScheduleActionActivity" />
+        <activity android:name=".lecturer.view.LecturerAttendanceSummaryActivity" />
     </application>
 
 </manifest>

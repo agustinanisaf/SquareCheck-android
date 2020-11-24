@@ -1,13 +1,12 @@
 package com.squarecheck.lecturer.view;
 
+import android.content.Intent;
 import android.graphics.Color;
-import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
 import androidx.annotation.NonNull;
-import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.github.mikephil.charting.charts.LineChart;
@@ -15,18 +14,33 @@ import com.github.mikephil.charting.components.Legend;
 import com.github.mikephil.charting.data.Entry;
 import com.github.mikephil.charting.data.LineData;
 import com.github.mikephil.charting.data.LineDataSet;
+import com.google.gson.Gson;
 import com.squarecheck.R;
+import com.squarecheck.base.view.BaseFragmentHolderActivity;
+import com.squarecheck.databinding.LecturerAttendanceSummaryToolbarBinding;
+import com.squarecheck.lecturer.interactor.LecturerAttendanceSummaryInteractor;
+import com.squarecheck.lecturer.presenter.LecturerAttendanceSummaryPresenter;
+import com.squarecheck.shared.model.Title;
 
 import java.util.ArrayList;
 import java.util.List;
 
-public class LecturerAttendanceSummaryActivity extends AppCompatActivity {
+import static com.squarecheck.lecturer.view.LecturerDashboardFragment.SUBJECT_ID;
+import static com.squarecheck.lecturer.view.LecturerScheduleActionFragment.TITLE_ID;
+
+public class LecturerAttendanceSummaryActivity extends BaseFragmentHolderActivity {
+
+    private LecturerAttendanceSummaryToolbarBinding inflate;
 
     @Override
-    protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        setContentView(R.layout.lecturer_attendance_summary_toolbar);
-        setupRecyclerStats();
+    protected void initializeFragment() {
+        Intent intent = getIntent();
+        int subjectId = intent.getIntExtra(SUBJECT_ID, 1);
+        Title title = new Gson().fromJson(intent.getStringExtra(TITLE_ID), Title.class);
+
+        LecturerAttendanceSummaryFragment currentFragment = new LecturerAttendanceSummaryFragment(subjectId, title);
+        currentFragment.setPresenter(new LecturerAttendanceSummaryPresenter(currentFragment, new LecturerAttendanceSummaryInteractor()));
+        setCurrentFragment(currentFragment, true);
     }
 
     private void setupRecyclerStats() {

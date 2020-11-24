@@ -1,13 +1,10 @@
 package com.squarecheck.base.view;
 
 import android.content.Context;
-import android.os.Bundle;
-import android.view.LayoutInflater;
 import android.view.View;
-import android.view.ViewGroup;
 
 import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
+import androidx.databinding.ViewDataBinding;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentActivity;
 
@@ -22,12 +19,6 @@ public abstract class BaseFragment<T extends FragmentActivity, U extends BasePre
     protected U presenter;
     protected FragmentListener fragmentListener;
 
-    @Nullable
-    @Override
-    public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-        return super.onCreateView(inflater, container, savedInstanceState);
-    }
-
     @Override
     public void onAttach(@NonNull Context context) {
         super.onAttach(context);
@@ -35,12 +26,11 @@ public abstract class BaseFragment<T extends FragmentActivity, U extends BasePre
         this.fragmentListener = (FragmentListener) context;
     }
 
-    public View getTitleLayout() {
-        return titleLayout;
+    public ViewDataBinding getTitleLayout() {
+        return fragmentListener.getTitleLayout();
     }
 
-    protected void setTitleLayout(View titleLayout) {
-        this.titleLayout = titleLayout;
-        fragmentListener.setTitleLayout(titleLayout);
+    protected void setTitleLayout(int layoutId) {
+        fragmentListener.setTitleLayout(layoutId);
     }
 }

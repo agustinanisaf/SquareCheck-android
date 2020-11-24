@@ -4,41 +4,44 @@ import android.app.AlertDialog;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
 import androidx.annotation.Nullable;
 import androidx.recyclerview.widget.LinearLayoutManager;
-import androidx.recyclerview.widget.RecyclerView;
 
-import com.google.android.material.dialog.MaterialAlertDialogBuilder;
 import com.squarecheck.R;
 import com.squarecheck.base.view.BaseFragment;
-import com.squarecheck.databinding.ContentLecturerDashboardBinding;
 import com.squarecheck.databinding.ContentStudentDashboardBinding;
+import com.squarecheck.student.adapter.ListSubjectRecyclerViewAdapter;
 import com.squarecheck.login.view.LoginActivity;
 import com.squarecheck.shared.util.SquareCheckUtilProvider;
 import com.squarecheck.student.contract.StudentDashboardContract;
-import com.squarecheck.student.interactor.StudentDashboardInteractor;
 import com.squarecheck.student.model.StudentModel;
 import com.squarecheck.student.model.SubjectModel;
-import com.squarecheck.student.presenter.StudentDashboardPresenter;
 
-import java.util.ArrayList;
+import org.jetbrains.annotations.NotNull;
+
 import java.util.List;
 
 public class StudentDashboardFragment extends BaseFragment<StudentDashboardActivity, StudentDashboardContract.Presenter> implements StudentDashboardContract.View {
     private ContentStudentDashboardBinding binding;
 
+    public final static String SUBJECT_ID = "SUBJECT_ID";
+    public final static String TITLE_ID = "TITLE_ID";
+
     @Nullable
     @Override
-    public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
+    public View onCreateView(@NotNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         binding = ContentStudentDashboardBinding.inflate(inflater, container, true);
-        presenter.start();
-
         return fragmentView;
+    }
+
+    @Override
+    public void onStart() {
+        super.onStart();
+        presenter.start();
     }
 
     @Override
@@ -51,17 +54,9 @@ public class StudentDashboardFragment extends BaseFragment<StudentDashboardActiv
 
     @Override
     public void showSubjectsList(List<SubjectModel> SubjectsList) {
-        binding.recycler.setHasFixedSize(true);
-        //mAdapter = new RecyclerViewAdapterTodolist(SubjectsList);
-
-//        ((RecyclerViewAdapterTodolist) mAdapter).setOnItemClickListener(new RecyclerViewAdapterTodolist.MyClickListener() {
-//            @Override
-//            public void onItemClick(int position, View v) {
-//                String id = data.get(position).getId();
-//                redirectToAttendanceDetail(id);
-//            }
-//        });
-//        binding.recycler.setAdapter(mAdapter);
+        ListSubjectRecyclerViewAdapter adapter = new ListSubjectRecyclerViewAdapter(getContext(), SubjectsList);
+        adapter.setListener(this::redirectToAttendanceDetail);
+        binding.recycler.setAdapter(adapter);
     }
 
     @Override
