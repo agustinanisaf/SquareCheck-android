@@ -23,6 +23,12 @@ public class StudentDashboardActivity extends BaseFragmentHolderActivity{
 
         inflate = StudentDashboardToolbarBinding
                 .inflate(this.getLayoutInflater(), binding.titleLayout, true);
+        inflate.tvProfilePhoto.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                studentDashboardFragment.showLogoutConfirmation();
+            }
+        });
     }
 
     @Override

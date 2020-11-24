@@ -74,4 +74,10 @@ public class StudentDashboardInteractor implements StudentDashboardContract.Inte
             }
         });
     }
+
+    @Override
+    public void logout() {
+        ((TokenUtil) UtilProvider.getUtil(TokenUtil.class)).destroy();
+        ((UserUtil) UtilProvider.getUtil(UserUtil.class)).destroy();
+    }
 }

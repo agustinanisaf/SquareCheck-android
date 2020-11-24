@@ -13,15 +13,19 @@ public interface StudentDashboardContract {
         void redirectToAttendanceDetail(String id);
         void showSubjectsList(List<SubjectModel> SubjectsList);
         void showDetailProfile(StudentModel student);
+        void showLogoutConfirmation();
+        void redirectToLogin();
     }
 
     interface Presenter extends BasePresenter {
         void requestSubjectsList();
         void requestDetail();
+        void logout();
     }
 
     interface Interactor {
         void requestSubjectsList(RequestCallback<List<SubjectModel>> requestCallback);
         void requestDetail(RequestCallback<StudentModel> requestCallback);
+        void logout();
     }
 }

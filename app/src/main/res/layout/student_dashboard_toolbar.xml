@@ -9,7 +9,8 @@
 
         <ImageView
             android:layout_width="38dp"
-            android:layout_height="38dp"/>
+            android:layout_height="38dp"
+            android:id="@+id/tv_profile_photo"/>
         <LinearLayout
             xmlns:tools="http://schemas.android.com/tools"
             android:layout_width="match_parent"

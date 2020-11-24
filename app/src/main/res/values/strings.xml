@@ -63,4 +63,8 @@
     <string name="profile_name_placeholder">Abraham Maulana</string>
     <string name="profile_id_placeholder">2110181026</string>
     <string name="profile_class_placeholder">D4 Informatika 2018</string>
+
+    <string name="yes">Ya</string>
+    <string name="no">Tidak</string>
+    <string name="logout_confirmation">Apakah anda yakin ingin logout ?</string>
 </resources>

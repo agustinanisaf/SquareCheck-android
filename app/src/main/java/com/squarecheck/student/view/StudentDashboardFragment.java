@@ -1,5 +1,7 @@
 package com.squarecheck.student.view;
 
+import android.app.AlertDialog;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
@@ -11,10 +13,12 @@ import androidx.annotation.Nullable;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.google.android.material.dialog.MaterialAlertDialogBuilder;
 import com.squarecheck.R;
 import com.squarecheck.base.view.BaseFragment;
 import com.squarecheck.databinding.ContentLecturerDashboardBinding;
 import com.squarecheck.databinding.ContentStudentDashboardBinding;
+import com.squarecheck.login.view.LoginActivity;
 import com.squarecheck.shared.util.SquareCheckUtilProvider;
 import com.squarecheck.student.contract.StudentDashboardContract;
 import com.squarecheck.student.interactor.StudentDashboardInteractor;
@@ -65,6 +69,35 @@ public class StudentDashboardFragment extends BaseFragment<StudentDashboardActiv
         activity.inflate.tvProfileName.setText(student.getName());
         activity.inflate.tvProfileNrp.setText(student.getNrp());
         activity.inflate.tvProfileClass.setText(student.getClassroom().getName());
+    }
+
+    @Override
+    public void showLogoutConfirmation() {
+        AlertDialog.Builder alertDialogBuilder = new AlertDialog.Builder(getContext());
+
+        alertDialogBuilder.setMessage(R.string.logout_confirmation);
+        alertDialogBuilder.setPositiveButton(R.string.yes, new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialogInterface, int i) {
+                        presenter.logout();
+                    }
+                });
+        alertDialogBuilder.setNegativeButton(R.string.no, new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialogInterface, int i) {
+                //Do Nothing
+            }
+        });
+        alertDialogBuilder.setCancelable(true);
+        alertDialogBuilder.show();
+    }
+
+    @Override
+    public void redirectToLogin() {
+        Intent intent = new Intent(getContext(), LoginActivity.class);
+
+        startActivity(intent);
+        this.activity.finish();
     }
 
     @Override
