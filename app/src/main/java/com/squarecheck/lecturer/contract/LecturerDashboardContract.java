@@ -16,17 +16,21 @@ public interface LecturerDashboardContract {
         void showError(String errorMessage);
 
         void showSchedules(List<ScheduleModel> schedules);
+
         void redirectToLogin();
+
         void showLogoutConfirmation();
     }
 
     interface Presenter extends BasePresenter {
         void requestSchedules();
+
         void logout();
     }
 
     interface Interactor {
         void requestSchedules(RequestCallback<List<ScheduleModel>> callback);
+
         void logout();
     }
 }

@@ -1,7 +1,6 @@
 package com.squarecheck.student.view;
 
 import android.app.AlertDialog;
-import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.LayoutInflater;
@@ -14,9 +13,8 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import com.squarecheck.R;
 import com.squarecheck.base.view.BaseFragment;
 import com.squarecheck.databinding.ContentStudentDashboardBinding;
-import com.squarecheck.student.adapter.ListSubjectRecyclerViewAdapter;
 import com.squarecheck.login.view.LoginActivity;
-import com.squarecheck.shared.util.SquareCheckUtilProvider;
+import com.squarecheck.student.adapter.ListSubjectRecyclerViewAdapter;
 import com.squarecheck.student.contract.StudentDashboardContract;
 import com.squarecheck.student.model.StudentModel;
 import com.squarecheck.student.model.SubjectModel;
@@ -72,17 +70,9 @@ public class StudentDashboardFragment extends BaseFragment<StudentDashboardActiv
         AlertDialog.Builder alertDialogBuilder = new AlertDialog.Builder(getContext());
 
         alertDialogBuilder.setMessage(R.string.logout_confirmation);
-        alertDialogBuilder.setPositiveButton(R.string.yes, new DialogInterface.OnClickListener() {
-                    @Override
-                    public void onClick(DialogInterface dialogInterface, int i) {
-                        presenter.logout();
-                    }
-                });
-        alertDialogBuilder.setNegativeButton(R.string.no, new DialogInterface.OnClickListener() {
-            @Override
-            public void onClick(DialogInterface dialogInterface, int i) {
-                //Do Nothing
-            }
+        alertDialogBuilder.setPositiveButton(R.string.yes, (dialogInterface, i) -> presenter.logout());
+        alertDialogBuilder.setNegativeButton(R.string.no, (dialogInterface, i) -> {
+            //Do Nothing
         });
         alertDialogBuilder.setCancelable(true);
         alertDialogBuilder.show();

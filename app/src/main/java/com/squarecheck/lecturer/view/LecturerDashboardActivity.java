@@ -1,7 +1,5 @@
 package com.squarecheck.lecturer.view;
 
-import android.view.View;
-
 import com.squarecheck.base.view.BaseFragmentHolderActivity;
 import com.squarecheck.databinding.StudentDashboardToolbarBinding;
 import com.squarecheck.lecturer.interactor.LecturerDashboardInteractor;
@@ -23,11 +21,6 @@ public class LecturerDashboardActivity extends BaseFragmentHolderActivity {
         LecturerDashboardFragment currentFragment = new LecturerDashboardFragment();
         currentFragment.setPresenter(new LecturerDashboardPresenter(currentFragment, new LecturerDashboardInteractor()));
         setCurrentFragment(currentFragment, false);
-        toolbarBinding.tvProfilePhoto.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                currentFragment.showLogoutConfirmation();
-            }
-        });
+        toolbarBinding.ivProfilePhoto.setOnClickListener(view -> currentFragment.showLogoutConfirmation());
     }
 }
