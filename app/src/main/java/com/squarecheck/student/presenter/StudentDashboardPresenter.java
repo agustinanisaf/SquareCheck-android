@@ -61,4 +61,10 @@ public class StudentDashboardPresenter implements StudentDashboardContract.Prese
         requestDetail();
         requestSubjectsList();
     }
+
+    @Override
+    public void logout() {
+        interactor.logout();
+        view.redirectToLogin();
+    }
 }

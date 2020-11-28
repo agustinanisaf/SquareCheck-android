@@ -39,4 +39,10 @@ public class LecturerDashboardPresenter implements LecturerDashboardContract.Pre
             }
         });
     }
+
+    @Override
+    public void logout() {
+        interactor.logout();
+        view.redirectToLogin();
+    }
 }

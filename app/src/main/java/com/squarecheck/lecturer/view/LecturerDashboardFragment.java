@@ -1,5 +1,6 @@
 package com.squarecheck.lecturer.view;
 
+import android.app.AlertDialog;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.LayoutInflater;
@@ -11,11 +12,13 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.recyclerview.widget.LinearLayoutManager;
 
+import com.squarecheck.R;
 import com.squarecheck.base.view.BaseFragment;
 import com.squarecheck.databinding.ContentLecturerDashboardBinding;
 import com.squarecheck.lecturer.adapter.ScheduleClickListener;
 import com.squarecheck.lecturer.adapter.SchedulesAdapter;
 import com.squarecheck.lecturer.contract.LecturerDashboardContract;
+import com.squarecheck.login.view.LoginActivity;
 import com.squarecheck.student.model.ScheduleModel;
 
 import java.util.List;
@@ -74,5 +77,26 @@ public class LecturerDashboardFragment extends BaseFragment<LecturerDashboardAct
             startActivity(intent);
         };
         binding.rvSchedules.setAdapter(new SchedulesAdapter(clickListener, schedules));
+    }
+
+    @Override
+    public void redirectToLogin() {
+        Intent intent = new Intent(getContext(), LoginActivity.class);
+
+        startActivity(intent);
+        this.activity.finish();
+    }
+
+    @Override
+    public void showLogoutConfirmation() {
+        AlertDialog.Builder alertDialogBuilder = new AlertDialog.Builder(getContext());
+
+        alertDialogBuilder.setMessage(R.string.logout_confirmation);
+        alertDialogBuilder.setPositiveButton(R.string.yes, (dialogInterface, i) -> presenter.logout());
+        alertDialogBuilder.setNegativeButton(R.string.no, (dialogInterface, i) -> {
+            //Do Nothing
+        });
+        alertDialogBuilder.setCancelable(true);
+        alertDialogBuilder.show();
     }
 }

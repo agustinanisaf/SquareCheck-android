@@ -1,19 +1,11 @@
 package com.squarecheck.student.view;
 
-import android.os.Bundle;
-import android.view.View;
-
-import androidx.appcompat.app.AppCompatActivity;
-import androidx.appcompat.widget.Toolbar;
-
-import com.squarecheck.R;
 import com.squarecheck.base.view.BaseFragmentHolderActivity;
 import com.squarecheck.databinding.StudentDashboardToolbarBinding;
-import com.squarecheck.student.contract.StudentDashboardContract;
 import com.squarecheck.student.interactor.StudentDashboardInteractor;
 import com.squarecheck.student.presenter.StudentDashboardPresenter;
 
-public class StudentDashboardActivity extends BaseFragmentHolderActivity{
+public class StudentDashboardActivity extends BaseFragmentHolderActivity {
     StudentDashboardFragment studentDashboardFragment;
     StudentDashboardToolbarBinding inflate;
 
@@ -23,6 +15,7 @@ public class StudentDashboardActivity extends BaseFragmentHolderActivity{
 
         inflate = StudentDashboardToolbarBinding
                 .inflate(this.getLayoutInflater(), binding.titleLayout, true);
+        inflate.ivProfilePhoto.setOnClickListener(view -> studentDashboardFragment.showLogoutConfirmation());
     }
 
     @Override
