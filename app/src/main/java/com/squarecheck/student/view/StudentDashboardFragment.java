@@ -1,5 +1,6 @@
 package com.squarecheck.student.view;
 
+import android.app.AlertDialog;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.LayoutInflater;
@@ -9,8 +10,10 @@ import android.view.ViewGroup;
 import androidx.annotation.Nullable;
 import androidx.recyclerview.widget.LinearLayoutManager;
 
+import com.squarecheck.R;
 import com.squarecheck.base.view.BaseFragment;
 import com.squarecheck.databinding.ContentStudentDashboardBinding;
+import com.squarecheck.login.view.LoginActivity;
 import com.squarecheck.student.adapter.ListSubjectRecyclerViewAdapter;
 import com.squarecheck.student.contract.StudentDashboardContract;
 import com.squarecheck.student.model.StudentModel;
@@ -60,6 +63,27 @@ public class StudentDashboardFragment extends BaseFragment<StudentDashboardActiv
         activity.inflate.tvProfileName.setText(student.getName());
         activity.inflate.tvProfileNrp.setText(student.getNrp());
         activity.inflate.tvProfileClass.setText(student.getClassroom().getName());
+    }
+
+    @Override
+    public void showLogoutConfirmation() {
+        AlertDialog.Builder alertDialogBuilder = new AlertDialog.Builder(getContext());
+
+        alertDialogBuilder.setMessage(R.string.logout_confirmation);
+        alertDialogBuilder.setPositiveButton(R.string.yes, (dialogInterface, i) -> presenter.logout());
+        alertDialogBuilder.setNegativeButton(R.string.no, (dialogInterface, i) -> {
+            //Do Nothing
+        });
+        alertDialogBuilder.setCancelable(true);
+        alertDialogBuilder.show();
+    }
+
+    @Override
+    public void redirectToLogin() {
+        Intent intent = new Intent(getContext(), LoginActivity.class);
+
+        startActivity(intent);
+        this.activity.finish();
     }
 
     @Override

@@ -7,6 +7,7 @@ import com.squarecheck.shared.model.APIResponseCollection;
 import com.squarecheck.shared.retrofit.ErrorUtil;
 import com.squarecheck.shared.retrofit.ServiceGenerator;
 import com.squarecheck.shared.util.TokenUtil;
+import com.squarecheck.shared.util.UserUtil;
 import com.squarecheck.student.model.ScheduleModel;
 import com.squarecheck.student.retrofit.ScheduleService;
 
@@ -47,5 +48,11 @@ public class LecturerDashboardInteractor implements LecturerDashboardContract.In
                 callback.requestError(t.getMessage());
             }
         });
+    }
+
+    @Override
+    public void logout() {
+        ((TokenUtil) UtilProvider.getUtil(TokenUtil.class)).destroy();
+        ((UserUtil) UtilProvider.getUtil(UserUtil.class)).destroy();
     }
 }
