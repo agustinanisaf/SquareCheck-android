@@ -33,6 +33,7 @@
         <activity android:name=".lecturer.view.LecturerDashboardActivity" />
         <activity android:name=".lecturer.view.LecturerScheduleActionActivity" />
         <activity android:name=".lecturer.view.LecturerAttendanceSummaryActivity" />
+        <activity android:name=".lecturer.view.LecturerAttendanceSummaryDetailActivity" />
     </application>
 
 </manifest>

@@ -1,32 +1,46 @@
-<?xml version="1.0" encoding="utf-8"?><!-- TODO: Use TableLayout to make good looking table -->
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
-    android:layout_height="wrap_content"
-    android:padding="@dimen/gutter">
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools">
 
-    <TextView
-        android:id="@+id/tv_student_id"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_weight="1"
-        android:textAlignment="center"
-        tools:text="@string/student_id_placeholder" />
+    <data>
 
-    <TextView
-        android:id="@+id/tv_student_name"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_weight="1"
-        android:textAlignment="center"
-        tools:text="@string/student_name_placeholder" />
+        <variable
+            name="data"
+            type="com.squarecheck.lecturer.model.StudentAttendanceModel" />
+    </data>
 
-    <TextView
-        android:id="@+id/tv_student_status"
-        android:layout_width="wrap_content"
+    <LinearLayout
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_weight="1"
-        android:textAlignment="center"
-        tools:text="@string/hadir_label"
-        tools:textColor="@color/hadir" />
-</LinearLayout>
+        android:padding="@dimen/gutter">
+
+        <TextView
+            android:id="@+id/tv_student_id"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="@{data.nrp}"
+            android:textAlignment="center"
+            tools:text="@string/student_id_placeholder" />
+
+        <TextView
+            android:id="@+id/tv_student_name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="@{data.name}"
+            android:textAlignment="textStart"
+            tools:text="@string/student_name_placeholder" />
+
+        <TextView
+            android:id="@+id/tv_student_status"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="@{data.status}"
+            android:textAlignment="textStart"
+            android:textColor="@{context.getColor(data.color)}"
+            tools:text="@string/hadir_label"
+            tools:textColor="@color/hadir" />
+    </LinearLayout>
+</layout>
