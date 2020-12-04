@@ -18,6 +18,7 @@ import com.squarecheck.databinding.DashboardAttendanceToolbarBinding;
 import com.squarecheck.databinding.StudentDashboardToolbarBinding;
 import com.squarecheck.login.view.LoginActivity;
 import com.squarecheck.student.adapter.ListSubjectRecyclerViewAdapter;
+import com.squarecheck.student.adapter.StudentAttendanceSummaryRecyclerViewAdapter;
 import com.squarecheck.student.contract.StudentDashboardContract;
 import com.squarecheck.student.model.AttendanceStatusItem;
 import com.squarecheck.student.model.ScheduleModel;
@@ -90,7 +91,7 @@ public class StudentDashboardFragment extends BaseFragment<StudentDashboardActiv
 
     @Override
     public void showAttendanceStats(List<AttendanceStatusItem> attendanceStatusItems) {
-
+        additionalLayout.rvSummary.setAdapter(new StudentAttendanceSummaryRecyclerViewAdapter(attendanceStatusItems));
     }
 
     @Override
@@ -134,7 +135,7 @@ public class StudentDashboardFragment extends BaseFragment<StudentDashboardActiv
 
     private void setupToolbar() {
         titleLayoutBinding = (StudentDashboardToolbarBinding) getTitleLayout();
-        titleLayoutBinding.ivProfilePhoto.setOnClickListener(v -> this.showLogoutConfirmation());
         additionalLayout = (DashboardAttendanceToolbarBinding) getAdditionalLayout();
+        titleLayoutBinding.ivProfilePhoto.setOnClickListener(v -> this.showLogoutConfirmation());
     }
 }
