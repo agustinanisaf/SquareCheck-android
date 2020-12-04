@@ -18,6 +18,7 @@ import com.squarecheck.databinding.LecturerAttendanceSummaryToolbarBinding;
 import com.squarecheck.lecturer.adapter.SubjectAttendancesAdapter;
 import com.squarecheck.lecturer.contract.LecturerAttendanceSummaryContract;
 import com.squarecheck.shared.model.Title;
+import com.squarecheck.shared.util.DateUtil;
 import com.squarecheck.student.model.ScheduleModel;
 
 import java.util.List;
@@ -94,6 +95,7 @@ public class LecturerAttendanceSummaryFragment
         Intent intent = new Intent(getContext(), LecturerAttendanceSummaryDetailActivity.class);
         intent.putExtra(SCHEDULE_ID, schedule.getId());
         intent.putExtra(TITLE_ID, new Gson().toJson(title));
+        intent.putExtra("TIME_ID", DateUtil.getFullDate(schedule.getTime()));
         startActivity(intent);
     }
 }

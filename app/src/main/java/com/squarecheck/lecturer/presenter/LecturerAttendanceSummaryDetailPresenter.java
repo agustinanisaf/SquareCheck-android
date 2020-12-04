@@ -1,13 +1,12 @@
 package com.squarecheck.lecturer.presenter;
 
-import com.squarecheck.lecturer.contract.LecturerAttendanceSummaryContract;
+import com.squarecheck.R;
 import com.squarecheck.lecturer.contract.LecturerAttendanceSummaryDetailContract;
-import com.squarecheck.lecturer.interactor.LecturerAttendanceSummaryDetailInteractor;
-import com.squarecheck.lecturer.view.LecturerAttendanceSummaryDetailFragment;
 import com.squarecheck.shared.callback.RequestCallback;
+import com.squarecheck.student.model.AttendanceStatusItem;
 import com.squarecheck.student.model.PresenceModel;
-import com.squarecheck.student.model.ScheduleModel;
 
+import java.util.Arrays;
 import java.util.List;
 
 public class LecturerAttendanceSummaryDetailPresenter implements LecturerAttendanceSummaryDetailContract.Presenter {
@@ -15,7 +14,7 @@ public class LecturerAttendanceSummaryDetailPresenter implements LecturerAttenda
     private final LecturerAttendanceSummaryDetailContract.Interactor interactor;
 
     public LecturerAttendanceSummaryDetailPresenter(LecturerAttendanceSummaryDetailContract.View view,
-                                              LecturerAttendanceSummaryDetailContract.Interactor interactor) {
+                                                    LecturerAttendanceSummaryDetailContract.Interactor interactor) {
         this.view = view;
         this.interactor = interactor;
     }
@@ -33,6 +32,7 @@ public class LecturerAttendanceSummaryDetailPresenter implements LecturerAttenda
             public void requestSuccess(List<PresenceModel> data) {
                 view.endLoading();
                 view.showStudentAttendances(data);
+                processPresences(data);
             }
 
             @Override
@@ -41,5 +41,14 @@ public class LecturerAttendanceSummaryDetailPresenter implements LecturerAttenda
                 view.showError(message);
             }
         });
+    }
+
+    private void processPresences(List<PresenceModel> data) {
+        AttendanceStatusItem presenceStat = new AttendanceStatusItem(String.valueOf(data.stream().filter(d -> d.getStatus().equals("hadir")).count()), "Hadir", R.color.hadir);
+        AttendanceStatusItem excuseStat = new AttendanceStatusItem(String.valueOf(data.stream().filter(d -> d.getStatus().equals("izin")).count()), "Izin", R.color.ijin);
+        AttendanceStatusItem lateStat = new AttendanceStatusItem(String.valueOf(data.stream().filter(d -> d.getStatus().equals("terlambat")).count()), "Terlambat", R.color.telat);
+        AttendanceStatusItem absentStat = new AttendanceStatusItem(String.valueOf(data.stream().filter(d -> d.getStatus().equals("alpa")).count()), "Alpa", R.color.alpa);
+        List<AttendanceStatusItem> attendanceStats = Arrays.asList(presenceStat, excuseStat, lateStat, absentStat);
+        view.showAttendanceStats(attendanceStats);
     }
 }

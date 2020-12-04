@@ -4,8 +4,8 @@ import com.squarecheck.base.presenter.BasePresenter;
 import com.squarecheck.base.view.BaseView;
 import com.squarecheck.shared.callback.RequestCallback;
 import com.squarecheck.shared.model.Title;
+import com.squarecheck.student.model.AttendanceStatusItem;
 import com.squarecheck.student.model.PresenceModel;
-import com.squarecheck.student.model.StudentModel;
 
 import java.util.List;
 
@@ -20,6 +20,8 @@ public interface LecturerAttendanceSummaryDetailContract {
         void showStudentAttendances(List<PresenceModel> data);
 
         void showTitle(Title title);
+
+        void showAttendanceStats(List<AttendanceStatusItem> attendanceStats);
     }
 
     interface Presenter extends BasePresenter {

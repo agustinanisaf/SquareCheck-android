@@ -10,10 +10,9 @@
             type="String" />
     </data>
 
-    <LinearLayout
+    <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:orientation="vertical"
         app:layout_behavior="@string/appbar_scrolling_view_behavior">
 
         <TextView
@@ -21,15 +20,45 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="32dp"
-            android:padding="@dimen/gutter"
             android:text="@{time}"
-            android:textColor="?colorSecondary"
-            android:textStyle="bold" />
+            android:textAlignment="center"
+            android:textColor="@color/black"
+            android:textSize="20sp"
+            android:textStyle="bold"
+            tools:text="@string/schedule_placeholder" />
 
-        <LinearLayout
+        <com.github.mikephil.charting.charts.PieChart
+            android:id="@+id/attendance_chart"
+            android:layout_width="180dp"
+            android:layout_height="180dp"
+            android:layout_below="@id/tv_schedule_label"
+            android:layout_marginStart="@dimen/gutter"
+            android:layout_marginTop="30dp" />
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/attendance_summary_recycler"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_below="@id/tv_schedule_label"
+            android:layout_alignTop="@id/attendance_chart"
+            android:layout_marginStart="20dp"
+            android:layout_marginEnd="@dimen/gutter"
+            android:layout_toEndOf="@id/attendance_chart"
+            android:background="@null"
+            android:elevation="8dp"
+            android:outlineProvider="bounds"
+            app:layoutManager="androidx.recyclerview.widget.GridLayoutManager"
+            app:spanCount="2"
+            tools:itemCount="4"
+            tools:listitem="@layout/attendance_summary_card" />
+
+        <LinearLayout
+            android:id="@+id/recycler_header"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/attendance_summary_recycler"
             android:layout_marginStart="@dimen/gutter"
+            android:layout_marginTop="50dp"
             android:layout_marginEnd="@dimen/gutter"
             android:background="@color/black10p"
             android:padding="@dimen/gutter">
@@ -69,7 +98,8 @@
             android:id="@+id/recycler"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
+            android:layout_below="@id/recycler_header"
             tools:itemCount="6"
             tools:listitem="@layout/lecturer_attendance_layout" />
-    </LinearLayout>
+    </RelativeLayout>
 </layout>

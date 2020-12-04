@@ -18,8 +18,9 @@ public class LecturerAttendanceSummaryDetailActivity extends BaseFragmentHolderA
         Intent intent = getIntent();
         int scheduleId = intent.getIntExtra(SUBJECT_ID, 1);
         Title title = new Gson().fromJson(intent.getStringExtra(TITLE_ID), Title.class);
+        String time = intent.getStringExtra("TIME_ID");
 
-        LecturerAttendanceSummaryDetailFragment currentFragment = new LecturerAttendanceSummaryDetailFragment(scheduleId, title);
+        LecturerAttendanceSummaryDetailFragment currentFragment = new LecturerAttendanceSummaryDetailFragment(scheduleId, title, time);
         currentFragment.setPresenter(new LecturerAttendanceSummaryDetailPresenter(currentFragment, new LecturerAttendanceSummaryDetailInteractor()));
         setCurrentFragment(currentFragment, true);
     }
