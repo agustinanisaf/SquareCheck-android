@@ -10,6 +10,7 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.recyclerview.widget.LinearLayoutManager;
 
+import com.google.gson.Gson;
 import com.squarecheck.R;
 import com.squarecheck.base.view.BaseFragment;
 import com.squarecheck.databinding.ContentLecturerAttendanceSummaryBinding;
@@ -20,6 +21,8 @@ import com.squarecheck.shared.model.Title;
 import com.squarecheck.student.model.ScheduleModel;
 
 import java.util.List;
+
+import static com.squarecheck.lecturer.view.LecturerScheduleActionFragment.TITLE_ID;
 
 public class LecturerAttendanceSummaryFragment
         extends BaseFragment<LecturerAttendanceSummaryActivity, LecturerAttendanceSummaryContract.Presenter>
@@ -90,6 +93,7 @@ public class LecturerAttendanceSummaryFragment
     public void redirectToSummaryDetail(ScheduleModel schedule) {
         Intent intent = new Intent(getContext(), LecturerAttendanceSummaryDetailActivity.class);
         intent.putExtra(SCHEDULE_ID, schedule.getId());
+        intent.putExtra(TITLE_ID, new Gson().toJson(title));
         startActivity(intent);
     }
 }

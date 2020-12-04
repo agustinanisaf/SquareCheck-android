@@ -12,7 +12,7 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import com.squarecheck.R;
 import com.squarecheck.base.view.BaseFragment;
 import com.squarecheck.databinding.ContentLecturerAttendanceSummaryDetailBinding;
-import com.squarecheck.databinding.LecturerAttendanceSummaryDetailToolbarBinding;
+import com.squarecheck.databinding.LecturerAttendanceSummaryToolbarBinding;
 import com.squarecheck.lecturer.adapter.StudentAttendancesAdapter;
 import com.squarecheck.lecturer.contract.LecturerAttendanceSummaryDetailContract;
 import com.squarecheck.shared.model.Title;
@@ -37,7 +37,7 @@ public class LecturerAttendanceSummaryDetailFragment extends BaseFragment<Lectur
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         binding = ContentLecturerAttendanceSummaryDetailBinding.inflate(inflater, container, true);
-        setTitleLayout(R.layout.lecturer_attendance_summary_detail_toolbar);
+        setTitleLayout(R.layout.lecturer_attendance_summary_toolbar);
         return fragmentView;
     }
 
@@ -69,7 +69,7 @@ public class LecturerAttendanceSummaryDetailFragment extends BaseFragment<Lectur
 
     @Override
     public void showTitle(Title title) {
-        ((LecturerAttendanceSummaryDetailToolbarBinding) getTitleLayout()).setTitle(title);
+        ((LecturerAttendanceSummaryToolbarBinding) getTitleLayout()).setTitle(title);
     }
 
     @Override
