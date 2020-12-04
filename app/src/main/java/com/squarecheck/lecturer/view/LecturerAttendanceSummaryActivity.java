@@ -25,7 +25,7 @@ import com.squarecheck.shared.model.Title;
 import java.util.ArrayList;
 import java.util.List;
 
-import static com.squarecheck.lecturer.view.LecturerDashboardFragment.SCHEDULE_ID;
+import static com.squarecheck.lecturer.view.LecturerDashboardFragment.SUBJECT_ID;
 import static com.squarecheck.lecturer.view.LecturerScheduleActionFragment.TITLE_ID;
 
 public class LecturerAttendanceSummaryActivity extends BaseFragmentHolderActivity {
@@ -35,7 +35,7 @@ public class LecturerAttendanceSummaryActivity extends BaseFragmentHolderActivit
     @Override
     protected void initializeFragment() {
         Intent intent = getIntent();
-        int subjectId = intent.getIntExtra(SCHEDULE_ID, 1);
+        int subjectId = intent.getIntExtra(SUBJECT_ID, 1);
         Title title = new Gson().fromJson(intent.getStringExtra(TITLE_ID), Title.class);
 
         LecturerAttendanceSummaryFragment currentFragment = new LecturerAttendanceSummaryFragment(subjectId, title);

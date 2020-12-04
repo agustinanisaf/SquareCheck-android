@@ -19,7 +19,7 @@ import com.squarecheck.shared.model.Title;
 import com.squarecheck.shared.util.DateUtil;
 import com.squarecheck.student.model.ScheduleModel;
 
-import static com.squarecheck.lecturer.view.LecturerDashboardFragment.SCHEDULE_ID;
+import static com.squarecheck.lecturer.view.LecturerDashboardFragment.SUBJECT_ID;
 
 public class LecturerScheduleActionFragment
         extends BaseFragment<LecturerScheduleActionActivity, LecturerScheduleActionContract.Presenter>
@@ -102,7 +102,7 @@ public class LecturerScheduleActionFragment
 
     private void redirectToSummary(int subjectId) {
         Intent intent = new Intent(getContext(), LecturerAttendanceSummaryActivity.class);
-        intent.putExtra(SCHEDULE_ID, subjectId);
+        intent.putExtra(SUBJECT_ID, subjectId);
         intent.putExtra(TITLE_ID, title);
         startActivity(intent);
     }
