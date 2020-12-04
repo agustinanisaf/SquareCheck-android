@@ -11,6 +11,8 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 
 import com.squarecheck.R;
 import com.squarecheck.base.view.BaseFragment;
+import com.squarecheck.databinding.ContentLecturerAttendanceSummaryDetailBinding;
+import com.squarecheck.databinding.LecturerAttendanceSummaryDetailToolbarBinding;
 import com.squarecheck.lecturer.adapter.StudentAttendancesAdapter;
 import com.squarecheck.lecturer.contract.LecturerAttendanceSummaryDetailContract;
 import com.squarecheck.shared.model.Title;
