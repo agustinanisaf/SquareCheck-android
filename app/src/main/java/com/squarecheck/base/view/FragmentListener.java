@@ -6,4 +6,8 @@ public interface FragmentListener {
     ViewDataBinding getTitleLayout();
 
     void setTitleLayout(int layoutId);
+
+    ViewDataBinding getAdditionalLayout();
+
+    void setAdditionalLayout(int layoutId);
 }

@@ -33,4 +33,13 @@ public abstract class BaseFragment<T extends FragmentActivity, U extends BasePre
     protected void setTitleLayout(int layoutId) {
         fragmentListener.setTitleLayout(layoutId);
     }
+
+    public ViewDataBinding getAdditionalLayout() {
+        return fragmentListener.getAdditionalLayout();
+    }
+
+    public void setAdditionalLayout(int layoutId) {
+        fragmentListener.setAdditionalLayout(layoutId);
+    }
+
 }
