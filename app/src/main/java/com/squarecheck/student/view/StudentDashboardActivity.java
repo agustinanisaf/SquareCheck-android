@@ -10,15 +10,6 @@ public class StudentDashboardActivity extends BaseFragmentHolderActivity {
     StudentDashboardToolbarBinding inflate;
 
     @Override
-    protected void initializeView() {
-        super.initializeView();
-
-        inflate = StudentDashboardToolbarBinding
-                .inflate(this.getLayoutInflater(), binding.titleLayout, true);
-        inflate.ivProfilePhoto.setOnClickListener(view -> studentDashboardFragment.showLogoutConfirmation());
-    }
-
-    @Override
     protected void initializeFragment() {
         studentDashboardFragment = new StudentDashboardFragment();
         studentDashboardFragment.setPresenter(new StudentDashboardPresenter(studentDashboardFragment, new StudentDashboardInteractor()));
