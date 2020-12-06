@@ -2,6 +2,8 @@ package com.squarecheck.lecturer.interactor;
 
 import com.squarecheck.base.util.UtilProvider;
 import com.squarecheck.lecturer.contract.LecturerDashboardContract;
+import com.squarecheck.lecturer.model.LecturerModel;
+import com.squarecheck.lecturer.retrofit.LecturerService;
 import com.squarecheck.shared.callback.RequestCallback;
 import com.squarecheck.shared.model.APIResponseCollection;
 import com.squarecheck.shared.retrofit.ErrorUtil;
@@ -54,5 +56,28 @@ public class LecturerDashboardInteractor implements LecturerDashboardContract.In
     public void logout() {
         ((TokenUtil) UtilProvider.getUtil(TokenUtil.class)).destroy();
         ((UserUtil) UtilProvider.getUtil(UserUtil.class)).destroy();
+    }
+
+    @Override
+    public void requestDetail(RequestCallback<LecturerModel> requestCallback) {
+        LecturerService service = ServiceGenerator.createService(LecturerService.class);
+        Call<APIResponseCollection<LecturerModel>> call = service.getLecturer();
+
+        call.enqueue(new Callback<APIResponseCollection<LecturerModel>>() {
+            @Override
+            public void onResponse(@NotNull Call<APIResponseCollection<LecturerModel>> call,
+                                   @NotNull Response<APIResponseCollection<LecturerModel>> response) {
+                if (response.isSuccessful() && response.body() != null) {
+                    requestCallback.requestSuccess(response.body().getData());
+                } else {
+                    requestCallback.requestError(ErrorUtil.parseError(response).getDescription());
+                }
+            }
+
+            @Override
+            public void onFailure(@NotNull Call<APIResponseCollection<LecturerModel>> call, @NotNull Throwable t) {
+                requestCallback.requestError(t.getMessage());
+            }
+        });
     }
 }

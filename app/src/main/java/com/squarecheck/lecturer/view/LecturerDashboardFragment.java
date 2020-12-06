@@ -18,6 +18,7 @@ import com.squarecheck.databinding.ContentLecturerDashboardBinding;
 import com.squarecheck.lecturer.adapter.ScheduleClickListener;
 import com.squarecheck.lecturer.adapter.SchedulesAdapter;
 import com.squarecheck.lecturer.contract.LecturerDashboardContract;
+import com.squarecheck.lecturer.model.LecturerModel;
 import com.squarecheck.login.view.LoginActivity;
 import com.squarecheck.student.model.ScheduleModel;
 
@@ -110,5 +111,12 @@ public class LecturerDashboardFragment extends BaseFragment<LecturerDashboardAct
         });
         alertDialogBuilder.setCancelable(true);
         alertDialogBuilder.show();
+    }
+
+    @Override
+    public void showDetailProfile(LecturerModel lecturer) {
+        activity.toolbarBinding.tvProfileName.setText(lecturer.getName());
+        activity.toolbarBinding.tvProfileNrp.setText(lecturer.getNip());
+        activity.toolbarBinding.tvProfileClass.setText(lecturer.getDepartment().getName());
     }
 }
