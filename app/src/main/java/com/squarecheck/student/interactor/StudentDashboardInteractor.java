@@ -11,6 +11,7 @@ import com.squarecheck.shared.util.TokenUtil;
 import com.squarecheck.shared.util.UserUtil;
 import com.squarecheck.student.contract.StudentDashboardContract;
 import com.squarecheck.student.model.AttendanceStatusItem;
+import com.squarecheck.student.model.PresenceModel;
 import com.squarecheck.student.model.ScheduleModel;
 import com.squarecheck.student.model.StudentModel;
 import com.squarecheck.student.model.SubjectModel;
@@ -29,12 +30,12 @@ import retrofit2.Response;
 
 public class StudentDashboardInteractor implements StudentDashboardContract.Interactor {
     private static final String TAG = StudentDashboardInteractor.class.getSimpleName();
-    private final ScheduleService subjectService;
+    private final ScheduleService scheduleService;
     String token;
 
     public StudentDashboardInteractor() {
         token = ((TokenUtil) UtilProvider.getUtil(TokenUtil.class)).getSessionData().getToken();
-        subjectService = ServiceGenerator.createService(ScheduleService.class, token);
+        scheduleService = ServiceGenerator.createService(ScheduleService.class, token);
     }
 
     @Override
@@ -62,7 +63,7 @@ public class StudentDashboardInteractor implements StudentDashboardContract.Inte
 
     @Override
     public void requestCurrentSchedule(RequestCallback<ScheduleModel> requestCallback) {
-        Call<APIResponseCollection<List<ScheduleModel>>> call = subjectService.getSchedules();
+        Call<APIResponseCollection<List<ScheduleModel>>> call = scheduleService.getSchedules();
         call.enqueue(new RetrofitCallback<APIResponseCollection<List<ScheduleModel>>>(requestCallback, TAG, "requestCurrentSchedule") {
             @Override
             public Object processData(Object data) {
@@ -71,13 +72,19 @@ public class StudentDashboardInteractor implements StudentDashboardContract.Inte
         });
     }
 
+    @Override
+    public void requestAttend(int scheduleId, RequestCallback<PresenceModel> requestCallback) {
+        Call<APIResponseCollection<PresenceModel>> call = scheduleService.attend(scheduleId);
+        call.enqueue(new RetrofitCallback<>(requestCallback, TAG, "requestAttend"));
+    }
+
     private ScheduleModel processCurrentSchedule(List<ScheduleModel> data) {
-        return data.stream().filter(d -> d.getStartTime() != null).sorted().findFirst().orElse(null);
+        return data.stream().filter(d -> (d.getStartTime() != null && d.getEndTime() == null)).sorted().findFirst().orElse(null);
     }
 
     @Override
     public void requestAttendanceStats(RequestCallback<List<AttendanceStatusItem>> requestCallback) {
-        Call<APIResponseCollection<List<ScheduleModel>>> call = subjectService.getSummary();
+        Call<APIResponseCollection<List<ScheduleModel>>> call = scheduleService.getSummary();
         call.enqueue(new RetrofitCallback<APIResponseCollection<List<ScheduleModel>>>(requestCallback, TAG, "requestAttendanceStats") {
             @Override
             public Object processData(Object data) {
@@ -87,7 +94,7 @@ public class StudentDashboardInteractor implements StudentDashboardContract.Inte
     }
 
     private List<AttendanceStatusItem> processAttendanceStats(List<ScheduleModel> data) {
-        if (data != null || data.size() > 0) {
+        if (data.size() > 0) {
             AttendanceStatusItem presenceStat = new AttendanceStatusItem(String.valueOf(data.stream().filter(d -> d.getAttendances() != null && d.getAttendances().size() != 0 && d.getAttendances().get(0).getStatus().equals("hadir")).count()), "Hadir", R.color.hadir);
             AttendanceStatusItem excuseStat = new AttendanceStatusItem(String.valueOf(data.stream().filter(d -> d.getAttendances() != null && d.getAttendances().size() != 0 && d.getAttendances().get(0).getStatus().equals("izin")).count()), "Izin", R.color.ijin);
             AttendanceStatusItem lateStat = new AttendanceStatusItem(String.valueOf(data.stream().filter(d -> d.getAttendances() != null && d.getAttendances().size() != 0 && d.getAttendances().get(0).getStatus().equals("terlambat")).count()), "Terlambat", R.color.telat);
@@ -129,10 +136,5 @@ public class StudentDashboardInteractor implements StudentDashboardContract.Inte
     public void logout() {
         ((TokenUtil) UtilProvider.getUtil(TokenUtil.class)).destroy();
         ((UserUtil) UtilProvider.getUtil(UserUtil.class)).destroy();
-    }
-
-    @Override
-    public void attend() {
-
     }
 }

@@ -21,6 +21,7 @@ import com.squarecheck.student.adapter.ListSubjectRecyclerViewAdapter;
 import com.squarecheck.student.adapter.StudentAttendanceSummaryRecyclerViewAdapter;
 import com.squarecheck.student.contract.StudentDashboardContract;
 import com.squarecheck.student.model.AttendanceStatusItem;
+import com.squarecheck.student.model.PresenceModel;
 import com.squarecheck.student.model.ScheduleModel;
 import com.squarecheck.student.model.StudentModel;
 import com.squarecheck.student.model.SubjectModel;
@@ -85,8 +86,12 @@ public class StudentDashboardFragment extends BaseFragment<StudentDashboardActiv
 
     @Override
     public void showCurrentSchedule(ScheduleModel schedule) {
-        additionalLayout.setSchedule(schedule);
-        additionalLayout.btnAttend.setOnClickListener(v -> presenter.attend(schedule.getId()));
+        if (schedule != null) {
+            additionalLayout.setSchedule(schedule);
+            additionalLayout.btnAttend.setOnClickListener(v -> presenter.attend(schedule.getId()));
+        } else {
+            additionalLayout.cvAttendance.setVisibility(View.GONE);
+        }
     }
 
     @Override
@@ -120,6 +125,11 @@ public class StudentDashboardFragment extends BaseFragment<StudentDashboardActiv
 
         startActivity(intent);
         this.activity.finish();
+    }
+
+    @Override
+    public void redirectToNotificationSuccess(PresenceModel data) {
+        // TODO: Redirect to Notification Success
     }
 
     @Override

@@ -4,6 +4,7 @@ import com.squarecheck.base.presenter.BasePresenter;
 import com.squarecheck.base.view.BaseView;
 import com.squarecheck.shared.callback.RequestCallback;
 import com.squarecheck.student.model.AttendanceStatusItem;
+import com.squarecheck.student.model.PresenceModel;
 import com.squarecheck.student.model.ScheduleModel;
 import com.squarecheck.student.model.StudentModel;
 import com.squarecheck.student.model.SubjectModel;
@@ -31,6 +32,8 @@ public interface StudentDashboardContract {
         void showLogoutConfirmation();
 
         void redirectToLogin();
+
+        void redirectToNotificationSuccess(PresenceModel data);
     }
 
     interface Presenter extends BasePresenter {
@@ -54,12 +57,12 @@ public interface StudentDashboardContract {
 
         void requestCurrentSchedule(RequestCallback<ScheduleModel> requestCallback);
 
+        void requestAttend(int scheduleId, RequestCallback<PresenceModel> requestCallback);
+
         void requestAttendanceStats(RequestCallback<List<AttendanceStatusItem>> requestCallback);
 
         void requestDetail(RequestCallback<StudentModel> requestCallback);
 
         void logout();
-
-        void attend();
     }
 }
