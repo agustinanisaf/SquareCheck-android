@@ -37,6 +37,18 @@ public class StudentDashboardFragment extends BaseFragment<StudentDashboardActiv
     }
 
     @Override
+    public void onStop() {
+        super.onStop();
+        getActivity().findViewById(R.id.menu_prev).setVisibility(View.VISIBLE);
+    }
+
+    @Override
+    public void onResume() {
+        super.onResume();
+        getActivity().findViewById(R.id.menu_prev).setVisibility(View.GONE);
+    }
+
+    @Override
     public void onStart() {
         super.onStart();
         presenter.start();
