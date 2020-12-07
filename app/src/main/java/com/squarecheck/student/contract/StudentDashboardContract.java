@@ -34,6 +34,8 @@ public interface StudentDashboardContract {
         void redirectToLogin();
 
         void redirectToNotificationSuccess(PresenceModel data);
+
+        void showProfileImage(String imgPath);
     }
 
     interface Presenter extends BasePresenter {
@@ -50,6 +52,8 @@ public interface StudentDashboardContract {
         String showNextTitle(SubjectModel subject);
 
         void attend(Integer id);
+
+        void requestProfileImage();
     }
 
     interface Interactor {
@@ -64,5 +68,7 @@ public interface StudentDashboardContract {
         void requestDetail(RequestCallback<StudentModel> requestCallback);
 
         void logout();
+
+        void requestProfileImage();
     }
 }

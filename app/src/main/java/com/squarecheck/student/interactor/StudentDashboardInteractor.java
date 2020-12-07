@@ -137,4 +137,9 @@ public class StudentDashboardInteractor implements StudentDashboardContract.Inte
         ((TokenUtil) UtilProvider.getUtil(TokenUtil.class)).destroy();
         ((UserUtil) UtilProvider.getUtil(UserUtil.class)).destroy();
     }
+
+    @Override
+    public void requestProfileImage() {
+        // TODO : Fetch Image Link from backend
+    }
 }
