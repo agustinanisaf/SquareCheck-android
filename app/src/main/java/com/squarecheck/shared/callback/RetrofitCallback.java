@@ -31,9 +31,9 @@ public class RetrofitCallback<T> implements Callback<T> {
         if (response.isSuccessful() && response.body() != null) {
             Log.d(tag, methodName + ": onResponse: success");
             if (response.body() instanceof APIResponseCollection) {
-                callback.requestSuccess(((APIResponseCollection) response.body()).getData());
+                callback.requestSuccess(processData(((APIResponseCollection) response.body()).getData()));
             } else {
-                callback.requestSuccess(response.body());
+                callback.requestSuccess(processData(response.body()));
             }
         } else {
             APIResponse apiResponse = ErrorUtil.parseError(response);
@@ -46,5 +46,9 @@ public class RetrofitCallback<T> implements Callback<T> {
     public void onFailure(@NonNull Call<T> call, @NonNull Throwable t) {
         Log.d(tag, methodName + ": onFailure: failure: " + t.getMessage());
         callback.requestError(t.getMessage());
+    }
+
+    public Object processData(Object data) {
+        return data;
     }
 }

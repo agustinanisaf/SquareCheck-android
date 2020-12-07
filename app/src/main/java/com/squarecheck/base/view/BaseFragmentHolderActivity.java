@@ -10,6 +10,7 @@ public abstract class BaseFragmentHolderActivity extends BaseActivity {
 
     protected ActivityBaseBinding binding;
     protected ViewDataBinding titleToolbarBinding;
+    protected ViewDataBinding additionalToolbarBinding;
 
     @Override
     protected void initializeView() {
@@ -28,5 +29,15 @@ public abstract class BaseFragmentHolderActivity extends BaseActivity {
     @Override
     public void setTitleLayout(int layoutId) {
         titleToolbarBinding = DataBindingUtil.inflate(getLayoutInflater(), layoutId, this.binding.titleLayout, true);
+    }
+
+    @Override
+    public ViewDataBinding getAdditionalLayout() {
+        return additionalToolbarBinding;
+    }
+
+    @Override
+    public void setAdditionalLayout(int layoutId) {
+        additionalToolbarBinding = DataBindingUtil.inflate(getLayoutInflater(), layoutId, this.binding.additionalLayout, true);
     }
 }
