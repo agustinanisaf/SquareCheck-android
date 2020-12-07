@@ -22,6 +22,7 @@ public interface LecturerDashboardContract {
 
         void showLogoutConfirmation();
         void showDetailProfile(LecturerModel student);
+        void showProfileImage(String imgPath);
     }
 
     interface Presenter extends BasePresenter {
@@ -29,6 +30,7 @@ public interface LecturerDashboardContract {
 
         void logout();
         void requestDetail();
+        void requestProfileImage();
     }
 
     interface Interactor {
@@ -36,5 +38,6 @@ public interface LecturerDashboardContract {
 
         void logout();
         void requestDetail(RequestCallback<LecturerModel> requestCallback);
+        void requestProfileImage();
     }
 }

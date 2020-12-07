@@ -6,11 +6,14 @@ import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
 import android.widget.Toast;
 
 import androidx.annotation.Nullable;
 import androidx.recyclerview.widget.LinearLayoutManager;
 
+import com.bumptech.glide.Glide;
+import com.bumptech.glide.request.RequestOptions;
 import com.squarecheck.R;
 import com.squarecheck.base.view.BaseFragment;
 import com.squarecheck.databinding.ContentStudentDashboardBinding;
@@ -159,5 +162,18 @@ public class StudentDashboardFragment extends BaseFragment<StudentDashboardActiv
         titleLayoutBinding = (StudentDashboardToolbarBinding) getTitleLayout();
         additionalLayout = (DashboardAttendanceToolbarBinding) getAdditionalLayout();
         titleLayoutBinding.ivProfilePhoto.setOnClickListener(v -> this.showLogoutConfirmation());
+    }
+
+    @Override
+    public void showProfileImage(String imgURL) {
+        ImageView profileImg = titleLayoutBinding.ivProfilePhoto;
+
+        Glide.with(this)
+                .load(imgURL)
+                .circleCrop()
+                .placeholder(R.drawable.default_profile)
+                .error(R.drawable.default_profile)
+                .apply(new RequestOptions().override(profileImg.getWidth(), profileImg.getHeight()))
+                .into(profileImg);
     }
 }

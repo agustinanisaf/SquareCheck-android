@@ -80,4 +80,9 @@ public class LecturerDashboardInteractor implements LecturerDashboardContract.In
             }
         });
     }
+
+    @Override
+    public void requestProfileImage() {
+        // TODO : Fetch Image Link from backend
+    }
 }

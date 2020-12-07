@@ -110,11 +110,19 @@ public class StudentDashboardPresenter implements StudentDashboardContract.Prese
         requestAttendanceStats();
         requestCurrentSchedule();
         requestSubjectsList();
+        requestProfileImage();
     }
 
     @Override
     public void logout() {
         interactor.logout();
         view.redirectToLogin();
+    }
+
+    @Override
+    public void requestProfileImage() {
+        String imgURL = "";
+        interactor.requestProfileImage();
+        view.showProfileImage(imgURL);
     }
 }

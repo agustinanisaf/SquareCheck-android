@@ -24,6 +24,7 @@ public class LecturerDashboardPresenter implements LecturerDashboardContract.Pre
         view.initView();
         requestDetail();
         requestSchedules();
+        requestProfileImage();
     }
 
     @Override
@@ -63,5 +64,12 @@ public class LecturerDashboardPresenter implements LecturerDashboardContract.Pre
                 Log.d("1", message);
             }
         });
+    }
+
+    @Override
+    public void requestProfileImage() {
+        String imgURL = "";
+        interactor.requestProfileImage();
+        view.showProfileImage(imgURL);
     }
 }
