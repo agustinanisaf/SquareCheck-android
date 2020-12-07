@@ -30,6 +30,7 @@
 
         <activity android:name=".student.view.StudentDashboardActivity" />
         <activity android:name=".student.view.StudentAttendanceDetailActivity" />
+        <activity android:name=".student.view.StudentAttendanceNotificationActivity" />
         <activity android:name=".lecturer.view.LecturerDashboardActivity" />
         <activity android:name=".lecturer.view.LecturerScheduleActionActivity" />
         <activity android:name=".lecturer.view.LecturerAttendanceSummaryActivity" />
