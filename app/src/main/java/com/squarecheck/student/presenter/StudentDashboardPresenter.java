@@ -1,17 +1,17 @@
 package com.squarecheck.student.presenter;
 
 import android.util.Log;
-import android.widget.TextView;
 
+import com.google.gson.Gson;
 import com.squarecheck.shared.callback.RequestCallback;
+import com.squarecheck.shared.model.Title;
 import com.squarecheck.student.contract.StudentDashboardContract;
+import com.squarecheck.student.model.AttendanceStatusItem;
+import com.squarecheck.student.model.PresenceModel;
 import com.squarecheck.student.model.ScheduleModel;
 import com.squarecheck.student.model.StudentModel;
 import com.squarecheck.student.model.SubjectModel;
 
-import org.w3c.dom.Text;
-
-import java.util.ArrayList;
 import java.util.List;
 
 public class StudentDashboardPresenter implements StudentDashboardContract.Presenter {
@@ -39,6 +39,36 @@ public class StudentDashboardPresenter implements StudentDashboardContract.Prese
     }
 
     @Override
+    public void requestCurrentSchedule() {
+        interactor.requestCurrentSchedule(new RequestCallback<ScheduleModel>() {
+            @Override
+            public void requestSuccess(ScheduleModel data) {
+                view.showCurrentSchedule(data);
+            }
+
+            @Override
+            public void requestError(String message) {
+                view.showError(message);
+            }
+        });
+    }
+
+    @Override
+    public void requestAttendanceStats() {
+        interactor.requestAttendanceStats(new RequestCallback<List<AttendanceStatusItem>>() {
+            @Override
+            public void requestSuccess(List<AttendanceStatusItem> data) {
+                view.showAttendanceStats(data);
+            }
+
+            @Override
+            public void requestError(String message) {
+                view.showError(message);
+            }
+        });
+    }
+
+    @Override
     public void requestDetail() {
         interactor.requestDetail(new RequestCallback<StudentModel>() {
             @Override
@@ -51,13 +81,48 @@ public class StudentDashboardPresenter implements StudentDashboardContract.Prese
                 Log.d("1", message);
             }
         });
-        
+    }
+
+    @Override
+    public String showNextTitle(SubjectModel subject) {
+        return new Gson().toJson(new Title(subject.getName(), subject.getLecturer().getName()));
+    }
+
+    @Override
+    public void attend(Integer scheduleId) {
+        interactor.requestAttend(scheduleId, new RequestCallback<PresenceModel>() {
+            @Override
+            public void requestSuccess(PresenceModel data) {
+                view.redirectToNotificationSuccess(data);
+            }
+
+            @Override
+            public void requestError(String message) {
+                view.showError(message);
+            }
+        });
     }
 
     @Override
     public void start() {
         view.initView();
         requestDetail();
+        requestAttendanceStats();
+        requestCurrentSchedule();
         requestSubjectsList();
+        requestProfileImage();
+    }
+
+    @Override
+    public void logout() {
+        interactor.logout();
+        view.redirectToLogin();
+    }
+
+    @Override
+    public void requestProfileImage() {
+        String imgURL = "";
+        interactor.requestProfileImage();
+        view.showProfileImage(imgURL);
     }
 }

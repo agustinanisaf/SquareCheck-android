@@ -1,6 +1,9 @@
 package com.squarecheck.lecturer.presenter;
 
+import android.util.Log;
+
 import com.squarecheck.lecturer.contract.LecturerDashboardContract;
+import com.squarecheck.lecturer.model.LecturerModel;
 import com.squarecheck.shared.callback.RequestCallback;
 import com.squarecheck.student.model.ScheduleModel;
 
@@ -19,7 +22,9 @@ public class LecturerDashboardPresenter implements LecturerDashboardContract.Pre
     @Override
     public void start() {
         view.initView();
+        requestDetail();
         requestSchedules();
+        requestProfileImage();
     }
 
     @Override
@@ -38,5 +43,33 @@ public class LecturerDashboardPresenter implements LecturerDashboardContract.Pre
                 view.showError(message);
             }
         });
+    }
+
+    @Override
+    public void logout() {
+        interactor.logout();
+        view.redirectToLogin();
+    }
+
+    @Override
+    public void requestDetail() {
+        interactor.requestDetail(new RequestCallback<LecturerModel>() {
+            @Override
+            public void requestSuccess(LecturerModel data) {
+                view.showDetailProfile(data);
+            }
+
+            @Override
+            public void requestError(String message) {
+                Log.d("1", message);
+            }
+        });
+    }
+
+    @Override
+    public void requestProfileImage() {
+        String imgURL = "";
+        interactor.requestProfileImage();
+        view.showProfileImage(imgURL);
     }
 }

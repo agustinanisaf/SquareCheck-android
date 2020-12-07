@@ -24,4 +24,10 @@ public class DateUtil {
         DateFormat dateFormat = new SimpleDateFormat("EEEE, d MMMM yyyy");
         return (date != null) ? dateFormat.format(date) : null;
     }
+
+    public static String getTime(Date date) {
+        @SuppressLint("SimpleDateFormat")
+        DateFormat dateFormat = new SimpleDateFormat("hh:MM");
+        return (date != null) ? dateFormat.format(date) : "-- : --";
+    }
 }

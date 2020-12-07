@@ -2,11 +2,14 @@ package com.squarecheck.login.presenter;
 
 import android.util.Log;
 
+import com.squarecheck.base.util.UtilProvider;
 import com.squarecheck.login.contract.LoginContract;
 import com.squarecheck.login.interactor.LoginInteractor;
 import com.squarecheck.login.model.Token;
 import com.squarecheck.login.model.User;
 import com.squarecheck.shared.callback.RequestCallback;
+import com.squarecheck.shared.util.TokenUtil;
+import com.squarecheck.shared.util.UserUtil;
 
 public class LoginPresenter implements LoginContract.Presenter {
     private static final String TAG = LoginPresenter.class.getSimpleName();
@@ -20,6 +23,7 @@ public class LoginPresenter implements LoginContract.Presenter {
 
     @Override
     public void start() {
+        checkIfAlreadyLogin();
         view.initView();
     }
 
@@ -77,5 +81,13 @@ public class LoginPresenter implements LoginContract.Presenter {
     public void registerFCMToken(Token apiToken) {
         Log.d(TAG, "registerFCMToken: Get Device FCM Token and send back to server");
         // loginInteractor.requestRegisterFCMToken(apiToken, );
+    }
+
+    public void checkIfAlreadyLogin(){
+        Token token = ((TokenUtil) UtilProvider.getUtil(TokenUtil.class)).getSessionData();
+
+        if(token != null){
+            this.requestUser(token);
+        }
     }
 }
