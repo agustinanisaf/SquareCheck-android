@@ -1,18 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
 <layout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools">
 
     <data>
+
         <variable
-            name="subject"
-            type="String" />
-        <variable
-            name="time"
-            type="String" />
-        <variable
-            name="status"
-            type="String" />
+            name="presence"
+            type="com.squarecheck.student.model.NotificationPresenceItem" />
     </data>
 
     <LinearLayout
@@ -26,11 +20,12 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
+            android:text="@{presence.subjectName}"
             android:textAlignment="center"
             android:textColor="?colorSecondaryDarker"
             android:textSize="24sp"
             android:textStyle="bold"
-            tools:text="@{subject}" />
+            tools:text="@string/subject_placeholder" />
 
         <ImageView
             android:id="@+id/imageView"
@@ -41,7 +36,7 @@
             android:adjustViewBounds="true"
             android:contentDescription="@string/notification_design_desc"
             android:scaleType="fitCenter"
-            app:srcCompat="@drawable/notification" />
+            android:src="@drawable/notification" />
 
         <TextView
             android:id="@+id/tv_presence_time"
@@ -49,9 +44,11 @@
             android:layout_height="wrap_content"
             android:layout_gravity="center"
             android:layout_marginTop="30dp"
+            android:text="@{presence.time}"
             android:textSize="60sp"
             android:textStyle="bold"
-            tools:text="@{time}"
+            android:textColor="@{context.getColor(presence.color)}"
+            tools:text="@string/presence_time_placeholder"
             tools:textColor="@color/hadir" />
 
         <TextView
@@ -60,9 +57,10 @@
             android:layout_height="wrap_content"
             android:layout_gravity="center"
             android:layout_marginTop="4dp"
+            android:text="@{presence.status}"
             android:textColor="@color/gray"
             android:textStyle="bold"
-            tools:text="@{status}" />
+            tools:text="@string/presence_status_placeholder" />
 
         <Button
             android:id="@+id/btn_notification_finish"

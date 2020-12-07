@@ -11,6 +11,7 @@ import com.squarecheck.shared.util.TokenUtil;
 import com.squarecheck.shared.util.UserUtil;
 import com.squarecheck.student.contract.StudentDashboardContract;
 import com.squarecheck.student.model.AttendanceStatusItem;
+import com.squarecheck.student.model.NotificationPresenceItem;
 import com.squarecheck.student.model.PresenceModel;
 import com.squarecheck.student.model.ScheduleModel;
 import com.squarecheck.student.model.StudentModel;
@@ -73,9 +74,18 @@ public class StudentDashboardInteractor implements StudentDashboardContract.Inte
     }
 
     @Override
-    public void requestAttend(int scheduleId, RequestCallback<PresenceModel> requestCallback) {
-        Call<APIResponseCollection<PresenceModel>> call = scheduleService.attend(scheduleId);
-        call.enqueue(new RetrofitCallback<>(requestCallback, TAG, "requestAttend"));
+    public void requestAttend(ScheduleModel schedule, RequestCallback<NotificationPresenceItem> requestCallback) {
+        Call<APIResponseCollection<PresenceModel>> call = scheduleService.attend(schedule.getId());
+        call.enqueue(new RetrofitCallback<APIResponseCollection<PresenceModel>>(requestCallback, TAG, "requestAttend") {
+            @Override
+            public Object processData(Object data) {
+                return processAttend(schedule, (PresenceModel) data);
+            }
+        });
+    }
+
+    private NotificationPresenceItem processAttend(ScheduleModel schedule, PresenceModel data) {
+        return NotificationPresenceItem.fromPresence(schedule, data);
     }
 
     private ScheduleModel processCurrentSchedule(List<ScheduleModel> data) {

@@ -7,7 +7,7 @@ import com.squarecheck.shared.callback.RequestCallback;
 import com.squarecheck.shared.model.Title;
 import com.squarecheck.student.contract.StudentDashboardContract;
 import com.squarecheck.student.model.AttendanceStatusItem;
-import com.squarecheck.student.model.PresenceModel;
+import com.squarecheck.student.model.NotificationPresenceItem;
 import com.squarecheck.student.model.ScheduleModel;
 import com.squarecheck.student.model.StudentModel;
 import com.squarecheck.student.model.SubjectModel;
@@ -89,10 +89,10 @@ public class StudentDashboardPresenter implements StudentDashboardContract.Prese
     }
 
     @Override
-    public void attend(Integer scheduleId) {
-        interactor.requestAttend(scheduleId, new RequestCallback<PresenceModel>() {
+    public void attend(ScheduleModel schedule) {
+        interactor.requestAttend(schedule, new RequestCallback<NotificationPresenceItem>() {
             @Override
-            public void requestSuccess(PresenceModel data) {
+            public void requestSuccess(NotificationPresenceItem data) {
                 view.redirectToNotificationSuccess(data);
             }
 

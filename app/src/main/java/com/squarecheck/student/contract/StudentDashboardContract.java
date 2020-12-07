@@ -4,7 +4,7 @@ import com.squarecheck.base.presenter.BasePresenter;
 import com.squarecheck.base.view.BaseView;
 import com.squarecheck.shared.callback.RequestCallback;
 import com.squarecheck.student.model.AttendanceStatusItem;
-import com.squarecheck.student.model.PresenceModel;
+import com.squarecheck.student.model.NotificationPresenceItem;
 import com.squarecheck.student.model.ScheduleModel;
 import com.squarecheck.student.model.StudentModel;
 import com.squarecheck.student.model.SubjectModel;
@@ -33,7 +33,7 @@ public interface StudentDashboardContract {
 
         void redirectToLogin();
 
-        void redirectToNotificationSuccess(PresenceModel data);
+        void redirectToNotificationSuccess(NotificationPresenceItem data);
 
         void showProfileImage(String imgPath);
     }
@@ -51,7 +51,7 @@ public interface StudentDashboardContract {
 
         String showNextTitle(SubjectModel subject);
 
-        void attend(Integer id);
+        void attend(ScheduleModel schedule);
 
         void requestProfileImage();
     }
@@ -61,7 +61,7 @@ public interface StudentDashboardContract {
 
         void requestCurrentSchedule(RequestCallback<ScheduleModel> requestCallback);
 
-        void requestAttend(int scheduleId, RequestCallback<PresenceModel> requestCallback);
+        void requestAttend(ScheduleModel schedule, RequestCallback<NotificationPresenceItem> requestCallback);
 
         void requestAttendanceStats(RequestCallback<List<AttendanceStatusItem>> requestCallback);
 

@@ -14,6 +14,7 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 
 import com.bumptech.glide.Glide;
 import com.bumptech.glide.request.RequestOptions;
+import com.google.gson.Gson;
 import com.squarecheck.R;
 import com.squarecheck.base.view.BaseFragment;
 import com.squarecheck.databinding.ContentStudentDashboardBinding;
@@ -24,7 +25,7 @@ import com.squarecheck.student.adapter.ListSubjectRecyclerViewAdapter;
 import com.squarecheck.student.adapter.StudentAttendanceSummaryRecyclerViewAdapter;
 import com.squarecheck.student.contract.StudentDashboardContract;
 import com.squarecheck.student.model.AttendanceStatusItem;
-import com.squarecheck.student.model.PresenceModel;
+import com.squarecheck.student.model.NotificationPresenceItem;
 import com.squarecheck.student.model.ScheduleModel;
 import com.squarecheck.student.model.StudentModel;
 import com.squarecheck.student.model.SubjectModel;
@@ -38,6 +39,7 @@ public class StudentDashboardFragment extends BaseFragment<StudentDashboardActiv
 
     public final static String SUBJECT_ID = "SUBJECT_ID";
     public final static String TITLE_ID = "TITLE_ID";
+    public final static String PRESENCE_ID = "PRESENCE_ID";
     private DashboardAttendanceToolbarBinding additionalLayout;
     private StudentDashboardToolbarBinding titleLayoutBinding;
 
@@ -103,7 +105,7 @@ public class StudentDashboardFragment extends BaseFragment<StudentDashboardActiv
     public void showCurrentSchedule(ScheduleModel schedule) {
         if (schedule != null) {
             additionalLayout.setSchedule(schedule);
-            additionalLayout.btnAttend.setOnClickListener(v -> presenter.attend(schedule.getId()));
+            additionalLayout.btnAttend.setOnClickListener(v -> presenter.attend(schedule));
         } else {
             additionalLayout.cvAttendance.setVisibility(View.GONE);
         }
@@ -143,8 +145,11 @@ public class StudentDashboardFragment extends BaseFragment<StudentDashboardActiv
     }
 
     @Override
-    public void redirectToNotificationSuccess(PresenceModel data) {
-        // TODO: Redirect to Notification Success
+    public void redirectToNotificationSuccess(NotificationPresenceItem data) {
+        Intent intent = new Intent(getContext(), StudentAttendanceNotificationActivity.class);
+        intent.putExtra(PRESENCE_ID, new Gson().toJson(data));
+
+        startActivity(intent);
     }
 
     @Override
