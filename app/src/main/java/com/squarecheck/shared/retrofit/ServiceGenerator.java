@@ -22,6 +22,9 @@ public class ServiceGenerator {
             .setVersion(1.0)
             .create();
 
+    private static HttpLoggingInterceptor logging = new HttpLoggingInterceptor().setLevel((BuildConfig.DEBUG) ?
+            HttpLoggingInterceptor.Level.BODY : HttpLoggingInterceptor.Level.BASIC);
+
     private static Retrofit.Builder builder =
             new Retrofit.Builder()
                     .baseUrl(BASE_URL)
@@ -29,7 +32,8 @@ public class ServiceGenerator {
 
     private static Retrofit retrofit = builder.build();
 
-    private static OkHttpClient.Builder httpClient = new OkHttpClient.Builder();
+    private static OkHttpClient.Builder httpClient = new OkHttpClient.Builder()
+            .addInterceptor(logging);
 
     public static <S> S createService(Class<S> serviceClass) {
         return createService(serviceClass, null);
@@ -43,17 +47,6 @@ public class ServiceGenerator {
             if (!httpClient.interceptors().contains(interceptor)) {
                 httpClient.addInterceptor(interceptor);
             }
-        }
-        if (BuildConfig.DEBUG) {
-            HttpLoggingInterceptor logging = new HttpLoggingInterceptor();
-            logging.level(HttpLoggingInterceptor.Level.BODY);
-
-            httpClient.addInterceptor(logging);
-        } else {
-            HttpLoggingInterceptor logging = new HttpLoggingInterceptor();
-            logging.level(HttpLoggingInterceptor.Level.BASIC);
-
-            httpClient.addInterceptor(logging);
         }
 
         builder.client(httpClient.build());
