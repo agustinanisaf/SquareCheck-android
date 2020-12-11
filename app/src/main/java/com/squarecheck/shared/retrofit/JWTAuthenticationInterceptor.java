@@ -26,4 +26,19 @@ public class JWTAuthenticationInterceptor implements Interceptor {
         Request request = builder.build();
         return chain.proceed(request);
     }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (!(o instanceof JWTAuthenticationInterceptor)) return false;
+
+        JWTAuthenticationInterceptor that = (JWTAuthenticationInterceptor) o;
+
+        return token.equals(that.token);
+    }
+
+    @Override
+    public int hashCode() {
+        return token.hashCode();
+    }
 }
