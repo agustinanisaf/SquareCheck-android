@@ -25,12 +25,20 @@ public interface LecturerScheduleActionContract {
         void showTitle(Title title);
 
         void setTitle(String title);
+
+        void changeButtonToClose();
+
+        void disableOpenButton();
+
+        void enableOpenButton();
     }
 
     interface Presenter extends BasePresenter {
         void requestSchedule(Integer scheduleId);
 
         void openSchedule(int scheduleId);
+
+        void closeSchedule(int scheduleId);
 
         void requestAttendances(int scheduleId);
 
@@ -41,6 +49,8 @@ public interface LecturerScheduleActionContract {
         void requestSchedule(Integer scheduleId, RequestCallback<ScheduleModel> callback);
 
         void requestOpenSchedule(int scheduleId, RequestCallback<ScheduleModel> callback);
+
+        void requestCloseSchedule(int scheduleId, RequestCallback<ScheduleModel> callback);
 
         void requestRemoveSchedule(int scheduleId, RequestCallback<APIResponse> callback);
 

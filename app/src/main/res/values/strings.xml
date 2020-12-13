@@ -51,6 +51,7 @@
     <string name="class_subject">Kelas - Matakuliah</string>
     <string name="attend">Hadir</string>
     <string name="open_attendance">Buka Absensi</string>
+    <string name="close_attendance">Tutup Absensi</string>
     <string name="remove_attendance">HAPUS ABSENSI</string>
     <string name="attendance_summary">REKAP ABSENSI</string>
     <string name="dash">-</string>

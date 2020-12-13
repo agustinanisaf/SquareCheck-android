@@ -131,4 +131,30 @@ public class LecturerScheduleActionInteractor implements LecturerScheduleActionC
             }
         });
     }
+
+    @Override
+    public void requestCloseSchedule(int scheduleId, RequestCallback<ScheduleModel> callback) {
+        Call<APIResponseCollection<ScheduleModel>> call = service.close(scheduleId);
+        call.enqueue(new Callback<APIResponseCollection<ScheduleModel>>() {
+            @Override
+            public void onResponse(@NonNull Call<APIResponseCollection<ScheduleModel>> call,
+                                   @NonNull Response<APIResponseCollection<ScheduleModel>> response) {
+                if (response.isSuccessful() && response.body() != null) {
+                    Log.d(TAG, "requestOpenSchedule: onResponse: success");
+                    callback.requestSuccess(response.body().getData());
+                } else {
+                    APIResponse apiResponse = ErrorUtil.parseError(response);
+                    Log.d(TAG, "requestOpenSchedule: onResponse: failed: " + apiResponse.getDescription());
+                    callback.requestError(apiResponse.getDescription());
+                }
+            }
+
+            @Override
+            public void onFailure(@NonNull Call<APIResponseCollection<ScheduleModel>> call,
+                                  @NonNull Throwable t) {
+                Log.d(TAG, "requestOpenSchedule: onFailure: failure: " + t.getMessage());
+                callback.requestError(t.getMessage());
+            }
+        });
+    }
 }

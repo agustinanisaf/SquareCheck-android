@@ -5,6 +5,7 @@ import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
@@ -47,6 +48,7 @@ public class LecturerScheduleActionFragment
     @Override
     public void onStart() {
         super.onStart();
+        disableOpenButton();
         presenter.start();
         presenter.requestSchedule(scheduleId);
     }
@@ -80,6 +82,43 @@ public class LecturerScheduleActionFragment
     }
 
     @Override
+    public void changeButtonToClose() {
+        Button openButton = (Button)getActivity().findViewById(R.id.btn_open_attendance);
+
+        //change text and onclick to close attendance
+        openButton.setText(R.string.close_attendance);
+        openButton.setEnabled(true);
+        openButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                presenter.closeSchedule(scheduleId);
+            }
+        });
+    }
+
+    public void disableOpenButton(){
+        Button openButton = (Button)getActivity().findViewById(R.id.btn_open_attendance);
+
+        //change text and onclick to open attendance
+        openButton.setText(R.string.open_attendance);
+        openButton.setEnabled(false);
+    }
+
+    public void enableOpenButton(){
+        Button openButton = (Button)getActivity().findViewById(R.id.btn_open_attendance);
+
+        //change text and onclick to open attendance
+        openButton.setText(R.string.open_attendance);
+        openButton.setEnabled(true);
+        openButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                presenter.openSchedule(scheduleId);
+            }
+        });
+    }
+
+    @Override
     public void showTitle(Title title) {
         ((LecturerAttendanceSummaryToolbarBinding) getTitleLayout()).setTitle(title);
     }
@@ -105,5 +144,9 @@ public class LecturerScheduleActionFragment
         intent.putExtra(SUBJECT_ID, subjectId);
         intent.putExtra(TITLE_ID, title);
         startActivity(intent);
+    }
+
+    public int getScheduleId() {
+        return scheduleId;
     }
 }
