@@ -24,6 +24,14 @@ public class LecturerScheduleActionPresenter implements LecturerScheduleActionCo
         view.initView();
     }
 
+    private boolean checkIfAlreadyOpened(ScheduleModel schedule){
+        return schedule.getStartTime() != null;
+    }
+
+    private boolean checkIfAlreadyClosed(ScheduleModel schedule){
+        return schedule.getEndTime() != null;
+    }
+
     @Override
     public void requestSchedule(Integer scheduleId) {
         view.startLoading();
@@ -34,6 +42,11 @@ public class LecturerScheduleActionPresenter implements LecturerScheduleActionCo
                 view.showAttendances("0", "0");
                 processTitle(data);
                 requestAttendances(scheduleId);
+                view.enableOpenButton();
+                if(checkIfAlreadyClosed(data))
+                    view.disableOpenButton();
+                else if(checkIfAlreadyOpened(data))
+                    view.changeButtonToClose();
             }
 
             @Override
@@ -57,6 +70,26 @@ public class LecturerScheduleActionPresenter implements LecturerScheduleActionCo
             @Override
             public void requestSuccess(ScheduleModel data) {
                 requestAttendances(scheduleId);
+                view.changeButtonToClose();
+            }
+
+            @Override
+            public void requestError(String message) {
+                view.endLoading();
+                view.showError(message);
+            }
+        });
+    }
+
+    @Override
+    public void closeSchedule(int scheduleId) {
+        view.startLoading();
+        interactor.requestCloseSchedule(scheduleId, new RequestCallback<ScheduleModel>() {
+            @Override
+            public void requestSuccess(ScheduleModel data) {
+                view.endLoading();
+                //view.showAttendances("0", "0");
+                view.disableOpenButton();
             }
 
             @Override
