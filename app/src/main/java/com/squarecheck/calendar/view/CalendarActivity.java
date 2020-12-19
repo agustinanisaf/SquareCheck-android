@@ -14,6 +14,8 @@ import com.kizitonwose.calendarview.ui.MonthHeaderFooterBinder;
 import com.kizitonwose.calendarview.ui.ViewContainer;
 import com.squarecheck.R;
 import com.squarecheck.base.view.BaseFragmentHolderActivity;
+import com.squarecheck.calendar.interactor.CalendarInteractor;
+import com.squarecheck.calendar.presenter.CalendarPresenter;
 
 import org.jetbrains.annotations.NotNull;
 
@@ -65,7 +67,9 @@ public class CalendarActivity extends BaseFragmentHolderActivity {
 
     @Override
     protected void initializeFragment() {
-
+        CalendarFragment currentFragment = new CalendarFragment();
+        currentFragment.setPresenter(new CalendarPresenter(currentFragment, new CalendarInteractor()));
+        setCurrentFragment(currentFragment, false);
     }
 
     static class DayViewContainer extends ViewContainer {
