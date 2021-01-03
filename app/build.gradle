@@ -20,11 +20,11 @@ android {
 
     buildTypes {
         debug {
-            buildConfigField 'String', 'baseUrl', '"http://10.0.2.2/api/"'
+            buildConfigField 'String', 'baseUrl', '"http://10.0.2.2/"'
         }
         release {
-            buildConfigField 'String', 'baseUrl', '"http://api.square-check.me/"'
-            minifyEnabled false
+            buildConfigField 'String', 'baseUrl', '"https://api.square-check.me/"'
+            minifyEnabled true
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
         }
     }
