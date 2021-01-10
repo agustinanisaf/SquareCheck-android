@@ -23,7 +23,7 @@ public class DateUtilTest {
 
         // Assert
         assert day != null;
-        assertEquals("Sunday", day);
+        assertEquals("Minggu", day);
     }
 
     @Test
@@ -71,7 +71,7 @@ public class DateUtilTest {
 
         // Assert
         assert fullDate != null;
-        assertEquals("Sunday, 22 November 2020", fullDate);
+        assertEquals("Minggu, 22 November 2020", fullDate);
     }
 
     @Test
