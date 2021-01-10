@@ -25,4 +25,5 @@
     <color name="gainsboro">#F0F0F0</color>
     <color name="abu_abu_muda">#D3D3D3</color>
     <color name="uts_bg">#32F3AA00</color>
+    <color name="secondary_transparent">#690288d1</color>
 </resources>
