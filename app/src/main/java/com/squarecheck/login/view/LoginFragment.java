@@ -61,8 +61,13 @@ public class LoginFragment extends BaseFragment<LoginActivity, LoginContract.Pre
             intent = new Intent(getContext(), LecturerDashboardActivity.class);
             Log.d(TAG, "redirectToHome: redirect to lecturer");
         }
-        startActivity(intent);
-        requireActivity().finish();
+        if (intent != null) {
+            startActivity(intent);
+            requireActivity().finish();
+        } else {
+            showError("Not Allowed.");
+            Log.d(TAG, "redirectToHome: Unknown user supposedly admin.");
+        }
     }
 
     @Override
