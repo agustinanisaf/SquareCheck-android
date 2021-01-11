@@ -69,4 +69,7 @@
     <string name="no">Tidak</string>
     <string name="logout_confirmation">Apakah anda yakin ingin logout ?</string>
     <string name="profile_photo_desc">Profile Photo</string>
+
+    <string name="previous">Previous</string>
+    <string name="next">Next</string>
 </resources>
