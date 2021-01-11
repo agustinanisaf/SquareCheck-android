@@ -52,17 +52,6 @@ public class LecturerDashboardFragment extends BaseFragment<LecturerDashboardAct
     }
 
     @Override
-    public void onStart() {
-        super.onStart();
-        presenter.start();
-    }
-
-    @Override
-    public void setPresenter(LecturerDashboardContract.Presenter presenter) {
-        this.presenter = presenter;
-    }
-
-    @Override
     public void initView() {
         binding.rvSchedules.setLayoutManager(new LinearLayoutManager(getContext()));
     }

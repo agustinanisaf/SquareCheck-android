@@ -47,4 +47,14 @@ public abstract class BaseFragment<T extends FragmentActivity, U extends BasePre
     public void showError(String errorMessage) {
         Toast.makeText(getContext(), errorMessage, Toast.LENGTH_SHORT).show();
     }
+
+    public void onStart() {
+        super.onStart();
+        presenter.start();
+    }
+
+    @Override
+    public void setPresenter(U presenter) {
+        this.presenter = presenter;
+    }
 }

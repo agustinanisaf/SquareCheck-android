@@ -49,12 +49,6 @@ public class LecturerAttendanceSummaryFragment
     }
 
     @Override
-    public void onStart() {
-        super.onStart();
-        presenter.start();
-    }
-
-    @Override
     public void startLoading() {
 
     }
@@ -72,11 +66,6 @@ public class LecturerAttendanceSummaryFragment
     @Override
     public void showTitle(Title title) {
         ((LecturerAttendanceSummaryToolbarBinding) getTitleLayout()).setTitle(title);
-    }
-
-    @Override
-    public void setPresenter(LecturerAttendanceSummaryContract.Presenter presenter) {
-        this.presenter = presenter;
     }
 
     @Override

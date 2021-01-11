@@ -54,12 +54,6 @@ public class LecturerAttendanceSummaryDetailFragment extends BaseFragment<Lectur
     }
 
     @Override
-    public void onStart() {
-        super.onStart();
-        presenter.start();
-    }
-
-    @Override
     public void startLoading() {
 
     }
@@ -83,11 +77,6 @@ public class LecturerAttendanceSummaryDetailFragment extends BaseFragment<Lectur
     public void showAttendanceStats(List<AttendanceStatusItem> attendanceStats) {
         binding.attendanceSummaryRecycler.setAdapter(new AttendanceSummaryRecyclerViewAdapter(attendanceStats));
         showChart(attendanceStats);
-    }
-
-    @Override
-    public void setPresenter(LecturerAttendanceSummaryDetailContract.Presenter presenter) {
-        this.presenter = presenter;
     }
 
     @Override

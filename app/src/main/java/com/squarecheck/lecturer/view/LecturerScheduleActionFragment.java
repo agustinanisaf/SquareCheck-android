@@ -82,12 +82,7 @@ public class LecturerScheduleActionFragment
         //change text and onclick to close attendance
         openButton.setText(R.string.close_attendance);
         openButton.setEnabled(true);
-        openButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                presenter.closeSchedule(scheduleId);
-            }
-        });
+        openButton.setOnClickListener(view -> presenter.closeSchedule(scheduleId));
     }
 
     public void disableOpenButton(){
@@ -120,11 +115,6 @@ public class LecturerScheduleActionFragment
     @Override
     public void setTitle(String title) {
         this.title = title;
-    }
-
-    @Override
-    public void setPresenter(LecturerScheduleActionContract.Presenter presenter) {
-        this.presenter = presenter;
     }
 
     @Override

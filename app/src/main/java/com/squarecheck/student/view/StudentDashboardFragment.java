@@ -64,12 +64,6 @@ public class StudentDashboardFragment extends BaseFragment<StudentDashboardActiv
     }
 
     @Override
-    public void onStart() {
-        super.onStart();
-        presenter.start();
-    }
-
-    @Override
     public void startLoading() {
 
     }

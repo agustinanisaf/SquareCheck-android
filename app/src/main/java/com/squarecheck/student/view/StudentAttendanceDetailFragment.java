@@ -61,11 +61,6 @@ public class StudentAttendanceDetailFragment
     }
 
     @Override
-    public void setPresenter(StudentAttendanceDetailContract.Presenter presenter) {
-        this.presenter = presenter;
-    }
-
-    @Override
     public void initView() {
         showTitle(title);
         binding.attendanceRecycler.setLayoutManager(new LinearLayoutManager(getContext()));
