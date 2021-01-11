@@ -10,12 +10,6 @@ import java.util.List;
 
 public interface LecturerAttendanceSummaryContract {
     interface View extends BaseView<Presenter> {
-        void startLoading();
-
-        void endLoading();
-
-        void showError(String errorMessage);
-
         void showSubjectAttendances(List<ScheduleModel> data);
 
         void showTitle(Title title);

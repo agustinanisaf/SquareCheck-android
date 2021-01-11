@@ -12,13 +12,7 @@ import com.squarecheck.student.model.SubjectModel;
 import java.util.List;
 
 public interface StudentDashboardContract {
-    interface View extends BaseView<StudentDashboardContract.Presenter> {
-        void startLoading();
-
-        void endLoading();
-
-        void showError(String errorMessage);
-
+    interface View extends BaseView<Presenter> {
         void redirectToAttendanceDetail(SubjectModel subject);
 
         void showSubjectsList(List<SubjectModel> SubjectsList);

@@ -9,12 +9,6 @@ import com.squarecheck.shared.model.APIResponse;
 
 public interface LoginContract {
     interface View extends BaseView<Presenter> {
-        void startLoading();
-
-        void stopLoading();
-
-        void showError(String errorMessage);
-
         void redirectToHome(String role);
     }
 

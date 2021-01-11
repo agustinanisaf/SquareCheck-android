@@ -65,11 +65,6 @@ public class LecturerAttendanceSummaryFragment
     }
 
     @Override
-    public void showError(String errorMessage) {
-
-    }
-
-    @Override
     public void showSubjectAttendances(List<ScheduleModel> data) {
         binding.recycler.setAdapter(new SubjectAttendancesAdapter(data, this::redirectToSummaryDetail));
     }

@@ -2,6 +2,7 @@ package com.squarecheck.base.view;
 
 import android.content.Context;
 import android.view.View;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.databinding.ViewDataBinding;
@@ -10,7 +11,8 @@ import androidx.fragment.app.FragmentActivity;
 
 import com.squarecheck.base.presenter.BasePresenter;
 
-public abstract class BaseFragment<T extends FragmentActivity, U extends BasePresenter> extends Fragment {
+public abstract class BaseFragment<T extends FragmentActivity, U extends BasePresenter>
+        extends Fragment implements BaseView<U> {
 
     protected View titleLayout;
     protected T activity;
@@ -42,4 +44,7 @@ public abstract class BaseFragment<T extends FragmentActivity, U extends BasePre
         fragmentListener.setAdditionalLayout(layoutId);
     }
 
+    public void showError(String errorMessage) {
+        Toast.makeText(getContext(), errorMessage, Toast.LENGTH_SHORT).show();
+    }
 }

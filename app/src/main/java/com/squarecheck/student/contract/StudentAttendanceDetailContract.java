@@ -12,11 +12,6 @@ import java.util.List;
 
 public interface StudentAttendanceDetailContract {
     interface View extends BaseView<Presenter> {
-        void startLoading();
-
-        void endLoading();
-
-        void showError(String message);
 
         void showAttendances(List<AttendanceItem> attendances);
 

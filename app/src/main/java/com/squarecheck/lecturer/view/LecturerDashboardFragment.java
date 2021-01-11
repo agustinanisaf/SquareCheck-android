@@ -7,7 +7,6 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
-import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -78,11 +77,6 @@ public class LecturerDashboardFragment extends BaseFragment<LecturerDashboardAct
     public void endLoading() {
         binding.rvSchedules.setVisibility(View.VISIBLE);
         binding.progressCircular.setVisibility(View.GONE);
-    }
-
-    @Override
-    public void showError(String errorMessage) {
-        Toast.makeText(getContext(), errorMessage, Toast.LENGTH_SHORT).show();
     }
 
     @Override

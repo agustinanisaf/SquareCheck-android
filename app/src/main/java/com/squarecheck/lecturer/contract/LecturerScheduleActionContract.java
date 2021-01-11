@@ -12,12 +12,6 @@ import java.util.List;
 
 public interface LecturerScheduleActionContract {
     interface View extends BaseView<Presenter> {
-        void startLoading();
-
-        void endLoading();
-
-        void showError(String errorMessage);
-
         void showSchedule(ScheduleModel schedule);
 
         void showAttendances(String presence, String total);
