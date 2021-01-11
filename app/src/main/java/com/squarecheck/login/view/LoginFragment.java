@@ -27,7 +27,6 @@ public class LoginFragment extends BaseFragment<LoginActivity, LoginContract.Pre
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         title = getResources().getString(R.string.login_title);
         binding = ContentLoginBinding.inflate(inflater, container, true);
-        presenter.start();
 
         return fragmentView;
     }
@@ -62,11 +61,6 @@ public class LoginFragment extends BaseFragment<LoginActivity, LoginContract.Pre
             showError("Not Allowed.");
             Log.d(TAG, "redirectToHome: Unknown user supposedly admin.");
         }
-    }
-
-    @Override
-    public void setPresenter(LoginContract.Presenter presenter) {
-        this.presenter = presenter;
     }
 
     @Override
