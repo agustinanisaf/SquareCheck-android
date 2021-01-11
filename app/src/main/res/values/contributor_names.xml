@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name="developer_names">
+        <item>Agustin Anisa F</item>
+        <item>M Akbar Fadlika W</item>
+        <item>Riza Nafis</item>
+        <item>Riza Bachtiar</item>
+        <item>M Fahreza Ansori</item>
+    </string-array>
+    <string-array name="supervisors_mentors_names">
+        <item>Agustin Anisa F</item>
+        <item>M Akbar Fadlika W</item>
+        <item>Riza Nafis</item>
+        <item>Riza Bachtiar</item>
+        <item>M Fahreza Ansori</item>
+    </string-array>
+</resources>

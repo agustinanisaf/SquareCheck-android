@@ -1,0 +1,162 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:orientation="vertical">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        style="@style/AboutUsFont"
+        android:paddingBottom="71dp">
+
+        <!--    Jumbotron    -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/about_us_jumbotron"
+            android:orientation="vertical"
+            android:paddingHorizontal="32dp"
+            android:paddingBottom="60dp">
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/logo_inverted_extended"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginTop="24dp"/>
+
+            <ImageView
+                android:layout_width="@dimen/about_circle_diameter"
+                android:layout_height="@dimen/about_circle_diameter"
+                android:src="@drawable/white_circle"
+                android:layout_gravity="end"
+                android:layout_marginTop="48dp"
+                android:layout_marginEnd="40dp"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/app_short_description"
+                android:lines="2"
+                android:textSize="24sp"
+                android:textColor="@color/white"
+                android:layout_marginTop="53dp"
+                android:fontFamily="@font/montserrat_semi_bold"/>
+            <View
+                android:layout_width="@dimen/about_rectangle_width"
+                android:layout_height="@dimen/about_rectangle_height"
+                android:background="@color/white"/>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/app_long_description"
+                android:textSize="12sp"
+                android:textColor="@color/white"
+                android:layout_marginTop="30dp"
+                android:fontFamily="@font/montserrat_regular"
+                android:lineSpacingExtra="0.385sp"/>
+        </LinearLayout>
+
+        <!--    Developer Team    -->
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginTop="111dp"
+            android:orientation="vertical">
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/developer_team"
+                android:layout_gravity="center_horizontal"
+                android:fontFamily="@font/montserrat_semi_bold"
+                android:textSize="@dimen/about_chapter_font"/>
+
+            <View
+                android:layout_width="@dimen/about_rectangle_width"
+                android:layout_height="@dimen/about_rectangle_height"
+                android:background="@color/secondary"/>
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                tools:listitem="@layout/developer_profile"
+                tools:itemCount="6"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginTop="23dp"/>
+        </LinearLayout>
+
+        <!--    Sponsored By    -->
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginTop="115dp"
+            android:orientation="vertical">
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/sponsored_by"
+                android:layout_gravity="center_horizontal"
+                android:fontFamily="@font/montserrat_semi_bold"
+                android:textSize="@dimen/about_chapter_font"/>
+
+            <View
+                android:layout_width="@dimen/about_rectangle_width"
+                android:layout_height="@dimen/about_rectangle_height"
+                android:background="@color/secondary"/>
+        </LinearLayout>
+
+        <!--    Supported By    -->
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginTop="20dp"
+            android:orientation="vertical">
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/supported_by"
+                android:layout_gravity="center_horizontal"
+                android:fontFamily="@font/montserrat_semi_bold"
+                android:textSize="@dimen/about_chapter_font"/>
+
+            <View
+                android:layout_width="@dimen/about_rectangle_width"
+                android:layout_height="@dimen/about_rectangle_height"
+                android:background="@color/secondary"/>
+        </LinearLayout>
+
+        <!--    Supervisors And Mentors    -->
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginTop="20dp"
+            android:orientation="vertical">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/supervisors_and_mentors"
+                android:layout_gravity="center_horizontal"
+                android:fontFamily="@font/montserrat_semi_bold"
+                android:textSize="@dimen/about_chapter_font"/>
+
+            <View
+                android:layout_width="@dimen/about_rectangle_width"
+                android:layout_height="@dimen/about_rectangle_height"
+                android:background="@color/secondary"/>
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                tools:listitem="@layout/supervisors_mentors_item"/>
+        </LinearLayout>
+    </LinearLayout>
+</ScrollView>

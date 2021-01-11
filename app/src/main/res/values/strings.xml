@@ -69,4 +69,18 @@
     <string name="no">Tidak</string>
     <string name="logout_confirmation">Apakah anda yakin ingin logout ?</string>
     <string name="profile_photo_desc">Profile Photo</string>
+    <string name="app_short_description">Absensi<br/>
+        Tanpa Ribet</string>
+    <string name="app_long_description">
+        Ingin aplikasi absensi yang mudah dan cepat?<br/>
+        Square Checks solusi untuk Anda, dengan fitur
+        One-Click absen dan reminder ketika presensi
+        kelas sudah dibuka serta dilengkapi dengan
+        rekap absensi yang dapat diekspor ke PDF.
+    </string>
+    <string name="developer_team">Developer Team</string>
+    <string name="sponsored_by">Sponsored By :</string>
+    <string name="supported_by">Supported By :</string>
+    <!-- &amp; = &-->
+    <string name="supervisors_and_mentors">Supervisors <br/> &amp; Mentors :</string>
 </resources>
