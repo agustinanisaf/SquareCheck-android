@@ -9,7 +9,6 @@ import com.squarecheck.shared.model.AttendanceStatusItem;
 import com.squarecheck.shared.model.PresenceModel;
 import com.squarecheck.shared.model.ScheduleModel;
 import com.squarecheck.shared.model.SubjectModel;
-import com.squarecheck.shared.retrofit.ErrorUtil;
 import com.squarecheck.shared.retrofit.ScheduleService;
 import com.squarecheck.shared.retrofit.ServiceGenerator;
 import com.squarecheck.shared.retrofit.SubjectService;
@@ -20,14 +19,10 @@ import com.squarecheck.student.model.NotificationPresenceItem;
 import com.squarecheck.student.model.StudentModel;
 import com.squarecheck.student.retrofit.StudentService;
 
-import org.jetbrains.annotations.NotNull;
-
 import java.util.Arrays;
 import java.util.List;
 
 import retrofit2.Call;
-import retrofit2.Callback;
-import retrofit2.Response;
 
 public class StudentDashboardInteractor implements StudentDashboardContract.Interactor {
     private static final String TAG = StudentDashboardInteractor.class.getSimpleName();
@@ -44,22 +39,7 @@ public class StudentDashboardInteractor implements StudentDashboardContract.Inte
         SubjectService service = ServiceGenerator.createService(SubjectService.class, token);
         Call<APIResponseCollection<List<SubjectModel>>> call = service.getSubjects();
 
-        call.enqueue(new Callback<APIResponseCollection<List<SubjectModel>>>() {
-            @Override
-            public void onResponse(@NotNull Call<APIResponseCollection<List<SubjectModel>>> call,
-                                   @NotNull Response<APIResponseCollection<List<SubjectModel>>> response) {
-                if (response.isSuccessful() && response.body() != null) {
-                    requestCallback.requestSuccess(response.body().getData());
-                } else {
-                    requestCallback.requestError(ErrorUtil.parseError(response).getDescription());
-                }
-            }
-
-            @Override
-            public void onFailure(@NotNull Call<APIResponseCollection<List<SubjectModel>>> call, @NotNull Throwable t) {
-                requestCallback.requestError(t.getMessage());
-            }
-        });
+        call.enqueue(new RetrofitCallback<>(requestCallback, TAG, "requestSubjectsList"));
     }
 
     @Override
@@ -124,22 +104,7 @@ public class StudentDashboardInteractor implements StudentDashboardContract.Inte
         StudentService service = ServiceGenerator.createService(StudentService.class);
         Call<APIResponseCollection<StudentModel>> call = service.getStudent();
 
-        call.enqueue(new Callback<APIResponseCollection<StudentModel>>() {
-            @Override
-            public void onResponse(@NotNull Call<APIResponseCollection<StudentModel>> call,
-                                   @NotNull Response<APIResponseCollection<StudentModel>> response) {
-                if (response.isSuccessful() && response.body() != null) {
-                    requestCallback.requestSuccess(response.body().getData());
-                } else {
-                    requestCallback.requestError(ErrorUtil.parseError(response).getDescription());
-                }
-            }
-
-            @Override
-            public void onFailure(@NotNull Call<APIResponseCollection<StudentModel>> call, @NotNull Throwable t) {
-                requestCallback.requestError(t.getMessage());
-            }
-        });
+        call.enqueue(new RetrofitCallback<>(requestCallback, TAG, "requestCallback"));
     }
 
     @Override

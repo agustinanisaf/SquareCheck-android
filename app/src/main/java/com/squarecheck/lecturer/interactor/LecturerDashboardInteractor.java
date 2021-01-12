@@ -6,23 +6,20 @@ import com.squarecheck.lecturer.model.LecturerModel;
 import com.squarecheck.lecturer.retrofit.LecturerService;
 import com.squarecheck.shared.api_response.APIResponseCollection;
 import com.squarecheck.shared.callback.RequestCallback;
+import com.squarecheck.shared.callback.RetrofitCallback;
 import com.squarecheck.shared.model.ScheduleModel;
-import com.squarecheck.shared.retrofit.ErrorUtil;
 import com.squarecheck.shared.retrofit.ScheduleService;
 import com.squarecheck.shared.retrofit.ServiceGenerator;
 import com.squarecheck.shared.util.TokenUtil;
 import com.squarecheck.shared.util.UserUtil;
 
-import org.jetbrains.annotations.NotNull;
-
 import java.util.List;
 
 import retrofit2.Call;
-import retrofit2.Callback;
-import retrofit2.Response;
 
 public class LecturerDashboardInteractor implements LecturerDashboardContract.Interactor {
 
+    private static final String TAG = LecturerDashboardInteractor.class.getSimpleName();
     private ScheduleService service;
 
     public LecturerDashboardInteractor() {
@@ -33,23 +30,7 @@ public class LecturerDashboardInteractor implements LecturerDashboardContract.In
     @Override
     public void requestSchedules(RequestCallback<List<ScheduleModel>> callback) {
         Call<APIResponseCollection<List<ScheduleModel>>> call = service.getSchedules();
-        call.enqueue(new Callback<APIResponseCollection<List<ScheduleModel>>>() {
-            @Override
-            public void onResponse(@NotNull Call<APIResponseCollection<List<ScheduleModel>>> call,
-                                   @NotNull Response<APIResponseCollection<List<ScheduleModel>>> response) {
-                if (response.isSuccessful() && response.body() != null) {
-                    callback.requestSuccess(response.body().getData());
-                } else {
-                    callback.requestError(ErrorUtil.parseError(response).getDescription());
-                }
-            }
-
-            @Override
-            public void onFailure(@NotNull Call<APIResponseCollection<List<ScheduleModel>>> call,
-                                  @NotNull Throwable t) {
-                callback.requestError(t.getMessage());
-            }
-        });
+        call.enqueue(new RetrofitCallback<>(callback, TAG, "requestSchedules"));
     }
 
     @Override
@@ -63,22 +44,7 @@ public class LecturerDashboardInteractor implements LecturerDashboardContract.In
         LecturerService service = ServiceGenerator.createService(LecturerService.class);
         Call<APIResponseCollection<LecturerModel>> call = service.getLecturer();
 
-        call.enqueue(new Callback<APIResponseCollection<LecturerModel>>() {
-            @Override
-            public void onResponse(@NotNull Call<APIResponseCollection<LecturerModel>> call,
-                                   @NotNull Response<APIResponseCollection<LecturerModel>> response) {
-                if (response.isSuccessful() && response.body() != null) {
-                    requestCallback.requestSuccess(response.body().getData());
-                } else {
-                    requestCallback.requestError(ErrorUtil.parseError(response).getDescription());
-                }
-            }
-
-            @Override
-            public void onFailure(@NotNull Call<APIResponseCollection<LecturerModel>> call, @NotNull Throwable t) {
-                requestCallback.requestError(t.getMessage());
-            }
-        });
+        call.enqueue(new RetrofitCallback<>(requestCallback, TAG, "requestDetail"));
     }
 
     @Override
