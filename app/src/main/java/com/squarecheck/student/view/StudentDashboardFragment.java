@@ -20,14 +20,14 @@ import com.squarecheck.databinding.ContentStudentDashboardBinding;
 import com.squarecheck.databinding.DashboardAttendanceToolbarBinding;
 import com.squarecheck.databinding.StudentDashboardToolbarBinding;
 import com.squarecheck.login.view.LoginActivity;
+import com.squarecheck.shared.model.AttendanceStatusItem;
+import com.squarecheck.shared.model.ScheduleModel;
+import com.squarecheck.shared.model.SubjectModel;
 import com.squarecheck.student.adapter.ListSubjectRecyclerViewAdapter;
 import com.squarecheck.student.adapter.StudentAttendanceSummaryRecyclerViewAdapter;
 import com.squarecheck.student.contract.StudentDashboardContract;
-import com.squarecheck.student.model.AttendanceStatusItem;
 import com.squarecheck.student.model.NotificationPresenceItem;
-import com.squarecheck.student.model.ScheduleModel;
 import com.squarecheck.student.model.StudentModel;
-import com.squarecheck.student.model.SubjectModel;
 
 import org.jetbrains.annotations.NotNull;
 

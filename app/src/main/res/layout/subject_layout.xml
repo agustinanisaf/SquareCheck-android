@@ -7,7 +7,7 @@
 
         <variable
             name="subject"
-            type="com.squarecheck.student.model.SubjectModel" />
+            type="com.squarecheck.shared.model.SubjectModel" />
     </data>
 
     <androidx.cardview.widget.CardView

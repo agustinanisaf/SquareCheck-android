@@ -6,7 +6,7 @@
 
         <variable
             name="data"
-            type="com.squarecheck.lecturer.model.StudentAttendanceModel" />
+            type="com.squarecheck.shared.model.StudentAttendanceModel" />
     </data>
 
     <LinearLayout

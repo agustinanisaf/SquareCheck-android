@@ -2,11 +2,11 @@ package com.squarecheck.lecturer.contract;
 
 import com.squarecheck.base.presenter.BasePresenter;
 import com.squarecheck.base.view.BaseView;
+import com.squarecheck.shared.api_response.APIResponse;
 import com.squarecheck.shared.callback.RequestCallback;
-import com.squarecheck.shared.model.APIResponse;
+import com.squarecheck.shared.model.PresenceModel;
+import com.squarecheck.shared.model.ScheduleModel;
 import com.squarecheck.shared.model.Title;
-import com.squarecheck.student.model.PresenceModel;
-import com.squarecheck.student.model.ScheduleModel;
 
 import java.util.List;
 

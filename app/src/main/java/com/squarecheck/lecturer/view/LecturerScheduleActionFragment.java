@@ -15,9 +15,9 @@ import com.squarecheck.base.view.BaseFragment;
 import com.squarecheck.databinding.ContentLecturerAttendanceBinding;
 import com.squarecheck.databinding.LecturerAttendanceSummaryToolbarBinding;
 import com.squarecheck.lecturer.contract.LecturerScheduleActionContract;
+import com.squarecheck.shared.model.ScheduleModel;
 import com.squarecheck.shared.model.Title;
 import com.squarecheck.shared.util.DateUtil;
-import com.squarecheck.student.model.ScheduleModel;
 
 import static com.squarecheck.lecturer.view.LecturerDashboardFragment.SUBJECT_ID;
 

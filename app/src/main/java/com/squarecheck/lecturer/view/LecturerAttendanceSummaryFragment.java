@@ -17,9 +17,9 @@ import com.squarecheck.databinding.ContentLecturerAttendanceSummaryBinding;
 import com.squarecheck.databinding.LecturerAttendanceSummaryToolbarBinding;
 import com.squarecheck.lecturer.adapter.SubjectAttendancesAdapter;
 import com.squarecheck.lecturer.contract.LecturerAttendanceSummaryContract;
+import com.squarecheck.shared.model.ScheduleModel;
 import com.squarecheck.shared.model.Title;
 import com.squarecheck.shared.util.DateUtil;
-import com.squarecheck.student.model.ScheduleModel;
 
 import java.util.List;
 

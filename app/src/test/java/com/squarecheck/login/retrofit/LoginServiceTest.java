@@ -3,8 +3,8 @@ package com.squarecheck.login.retrofit;
 import com.squarecheck.MockResponseFileReader;
 import com.squarecheck.login.model.Token;
 import com.squarecheck.login.model.User;
-import com.squarecheck.shared.model.APIResponse;
-import com.squarecheck.shared.model.APIResponseCollection;
+import com.squarecheck.shared.api_response.APIResponse;
+import com.squarecheck.shared.api_response.APIResponseCollection;
 import com.squarecheck.shared.retrofit.JWTAuthenticationInterceptor;
 
 import org.junit.jupiter.api.AfterEach;

@@ -1,7 +1,6 @@
-package com.squarecheck.lecturer.model;
+package com.squarecheck.shared.model;
 
 import com.squarecheck.R;
-import com.squarecheck.student.model.PresenceModel;
 
 public class StudentAttendanceModel {
     private String status;

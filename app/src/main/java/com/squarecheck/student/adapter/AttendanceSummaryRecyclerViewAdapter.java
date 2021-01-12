@@ -4,7 +4,7 @@ import android.view.View;
 
 import com.squarecheck.R;
 import com.squarecheck.base.adapter.BaseRecyclerAdapter;
-import com.squarecheck.student.model.AttendanceStatusItem;
+import com.squarecheck.shared.model.AttendanceStatusItem;
 
 import java.util.List;
 

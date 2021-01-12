@@ -3,6 +3,7 @@ package com.squarecheck.student.model;
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 import com.squarecheck.login.model.User;
+import com.squarecheck.shared.model.DepartmentModel;
 
 public class StudentModel {
     @SerializedName("id")

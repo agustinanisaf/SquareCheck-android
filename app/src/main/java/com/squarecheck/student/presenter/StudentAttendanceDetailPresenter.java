@@ -2,10 +2,10 @@ package com.squarecheck.student.presenter;
 
 import com.squarecheck.R;
 import com.squarecheck.shared.callback.RequestCallback;
+import com.squarecheck.shared.model.AttendanceStatusItem;
+import com.squarecheck.shared.model.ScheduleModel;
 import com.squarecheck.student.contract.StudentAttendanceDetailContract;
 import com.squarecheck.student.model.AttendanceItem;
-import com.squarecheck.student.model.AttendanceStatusItem;
-import com.squarecheck.student.model.ScheduleModel;
 
 import java.util.Arrays;
 import java.util.List;

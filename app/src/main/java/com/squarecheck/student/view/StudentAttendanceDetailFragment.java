@@ -19,12 +19,12 @@ import com.squarecheck.R;
 import com.squarecheck.base.view.BaseFragment;
 import com.squarecheck.databinding.ContentStudentAttendanceDetailBinding;
 import com.squarecheck.databinding.StudentAttendanceDetailToolbarBinding;
+import com.squarecheck.shared.model.AttendanceStatusItem;
 import com.squarecheck.shared.model.Title;
 import com.squarecheck.student.adapter.AttendanceRecyclerViewAdapter;
 import com.squarecheck.student.adapter.AttendanceSummaryRecyclerViewAdapter;
 import com.squarecheck.student.contract.StudentAttendanceDetailContract;
 import com.squarecheck.student.model.AttendanceItem;
-import com.squarecheck.student.model.AttendanceStatusItem;
 
 import java.util.Comparator;
 import java.util.List;

@@ -2,7 +2,7 @@ package com.squarecheck.lecturer.presenter;
 
 import com.squarecheck.lecturer.contract.LecturerAttendanceSummaryContract;
 import com.squarecheck.shared.callback.RequestCallback;
-import com.squarecheck.student.model.ScheduleModel;
+import com.squarecheck.shared.model.ScheduleModel;
 
 import java.util.List;
 

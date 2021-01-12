@@ -4,8 +4,8 @@ import android.view.View;
 
 import com.squarecheck.R;
 import com.squarecheck.base.adapter.BaseRecyclerAdapter;
+import com.squarecheck.shared.model.ScheduleModel;
 import com.squarecheck.shared.util.DateUtil;
-import com.squarecheck.student.model.ScheduleModel;
 
 import java.util.List;
 

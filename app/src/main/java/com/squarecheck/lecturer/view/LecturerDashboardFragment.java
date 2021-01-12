@@ -22,7 +22,7 @@ import com.squarecheck.lecturer.adapter.SchedulesAdapter;
 import com.squarecheck.lecturer.contract.LecturerDashboardContract;
 import com.squarecheck.lecturer.model.LecturerModel;
 import com.squarecheck.login.view.LoginActivity;
-import com.squarecheck.student.model.ScheduleModel;
+import com.squarecheck.shared.model.ScheduleModel;
 
 import java.util.List;
 

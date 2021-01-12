@@ -1,6 +1,6 @@
 package com.squarecheck.shared.retrofit;
 
-import com.squarecheck.shared.model.APIResponse;
+import com.squarecheck.shared.api_response.APIResponse;
 
 import java.io.IOException;
 import java.lang.annotation.Annotation;

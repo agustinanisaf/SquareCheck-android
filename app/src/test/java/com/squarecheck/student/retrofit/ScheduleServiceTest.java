@@ -3,11 +3,12 @@ package com.squarecheck.student.retrofit;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 import com.squarecheck.MockResponseFileReader;
-import com.squarecheck.shared.model.APIResponse;
-import com.squarecheck.shared.model.APIResponseCollection;
+import com.squarecheck.shared.api_response.APIResponse;
+import com.squarecheck.shared.api_response.APIResponseCollection;
+import com.squarecheck.shared.model.PresenceModel;
+import com.squarecheck.shared.model.ScheduleModel;
 import com.squarecheck.shared.retrofit.JWTAuthenticationInterceptor;
-import com.squarecheck.student.model.PresenceModel;
-import com.squarecheck.student.model.ScheduleModel;
+import com.squarecheck.shared.retrofit.ScheduleService;
 
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;

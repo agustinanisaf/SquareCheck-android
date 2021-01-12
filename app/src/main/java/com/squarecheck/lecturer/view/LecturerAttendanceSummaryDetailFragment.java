@@ -20,10 +20,10 @@ import com.squarecheck.databinding.ContentLecturerAttendanceSummaryDetailBinding
 import com.squarecheck.databinding.LecturerAttendanceSummaryToolbarBinding;
 import com.squarecheck.lecturer.adapter.StudentAttendancesAdapter;
 import com.squarecheck.lecturer.contract.LecturerAttendanceSummaryDetailContract;
+import com.squarecheck.shared.model.AttendanceStatusItem;
+import com.squarecheck.shared.model.PresenceModel;
 import com.squarecheck.shared.model.Title;
 import com.squarecheck.student.adapter.AttendanceSummaryRecyclerViewAdapter;
-import com.squarecheck.student.model.AttendanceStatusItem;
-import com.squarecheck.student.model.PresenceModel;
 
 import java.util.Comparator;
 import java.util.List;

@@ -2,23 +2,23 @@ package com.squarecheck.student.interactor;
 
 import com.squarecheck.R;
 import com.squarecheck.base.util.UtilProvider;
+import com.squarecheck.shared.api_response.APIResponseCollection;
 import com.squarecheck.shared.callback.RequestCallback;
 import com.squarecheck.shared.callback.RetrofitCallback;
-import com.squarecheck.shared.model.APIResponseCollection;
+import com.squarecheck.shared.model.AttendanceStatusItem;
+import com.squarecheck.shared.model.PresenceModel;
+import com.squarecheck.shared.model.ScheduleModel;
+import com.squarecheck.shared.model.SubjectModel;
 import com.squarecheck.shared.retrofit.ErrorUtil;
+import com.squarecheck.shared.retrofit.ScheduleService;
 import com.squarecheck.shared.retrofit.ServiceGenerator;
+import com.squarecheck.shared.retrofit.SubjectService;
 import com.squarecheck.shared.util.TokenUtil;
 import com.squarecheck.shared.util.UserUtil;
 import com.squarecheck.student.contract.StudentDashboardContract;
-import com.squarecheck.student.model.AttendanceStatusItem;
 import com.squarecheck.student.model.NotificationPresenceItem;
-import com.squarecheck.student.model.PresenceModel;
-import com.squarecheck.student.model.ScheduleModel;
 import com.squarecheck.student.model.StudentModel;
-import com.squarecheck.student.model.SubjectModel;
-import com.squarecheck.student.retrofit.ScheduleService;
 import com.squarecheck.student.retrofit.StudentService;
-import com.squarecheck.student.retrofit.SubjectService;
 
 import org.jetbrains.annotations.NotNull;
 

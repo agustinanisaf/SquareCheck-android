@@ -1,6 +1,7 @@
 package com.squarecheck.student.model;
 
 import com.squarecheck.R;
+import com.squarecheck.shared.model.ScheduleModel;
 import com.squarecheck.shared.util.DateUtil;
 
 public class AttendanceItem {

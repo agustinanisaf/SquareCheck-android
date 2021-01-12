@@ -1,9 +1,9 @@
-package com.squarecheck.student.retrofit;
+package com.squarecheck.shared.retrofit;
 
-import com.squarecheck.shared.model.APIResponse;
-import com.squarecheck.shared.model.APIResponseCollection;
-import com.squarecheck.student.model.PresenceModel;
-import com.squarecheck.student.model.ScheduleModel;
+import com.squarecheck.shared.api_response.APIResponse;
+import com.squarecheck.shared.api_response.APIResponseCollection;
+import com.squarecheck.shared.model.PresenceModel;
+import com.squarecheck.shared.model.ScheduleModel;
 
 import java.util.List;
 

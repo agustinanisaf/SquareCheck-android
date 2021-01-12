@@ -8,7 +8,7 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.squarecheck.databinding.SubjectLayoutBinding;
-import com.squarecheck.student.model.SubjectModel;
+import com.squarecheck.shared.model.SubjectModel;
 
 import java.util.List;
 

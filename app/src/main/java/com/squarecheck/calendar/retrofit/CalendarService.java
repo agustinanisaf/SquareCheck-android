@@ -1,7 +1,7 @@
 package com.squarecheck.calendar.retrofit;
 
 import com.squarecheck.calendar.model.CalendarModel;
-import com.squarecheck.shared.model.APIResponseCollection;
+import com.squarecheck.shared.api_response.APIResponseCollection;
 
 import java.util.List;
 

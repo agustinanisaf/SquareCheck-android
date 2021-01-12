@@ -1,14 +1,14 @@
 package com.squarecheck.student.interactor;
 
 import com.squarecheck.base.util.UtilProvider;
+import com.squarecheck.shared.api_response.APIResponseCollection;
 import com.squarecheck.shared.callback.RequestCallback;
 import com.squarecheck.shared.callback.RetrofitCallback;
-import com.squarecheck.shared.model.APIResponseCollection;
+import com.squarecheck.shared.model.ScheduleModel;
 import com.squarecheck.shared.retrofit.ServiceGenerator;
+import com.squarecheck.shared.retrofit.SubjectService;
 import com.squarecheck.shared.util.TokenUtil;
 import com.squarecheck.student.contract.StudentAttendanceDetailContract;
-import com.squarecheck.student.model.ScheduleModel;
-import com.squarecheck.student.retrofit.SubjectService;
 
 import java.util.List;
 

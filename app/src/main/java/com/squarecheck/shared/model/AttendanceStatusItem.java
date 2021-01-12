@@ -1,4 +1,4 @@
-package com.squarecheck.student.model;
+package com.squarecheck.shared.model;
 
 public class AttendanceStatusItem {
     private String total;

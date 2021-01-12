@@ -4,8 +4,8 @@ import android.view.View;
 
 import com.squarecheck.R;
 import com.squarecheck.base.adapter.BaseRecyclerAdapter;
-import com.squarecheck.lecturer.model.StudentAttendanceModel;
-import com.squarecheck.student.model.PresenceModel;
+import com.squarecheck.shared.model.PresenceModel;
+import com.squarecheck.shared.model.StudentAttendanceModel;
 
 import java.util.List;
 

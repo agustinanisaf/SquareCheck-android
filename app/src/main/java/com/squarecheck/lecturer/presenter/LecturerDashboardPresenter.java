@@ -5,7 +5,7 @@ import android.util.Log;
 import com.squarecheck.lecturer.contract.LecturerDashboardContract;
 import com.squarecheck.lecturer.model.LecturerModel;
 import com.squarecheck.shared.callback.RequestCallback;
-import com.squarecheck.student.model.ScheduleModel;
+import com.squarecheck.shared.model.ScheduleModel;
 
 import java.util.List;
 
