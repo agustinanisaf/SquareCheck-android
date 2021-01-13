@@ -83,4 +83,5 @@
     <string name="supported_by">Supported By :</string>
     <!-- &amp; = &-->
     <string name="supervisors_and_mentors">Supervisors <br/> &amp; Mentors :</string>
+    <string name="about_us">About Us</string>
 </resources>

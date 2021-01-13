@@ -16,7 +16,7 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
         tools:targetApi="n">
-        <activity android:name=".login.view.LoginActivity">
+        <activity android:name=".others.SplashScreenActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -28,6 +28,7 @@
             android:name="preloaded_fonts"
             android:resource="@array/preloaded_fonts" />
 
+        <activity android:name=".login.view.LoginActivity"/>
         <activity android:name=".student.view.StudentDashboardActivity" />
         <activity android:name=".student.view.StudentAttendanceDetailActivity" />
         <activity android:name=".student.view.StudentAttendanceNotificationActivity" />
@@ -35,6 +36,7 @@
         <activity android:name=".lecturer.view.LecturerScheduleActionActivity" />
         <activity android:name=".lecturer.view.LecturerAttendanceSummaryActivity" />
         <activity android:name=".lecturer.view.LecturerAttendanceSummaryDetailActivity" />
+        <activity android:name=".about.AboutUsActivity"/>
     </application>
 
 </manifest>
