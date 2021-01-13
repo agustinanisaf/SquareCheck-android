@@ -3,7 +3,7 @@
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:bind="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools">
-    <ScrollView
+    <androidx.core.widget.NestedScrollView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:orientation="vertical">
@@ -16,12 +16,12 @@
             android:paddingBottom="71dp">
 
             <!--    Jumbotron    -->
-            <LinearLayout android:visibility="gone"
+            <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:background="@drawable/about_us_jumbotron"
                 android:orientation="vertical"
-                android:paddingHorizontal="32dp"
+                android:paddingHorizontal="@dimen/about_padding"
                 android:paddingBottom="60dp">
 
                 <ImageView
@@ -66,37 +66,41 @@
 
             <!--    Developer Team    -->
             <LinearLayout
-                android:layout_width="wrap_content"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center_horizontal"
                 android:layout_marginTop="111dp"
+                android:padding="20dp"
                 android:orientation="vertical">
-                <TextView
+                <LinearLayout
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="@string/developer_team"
-                    android:layout_gravity="center_horizontal"
-                    android:fontFamily="@font/montserrat_semi_bold"
-                    android:textSize="@dimen/about_chapter_font"/>
+                    android:orientation="vertical"
+                    android:layout_gravity="center_horizontal">
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/developer_team"
+                        android:layout_gravity="center_horizontal"
+                        android:fontFamily="@font/montserrat_semi_bold"
+                        android:textSize="@dimen/about_chapter_font"/>
 
-                <View
-                    android:layout_width="@dimen/about_rectangle_width"
-                    android:layout_height="@dimen/about_rectangle_height"
-                    android:background="@color/secondary"/>
+                    <View
+                        android:layout_width="@dimen/about_rectangle_width"
+                        android:layout_height="@dimen/about_rectangle_height"
+                        android:background="@color/secondary"/>
+                </LinearLayout>
 
                 <androidx.recyclerview.widget.RecyclerView
                     android:id="@+id/rv_developers"
-                    android:layout_width="wrap_content"
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     tools:listitem="@layout/developer_profile"
                     android:layout_gravity="center_horizontal"
                     android:layout_marginTop="23dp"
-                    tools:itemCount="0"/>
-
-                <include
-                    layout="@layout/developer_profile"
-                    bind:developerName="@{@string/about_us}"
-                    />
+                    tools:itemCount="2"
+                    android:paddingHorizontal="30dp"
+                    android:nestedScrollingEnabled="false"/>
             </LinearLayout>
 
             <!--    Sponsored By    -->
@@ -104,54 +108,74 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center_horizontal"
-                android:layout_marginTop="115dp"
+                android:layout_marginTop="32dp"
                 android:orientation="vertical">
-                <TextView
+                <LinearLayout
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="@string/sponsored_by"
-                    android:layout_gravity="center_horizontal"
-                    android:fontFamily="@font/montserrat_semi_bold"
-                    android:textSize="@dimen/about_chapter_font"/>
+                    android:orientation="vertical"
+                    android:layout_gravity="center_horizontal">
 
-                <View
-                    android:layout_width="@dimen/about_rectangle_width"
-                    android:layout_height="@dimen/about_rectangle_height"
-                    android:background="@color/secondary"/>
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/sponsored_by"
+                        android:layout_gravity="center_horizontal"
+                        android:fontFamily="@font/montserrat_semi_bold"
+                        android:textSize="@dimen/about_chapter_font"/>
+
+                    <View
+                        android:layout_width="@dimen/about_rectangle_width"
+                        android:layout_height="@dimen/about_rectangle_height"
+                        android:background="@color/secondary"/>
+                </LinearLayout>
+                <include
+                    layout="@layout/about_sponsor"/>
             </LinearLayout>
 
             <!--    Supported By    -->
             <LinearLayout
-                android:layout_width="wrap_content"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_gravity="center_horizontal"
+                android:gravity="center_horizontal"
                 android:layout_marginTop="20dp"
+                android:paddingHorizontal="@dimen/about_padding"
                 android:orientation="vertical">
-                <TextView
+                <LinearLayout
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="@string/supported_by"
                     android:layout_gravity="center_horizontal"
-                    android:fontFamily="@font/montserrat_semi_bold"
-                    android:textSize="@dimen/about_chapter_font"/>
+                    android:layout_marginTop="20dp"
+                    android:layout_marginBottom="5dp"
+                    android:orientation="vertical">
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/supported_by"
+                        android:layout_gravity="center_horizontal"
+                        android:fontFamily="@font/montserrat_semi_bold"
+                        android:textSize="@dimen/about_chapter_font"/>
 
-                <View
-                    android:layout_width="@dimen/about_rectangle_width"
-                    android:layout_height="@dimen/about_rectangle_height"
-                    android:background="@color/secondary"/>
+                    <View
+                        android:layout_width="@dimen/about_rectangle_width"
+                        android:layout_height="@dimen/about_rectangle_height"
+                        android:background="@color/secondary"/>
+                    </LinearLayout>
+                <include
+                    layout="@layout/about_supporter"/>
             </LinearLayout>
 
             <!--    Supervisors And Mentors    -->
             <LinearLayout
-                android:layout_width="wrap_content"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_gravity="center_horizontal"
                 android:layout_marginTop="20dp"
                 android:orientation="vertical">
 
                 <LinearLayout
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:layout_gravity="center_horizontal"
                     android:orientation="vertical">
                     <TextView
                         android:layout_width="wrap_content"
@@ -170,10 +194,11 @@
                 <androidx.recyclerview.widget.RecyclerView
                     android:id="@+id/rv_supervisors"
                     android:layout_width="wrap_content"
+                    android:layout_gravity="center_horizontal"
                     tools:itemCount="6"
                     android:layout_height="wrap_content"
                     tools:listitem="@layout/supervisors_mentors_item"/>
             </LinearLayout>
         </LinearLayout>
-    </ScrollView>
+    </androidx.core.widget.NestedScrollView>
 </layout>

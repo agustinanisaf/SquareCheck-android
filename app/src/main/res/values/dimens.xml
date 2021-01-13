@@ -9,5 +9,8 @@
     <dimen name="about_circle_diameter">133dp</dimen>
     <dimen name="about_chapter_font">20sp</dimen>
     <dimen name="about_subchapter_font">16sp</dimen>
-    <dimen name="profile_picture_diameter">79dp</dimen>
+    <dimen name="profile_picture_diameter">100dp</dimen>
+    <dimen name="sponsor_height">40dp</dimen>
+    <dimen name="logo_margin">10dp</dimen>
+    <dimen name="about_padding">32dp</dimen>
 </resources>
