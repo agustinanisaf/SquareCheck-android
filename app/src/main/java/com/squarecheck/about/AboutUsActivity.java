@@ -25,7 +25,6 @@ public class AboutUsActivity extends AppCompatActivity {
         RecyclerVAdapterSupervisors adapter = new RecyclerVAdapterSupervisors(nameList);
 
         recyclerView.setAdapter(adapter);
-        recyclerView.setHasFixedSize(true);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
     }
 
@@ -40,7 +39,6 @@ public class AboutUsActivity extends AppCompatActivity {
         RecyclerVAdapterDeveloper adapter = new RecyclerVAdapterDeveloper(developerNames, profileImage);
 
         recyclerView.setAdapter(adapter);
-        recyclerView.setHasFixedSize(true);
         recyclerView.setLayoutManager(new GridLayoutManager(this, 2));
     }
 }
