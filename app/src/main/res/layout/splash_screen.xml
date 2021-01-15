@@ -41,7 +41,7 @@
         android:layout_centerHorizontal="true"
         android:layout_gravity="center_horizontal"
         android:background="@android:color/transparent"
-        android:drawableLeft="@android:drawable/ic_menu_info_details"
+        android:drawableStart="@android:drawable/ic_menu_info_details"
         android:fontFamily="@font/montserrat_bold"
         android:padding="10dp"
         android:text="@string/about_us"
