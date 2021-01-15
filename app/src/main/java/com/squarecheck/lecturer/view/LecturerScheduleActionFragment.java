@@ -15,17 +15,15 @@ import com.squarecheck.base.view.BaseFragment;
 import com.squarecheck.databinding.ContentLecturerAttendanceBinding;
 import com.squarecheck.databinding.LecturerAttendanceSummaryToolbarBinding;
 import com.squarecheck.lecturer.contract.LecturerScheduleActionContract;
+import com.squarecheck.shared.Constants;
 import com.squarecheck.shared.model.ScheduleModel;
 import com.squarecheck.shared.model.Title;
 import com.squarecheck.shared.util.DateUtil;
-
-import static com.squarecheck.lecturer.view.LecturerDashboardFragment.SUBJECT_ID;
 
 public class LecturerScheduleActionFragment
         extends BaseFragment<LecturerScheduleActionActivity, LecturerScheduleActionContract.Presenter>
         implements LecturerScheduleActionContract.View {
 
-    public static final String TITLE_ID = "TITLE_ID";
     private int scheduleId;
     private ContentLecturerAttendanceBinding binding;
 
@@ -99,12 +97,7 @@ public class LecturerScheduleActionFragment
         //change text and onclick to open attendance
         openButton.setText(R.string.open_attendance);
         openButton.setEnabled(true);
-        openButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                presenter.openSchedule(scheduleId);
-            }
-        });
+        openButton.setOnClickListener(view -> presenter.openSchedule(scheduleId));
     }
 
     @Override
@@ -125,8 +118,8 @@ public class LecturerScheduleActionFragment
 
     private void redirectToSummary(int subjectId) {
         Intent intent = new Intent(getContext(), LecturerAttendanceSummaryActivity.class);
-        intent.putExtra(SUBJECT_ID, subjectId);
-        intent.putExtra(TITLE_ID, title);
+        intent.putExtra(Constants.SUBJECT_ID, subjectId);
+        intent.putExtra(Constants.TITLE_ID, title);
         startActivity(intent);
     }
 

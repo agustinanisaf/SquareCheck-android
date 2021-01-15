@@ -17,19 +17,17 @@ import com.squarecheck.databinding.ContentLecturerAttendanceSummaryBinding;
 import com.squarecheck.databinding.LecturerAttendanceSummaryToolbarBinding;
 import com.squarecheck.lecturer.adapter.SubjectAttendancesAdapter;
 import com.squarecheck.lecturer.contract.LecturerAttendanceSummaryContract;
+import com.squarecheck.shared.Constants;
 import com.squarecheck.shared.model.ScheduleModel;
 import com.squarecheck.shared.model.Title;
 import com.squarecheck.shared.util.DateUtil;
 
 import java.util.List;
 
-import static com.squarecheck.lecturer.view.LecturerScheduleActionFragment.TITLE_ID;
-
 public class LecturerAttendanceSummaryFragment
         extends BaseFragment<LecturerAttendanceSummaryActivity, LecturerAttendanceSummaryContract.Presenter>
         implements LecturerAttendanceSummaryContract.View {
 
-    public static final String SCHEDULE_ID = "SCHEDULE_ID";
     private final int subjectId;
     private final Title title;
     private ContentLecturerAttendanceSummaryBinding binding;
@@ -77,8 +75,8 @@ public class LecturerAttendanceSummaryFragment
 
     public void redirectToSummaryDetail(ScheduleModel schedule) {
         Intent intent = new Intent(getContext(), LecturerAttendanceSummaryDetailActivity.class);
-        intent.putExtra(SCHEDULE_ID, schedule.getId());
-        intent.putExtra(TITLE_ID, new Gson().toJson(title));
+        intent.putExtra(Constants.SCHEDULE_ID, schedule.getId());
+        intent.putExtra(Constants.TITLE_ID, new Gson().toJson(title));
         intent.putExtra("TIME_ID", DateUtil.getFullDate(schedule.getTime()));
         startActivity(intent);
     }

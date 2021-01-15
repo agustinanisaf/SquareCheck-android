@@ -20,13 +20,11 @@ import com.squarecheck.base.view.BaseFragmentHolderActivity;
 import com.squarecheck.databinding.LecturerAttendanceSummaryToolbarBinding;
 import com.squarecheck.lecturer.interactor.LecturerAttendanceSummaryInteractor;
 import com.squarecheck.lecturer.presenter.LecturerAttendanceSummaryPresenter;
+import com.squarecheck.shared.Constants;
 import com.squarecheck.shared.model.Title;
 
 import java.util.ArrayList;
 import java.util.List;
-
-import static com.squarecheck.lecturer.view.LecturerDashboardFragment.SUBJECT_ID;
-import static com.squarecheck.lecturer.view.LecturerScheduleActionFragment.TITLE_ID;
 
 public class LecturerAttendanceSummaryActivity extends BaseFragmentHolderActivity {
 
@@ -35,8 +33,8 @@ public class LecturerAttendanceSummaryActivity extends BaseFragmentHolderActivit
     @Override
     protected void initializeFragment() {
         Intent intent = getIntent();
-        int subjectId = intent.getIntExtra(SUBJECT_ID, 1);
-        Title title = new Gson().fromJson(intent.getStringExtra(TITLE_ID), Title.class);
+        int subjectId = intent.getIntExtra(Constants.SUBJECT_ID, 1);
+        Title title = new Gson().fromJson(intent.getStringExtra(Constants.TITLE_ID), Title.class);
 
         LecturerAttendanceSummaryFragment currentFragment = new LecturerAttendanceSummaryFragment(subjectId, title);
         currentFragment.setPresenter(new LecturerAttendanceSummaryPresenter(currentFragment, new LecturerAttendanceSummaryInteractor()));
