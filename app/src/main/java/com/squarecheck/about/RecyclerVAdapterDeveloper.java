@@ -1,17 +1,21 @@
 package com.squarecheck.about;
 
-import android.graphics.drawable.Drawable;
 import android.view.LayoutInflater;
 import android.view.ViewGroup;
+
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
+
+import com.bumptech.glide.Glide;
+import com.bumptech.glide.RequestManager;
 import com.squarecheck.databinding.DeveloperProfileBinding;
 
 public class RecyclerVAdapterDeveloper extends RecyclerView.Adapter<RecyclerVAdapterDeveloper.MyViewHolder> {
     private final String[] developersNames;
-    private final Drawable[] developerImages;
+    private final int[] developerImages;
+    private RequestManager glide;
 
-    public RecyclerVAdapterDeveloper(String[] developersNames, Drawable[] developerImages) {
+    public RecyclerVAdapterDeveloper(String[] developersNames, int[] developerImages) {
         this.developersNames = developersNames;
         this.developerImages = developerImages;
     }
@@ -23,12 +27,14 @@ public class RecyclerVAdapterDeveloper extends RecyclerView.Adapter<RecyclerVAda
                 LayoutInflater.from(parent.getContext());
         DeveloperProfileBinding binding =
                 DeveloperProfileBinding.inflate(layoutInflater, parent, false);
+        glide = Glide.with(parent.getContext());
         return new MyViewHolder(binding);
     }
 
     @Override
     public void onBindViewHolder(@NonNull MyViewHolder holder, int position) {
-        holder.bind(developersNames[position], developerImages[position]);
+        holder.bind(developersNames[position]);
+        glide.load(developerImages[position]).circleCrop().into(holder.binding.ivPhoto);
     }
 
     @Override
@@ -44,9 +50,8 @@ public class RecyclerVAdapterDeveloper extends RecyclerView.Adapter<RecyclerVAda
             this.binding = binding;
         }
 
-        public void bind(String name, Drawable image) {
+        public void bind(String name) {
             binding.setDeveloperName(name);
-            binding.setDeveloperPicture(image);
             binding.executePendingBindings();
         }
     }

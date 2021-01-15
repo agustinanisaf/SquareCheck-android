@@ -1,6 +1,5 @@
 package com.squarecheck.about;
 
-import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 
 import androidx.annotation.Nullable;
@@ -32,25 +31,16 @@ public class AboutUsActivity extends AppCompatActivity {
 
     private void initializeDeveloperList() {
         RecyclerView recyclerView = findViewById(R.id.rv_developers);
-        Drawable images[] = initializeDeveloperImages();
-        String developerNames[] = getResources().getStringArray(R.array.developer_names);
-        RecyclerVAdapterDeveloper adapter = new RecyclerVAdapterDeveloper(developerNames, images);
-
-        recyclerView.setAdapter(adapter);
-        recyclerView.setHasFixedSize(true);
-        recyclerView.setLayoutManager(new GridLayoutManager(this, 2));
-    }
-
-    private Drawable[] initializeDeveloperImages(){
-        int profileImageId[] = {
+        int[] profileImage = {
                 R.drawable.developer_agustin, R.drawable.developer_fadli,
                 R.drawable.developer_nafis, R.drawable.developer_rizbach,
                 R.drawable.developer_fahreza
         };
-        Drawable developerImages[] = new Drawable[profileImageId.length];
+        String[] developerNames = getResources().getStringArray(R.array.developer_names);
+        RecyclerVAdapterDeveloper adapter = new RecyclerVAdapterDeveloper(developerNames, profileImage);
 
-        for(int i = 0; i < developerImages.length; i++)
-            developerImages[i] = getDrawable(profileImageId[i]);
-        return  developerImages;
+        recyclerView.setAdapter(adapter);
+        recyclerView.setHasFixedSize(true);
+        recyclerView.setLayoutManager(new GridLayoutManager(this, 2));
     }
 }
