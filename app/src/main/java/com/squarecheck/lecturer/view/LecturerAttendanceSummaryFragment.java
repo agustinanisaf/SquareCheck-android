@@ -29,7 +29,7 @@ public class LecturerAttendanceSummaryFragment
         extends BaseFragment<LecturerAttendanceSummaryActivity, LecturerAttendanceSummaryContract.Presenter>
         implements LecturerAttendanceSummaryContract.View {
 
-    private static final String SCHEDULE_ID = "SCHEDULE_ID";
+    public static final String SCHEDULE_ID = "SCHEDULE_ID";
     private final int subjectId;
     private final Title title;
     private ContentLecturerAttendanceSummaryBinding binding;

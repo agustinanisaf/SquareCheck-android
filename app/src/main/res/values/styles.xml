@@ -68,4 +68,13 @@
         <item name="android:width">297dp</item>
     </style>
 
+    <style name="AboutUsFont">
+        <item name="android:textColor">@color/black</item>
+        <item name="android:letterSpacing">34</item>
+    </style>
+
+    <style name="ShapeAppearanceOverlay.App.CornerSize50Percent" parent="">
+        <item name="cornerSize">50%</item>
+    </style>
+
 </resources>

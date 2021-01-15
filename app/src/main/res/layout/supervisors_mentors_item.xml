@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout>
+    <data>
+        <variable
+            name="supervisorMentorName"
+            type="String" />
+    </data>
+    <LinearLayout
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center_vertical">
+
+        <ImageView
+            android:layout_width="11dp"
+            android:layout_height="11dp"
+            android:background="@drawable/black_circle"
+            android:layout_marginEnd="14dp"/>
+
+        <TextView
+            android:textSize="@dimen/about_subchapter_font"
+            android:fontFamily="@font/montserrat_regular"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@{supervisorMentorName}"/>
+    </LinearLayout>
+</layout>

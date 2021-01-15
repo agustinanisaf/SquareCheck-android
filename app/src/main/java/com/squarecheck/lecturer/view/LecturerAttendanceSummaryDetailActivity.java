@@ -8,7 +8,7 @@ import com.squarecheck.lecturer.interactor.LecturerAttendanceSummaryDetailIntera
 import com.squarecheck.lecturer.presenter.LecturerAttendanceSummaryDetailPresenter;
 import com.squarecheck.shared.model.Title;
 
-import static com.squarecheck.lecturer.view.LecturerDashboardFragment.SUBJECT_ID;
+import static com.squarecheck.lecturer.view.LecturerAttendanceSummaryFragment.SCHEDULE_ID;
 import static com.squarecheck.lecturer.view.LecturerScheduleActionFragment.TITLE_ID;
 
 public class LecturerAttendanceSummaryDetailActivity extends BaseFragmentHolderActivity {
@@ -16,7 +16,7 @@ public class LecturerAttendanceSummaryDetailActivity extends BaseFragmentHolderA
     @Override
     protected void initializeFragment() {
         Intent intent = getIntent();
-        int scheduleId = intent.getIntExtra(SUBJECT_ID, 1);
+        int scheduleId = intent.getIntExtra(SCHEDULE_ID, 1);
         Title title = new Gson().fromJson(intent.getStringExtra(TITLE_ID), Title.class);
         String time = intent.getStringExtra("TIME_ID");
 

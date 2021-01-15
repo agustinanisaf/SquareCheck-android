@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name="developer_names">
+        <item>Agustin Anisa F</item>
+        <item>M Akbar Fadlika W</item>
+        <item>Riza Nafis</item>
+        <item>Riza Bachtiar</item>
+        <item>M Fahreza Ansori</item>
+    </string-array>
+    <string-array name="supervisors_mentors_names">
+        <item>Umi Sa\'adah</item>
+        <item>Desy Intan Permatasari</item>
+        <item>Andhik Ampuh Yunanto</item>
+        <item>Maulidan Bagus Afridian Rasyid</item>
+        <item>Willy Achmat Fauzi</item>
+        <item>Verent Flourencia Irene</item>
+        <item>Mayshella Ainun Wakhidah</item>
+        <item>Andika Ahmad Ramadhan</item>
+        <item>Fandi Ahmad</item>
+        <item>Ardian Kristya Pratama</item>
+        <item>Angga Pradipta Kurnia Putra</item>
+        <item>Muhammad Alif Pradipta ADP</item>
+        <item>Rafly Arief Kanza</item>
+        <item>Ahmad Jarir At Thobari</item>
+        <item>Ajie Dibyo Respati</item>
+        <item>Achmad Zulkarnain</item>
+        <item>Arie Affianto</item>
+        <item>Tegar Imansyah</item>
+    </string-array>
+</resources>
