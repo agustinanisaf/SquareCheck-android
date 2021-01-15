@@ -3,22 +3,16 @@ package com.squarecheck.student.contract;
 import com.squarecheck.base.presenter.BasePresenter;
 import com.squarecheck.base.view.BaseView;
 import com.squarecheck.shared.callback.RequestCallback;
-import com.squarecheck.student.model.AttendanceStatusItem;
+import com.squarecheck.shared.model.AttendanceStatusItem;
+import com.squarecheck.shared.model.ScheduleModel;
+import com.squarecheck.shared.model.SubjectModel;
 import com.squarecheck.student.model.NotificationPresenceItem;
-import com.squarecheck.student.model.ScheduleModel;
 import com.squarecheck.student.model.StudentModel;
-import com.squarecheck.student.model.SubjectModel;
 
 import java.util.List;
 
 public interface StudentDashboardContract {
-    interface View extends BaseView<StudentDashboardContract.Presenter> {
-        void startLoading();
-
-        void endLoading();
-
-        void showError(String errorMessage);
-
+    interface View extends BaseView<Presenter> {
         void redirectToAttendanceDetail(SubjectModel subject);
 
         void showSubjectsList(List<SubjectModel> SubjectsList);

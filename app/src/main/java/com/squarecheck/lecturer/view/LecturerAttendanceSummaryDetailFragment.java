@@ -5,7 +5,6 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -21,10 +20,10 @@ import com.squarecheck.databinding.ContentLecturerAttendanceSummaryDetailBinding
 import com.squarecheck.databinding.LecturerAttendanceSummaryToolbarBinding;
 import com.squarecheck.lecturer.adapter.StudentAttendancesAdapter;
 import com.squarecheck.lecturer.contract.LecturerAttendanceSummaryDetailContract;
+import com.squarecheck.shared.model.AttendanceStatusItem;
+import com.squarecheck.shared.model.PresenceModel;
 import com.squarecheck.shared.model.Title;
 import com.squarecheck.student.adapter.AttendanceSummaryRecyclerViewAdapter;
-import com.squarecheck.student.model.AttendanceStatusItem;
-import com.squarecheck.student.model.PresenceModel;
 
 import java.util.Comparator;
 import java.util.List;
@@ -55,12 +54,6 @@ public class LecturerAttendanceSummaryDetailFragment extends BaseFragment<Lectur
     }
 
     @Override
-    public void onStart() {
-        super.onStart();
-        presenter.start();
-    }
-
-    @Override
     public void startLoading() {
 
     }
@@ -68,11 +61,6 @@ public class LecturerAttendanceSummaryDetailFragment extends BaseFragment<Lectur
     @Override
     public void endLoading() {
 
-    }
-
-    @Override
-    public void showError(String errorMessage) {
-        Toast.makeText(getContext(), errorMessage, Toast.LENGTH_SHORT).show();
     }
 
     @Override
@@ -89,11 +77,6 @@ public class LecturerAttendanceSummaryDetailFragment extends BaseFragment<Lectur
     public void showAttendanceStats(List<AttendanceStatusItem> attendanceStats) {
         binding.attendanceSummaryRecycler.setAdapter(new AttendanceSummaryRecyclerViewAdapter(attendanceStats));
         showChart(attendanceStats);
-    }
-
-    @Override
-    public void setPresenter(LecturerAttendanceSummaryDetailContract.Presenter presenter) {
-        this.presenter = presenter;
     }
 
     @Override

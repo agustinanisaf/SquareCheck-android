@@ -7,7 +7,7 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.squarecheck.databinding.LecturerClassSubjectBinding;
-import com.squarecheck.student.model.ScheduleModel;
+import com.squarecheck.shared.model.ScheduleModel;
 
 import org.jetbrains.annotations.NotNull;
 

@@ -9,7 +9,6 @@ import com.squarecheck.login.model.Token;
 import com.squarecheck.login.model.User;
 import com.squarecheck.shared.callback.RequestCallback;
 import com.squarecheck.shared.util.TokenUtil;
-import com.squarecheck.shared.util.UserUtil;
 
 public class LoginPresenter implements LoginContract.Presenter {
     private static final String TAG = LoginPresenter.class.getSimpleName();
@@ -37,12 +36,12 @@ public class LoginPresenter implements LoginContract.Presenter {
                 saveToken(data);
                 registerFCMToken(data);
                 requestUser(data);
-                view.stopLoading();
+                view.endLoading();
             }
 
             @Override
             public void requestError(String message) {
-                view.stopLoading();
+                view.endLoading();
                 view.showError(message);
             }
         });

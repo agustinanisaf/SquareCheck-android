@@ -7,7 +7,7 @@
 
         <variable
             name="schedule"
-            type="com.squarecheck.student.model.ScheduleModel" />
+            type="com.squarecheck.shared.model.ScheduleModel" />
     </data>
 
     <androidx.cardview.widget.CardView

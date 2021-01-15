@@ -6,7 +6,6 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
-import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -16,17 +15,15 @@ import com.squarecheck.base.view.BaseFragment;
 import com.squarecheck.databinding.ContentLecturerAttendanceBinding;
 import com.squarecheck.databinding.LecturerAttendanceSummaryToolbarBinding;
 import com.squarecheck.lecturer.contract.LecturerScheduleActionContract;
+import com.squarecheck.shared.Constants;
+import com.squarecheck.shared.model.ScheduleModel;
 import com.squarecheck.shared.model.Title;
 import com.squarecheck.shared.util.DateUtil;
-import com.squarecheck.student.model.ScheduleModel;
-
-import static com.squarecheck.lecturer.view.LecturerDashboardFragment.SUBJECT_ID;
 
 public class LecturerScheduleActionFragment
         extends BaseFragment<LecturerScheduleActionActivity, LecturerScheduleActionContract.Presenter>
         implements LecturerScheduleActionContract.View {
 
-    public static final String TITLE_ID = "TITLE_ID";
     private int scheduleId;
     private ContentLecturerAttendanceBinding binding;
 
@@ -64,11 +61,6 @@ public class LecturerScheduleActionFragment
     }
 
     @Override
-    public void showError(String errorMessage) {
-        Toast.makeText(getContext(), errorMessage, Toast.LENGTH_SHORT).show();
-    }
-
-    @Override
     public void showSchedule(ScheduleModel schedule) {
         binding.setDay(DateUtil.getDay(schedule.getTime()));
         binding.setDate(DateUtil.getDate(schedule.getTime()));
@@ -88,12 +80,7 @@ public class LecturerScheduleActionFragment
         //change text and onclick to close attendance
         openButton.setText(R.string.close_attendance);
         openButton.setEnabled(true);
-        openButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                presenter.closeSchedule(scheduleId);
-            }
-        });
+        openButton.setOnClickListener(view -> presenter.closeSchedule(scheduleId));
     }
 
     public void disableOpenButton(){
@@ -110,12 +97,7 @@ public class LecturerScheduleActionFragment
         //change text and onclick to open attendance
         openButton.setText(R.string.open_attendance);
         openButton.setEnabled(true);
-        openButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                presenter.openSchedule(scheduleId);
-            }
-        });
+        openButton.setOnClickListener(view -> presenter.openSchedule(scheduleId));
     }
 
     @Override
@@ -129,11 +111,6 @@ public class LecturerScheduleActionFragment
     }
 
     @Override
-    public void setPresenter(LecturerScheduleActionContract.Presenter presenter) {
-        this.presenter = presenter;
-    }
-
-    @Override
     public void initView() {
         binding.btnOpenAttendance.setOnClickListener(v -> presenter.openSchedule(scheduleId));
         binding.btnRemoveAttendance.setOnClickListener(v -> presenter.removeSchedule(scheduleId));
@@ -141,8 +118,8 @@ public class LecturerScheduleActionFragment
 
     private void redirectToSummary(int subjectId) {
         Intent intent = new Intent(getContext(), LecturerAttendanceSummaryActivity.class);
-        intent.putExtra(SUBJECT_ID, subjectId);
-        intent.putExtra(TITLE_ID, title);
+        intent.putExtra(Constants.SUBJECT_ID, subjectId);
+        intent.putExtra(Constants.TITLE_ID, title);
         startActivity(intent);
     }
 

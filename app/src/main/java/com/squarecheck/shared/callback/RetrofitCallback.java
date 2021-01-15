@@ -4,8 +4,8 @@ import android.util.Log;
 
 import androidx.annotation.NonNull;
 
-import com.squarecheck.shared.model.APIResponse;
-import com.squarecheck.shared.model.APIResponseCollection;
+import com.squarecheck.shared.api_response.APIResponse;
+import com.squarecheck.shared.api_response.APIResponseCollection;
 import com.squarecheck.shared.retrofit.ErrorUtil;
 
 import org.jetbrains.annotations.NotNull;

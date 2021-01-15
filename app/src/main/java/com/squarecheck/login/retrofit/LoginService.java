@@ -2,8 +2,8 @@ package com.squarecheck.login.retrofit;
 
 import com.squarecheck.login.model.Token;
 import com.squarecheck.login.model.User;
-import com.squarecheck.shared.model.APIResponse;
-import com.squarecheck.shared.model.APIResponseCollection;
+import com.squarecheck.shared.api_response.APIResponse;
+import com.squarecheck.shared.api_response.APIResponseCollection;
 
 import retrofit2.Call;
 import retrofit2.http.Body;

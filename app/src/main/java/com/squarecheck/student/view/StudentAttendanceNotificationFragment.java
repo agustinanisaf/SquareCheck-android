@@ -30,24 +30,24 @@ public class StudentAttendanceNotificationFragment extends
         return fragmentView;
     }
 
-    public void onStart() {
-        super.onStart();
-        presenter.start();
-    }
-
     @Override
     public void backToDashboard() {
         activity.finish();
     }
 
     @Override
-    public void setPresenter(StudentAttendanceNotificationContract.Presenter presenter) {
-        this.presenter = presenter;
-    }
-
-    @Override
     public void initView() {
         binding.btnNotificationFinish.setOnClickListener(v -> backToDashboard());
         binding.setPresence(presence);
+    }
+
+    @Override
+    public void startLoading() {
+
+    }
+
+    @Override
+    public void endLoading() {
+
     }
 }

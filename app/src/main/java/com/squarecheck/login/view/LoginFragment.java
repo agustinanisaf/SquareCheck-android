@@ -6,7 +6,6 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -28,7 +27,6 @@ public class LoginFragment extends BaseFragment<LoginActivity, LoginContract.Pre
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         title = getResources().getString(R.string.login_title);
         binding = ContentLoginBinding.inflate(inflater, container, true);
-        presenter.start();
 
         return fragmentView;
     }
@@ -40,14 +38,9 @@ public class LoginFragment extends BaseFragment<LoginActivity, LoginContract.Pre
     }
 
     @Override
-    public void stopLoading() {
+    public void endLoading() {
         binding.btnLogin.setVisibility(View.VISIBLE);
         binding.progressCircular.setVisibility(View.GONE);
-    }
-
-    @Override
-    public void showError(String errorMessage) {
-        Toast.makeText(getContext(), errorMessage, Toast.LENGTH_SHORT).show();
     }
 
     @Override
@@ -68,11 +61,6 @@ public class LoginFragment extends BaseFragment<LoginActivity, LoginContract.Pre
             showError("Not Allowed.");
             Log.d(TAG, "redirectToHome: Unknown user supposedly admin.");
         }
-    }
-
-    @Override
-    public void setPresenter(LoginContract.Presenter presenter) {
-        this.presenter = presenter;
     }
 
     @Override

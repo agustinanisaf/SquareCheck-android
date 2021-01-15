@@ -4,13 +4,13 @@ import android.util.Log;
 
 import com.google.gson.Gson;
 import com.squarecheck.shared.callback.RequestCallback;
+import com.squarecheck.shared.model.AttendanceStatusItem;
+import com.squarecheck.shared.model.ScheduleModel;
+import com.squarecheck.shared.model.SubjectModel;
 import com.squarecheck.shared.model.Title;
 import com.squarecheck.student.contract.StudentDashboardContract;
-import com.squarecheck.student.model.AttendanceStatusItem;
 import com.squarecheck.student.model.NotificationPresenceItem;
-import com.squarecheck.student.model.ScheduleModel;
 import com.squarecheck.student.model.StudentModel;
-import com.squarecheck.student.model.SubjectModel;
 
 import java.util.List;
 

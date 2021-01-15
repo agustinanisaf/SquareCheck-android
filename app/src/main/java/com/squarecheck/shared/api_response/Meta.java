@@ -1,4 +1,4 @@
-package com.squarecheck.shared.model;
+package com.squarecheck.shared.api_response;
 
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;

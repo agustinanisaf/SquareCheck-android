@@ -4,7 +4,7 @@ import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 import com.squarecheck.MockResponseFileReader;
 import com.squarecheck.calendar.model.CalendarModel;
-import com.squarecheck.shared.model.APIResponseCollection;
+import com.squarecheck.shared.api_response.APIResponseCollection;
 import com.squarecheck.shared.retrofit.JWTAuthenticationInterceptor;
 
 import org.junit.jupiter.api.AfterEach;

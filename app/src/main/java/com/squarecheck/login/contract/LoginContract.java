@@ -4,17 +4,11 @@ import com.squarecheck.base.presenter.BasePresenter;
 import com.squarecheck.base.view.BaseView;
 import com.squarecheck.login.model.Token;
 import com.squarecheck.login.model.User;
+import com.squarecheck.shared.api_response.APIResponse;
 import com.squarecheck.shared.callback.RequestCallback;
-import com.squarecheck.shared.model.APIResponse;
 
 public interface LoginContract {
     interface View extends BaseView<Presenter> {
-        void startLoading();
-
-        void stopLoading();
-
-        void showError(String errorMessage);
-
         void redirectToHome(String role);
     }
 

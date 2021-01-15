@@ -7,7 +7,6 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
-import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -23,13 +22,12 @@ import com.squarecheck.lecturer.adapter.SchedulesAdapter;
 import com.squarecheck.lecturer.contract.LecturerDashboardContract;
 import com.squarecheck.lecturer.model.LecturerModel;
 import com.squarecheck.login.view.LoginActivity;
-import com.squarecheck.student.model.ScheduleModel;
+import com.squarecheck.shared.Constants;
+import com.squarecheck.shared.model.ScheduleModel;
 
 import java.util.List;
 
 public class LecturerDashboardFragment extends BaseFragment<LecturerDashboardActivity, LecturerDashboardContract.Presenter> implements LecturerDashboardContract.View {
-
-    public static final String SUBJECT_ID = "SUBJECT_ID";
 
     private ContentLecturerDashboardBinding binding;
 
@@ -53,17 +51,6 @@ public class LecturerDashboardFragment extends BaseFragment<LecturerDashboardAct
     }
 
     @Override
-    public void onStart() {
-        super.onStart();
-        presenter.start();
-    }
-
-    @Override
-    public void setPresenter(LecturerDashboardContract.Presenter presenter) {
-        this.presenter = presenter;
-    }
-
-    @Override
     public void initView() {
         binding.rvSchedules.setLayoutManager(new LinearLayoutManager(getContext()));
     }
@@ -81,15 +68,10 @@ public class LecturerDashboardFragment extends BaseFragment<LecturerDashboardAct
     }
 
     @Override
-    public void showError(String errorMessage) {
-        Toast.makeText(getContext(), errorMessage, Toast.LENGTH_SHORT).show();
-    }
-
-    @Override
     public void showSchedules(List<ScheduleModel> schedules) {
         ScheduleClickListener clickListener = schedule -> {
             Intent intent = new Intent(getContext(), LecturerScheduleActionActivity.class);
-            intent.putExtra(SUBJECT_ID, schedule.getId());
+            intent.putExtra(Constants.SUBJECT_ID, schedule.getId());
             startActivity(intent);
         };
         binding.rvSchedules.setAdapter(new SchedulesAdapter(clickListener, schedules));

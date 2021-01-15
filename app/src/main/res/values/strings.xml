@@ -69,6 +69,9 @@
     <string name="no">Tidak</string>
     <string name="logout_confirmation">Apakah anda yakin ingin logout ?</string>
     <string name="profile_photo_desc">Profile Photo</string>
+
+    <string name="previous">Previous</string>
+    <string name="next">Next</string>
     <string name="app_short_description">"Absensi\nTanpa Ribet"</string>
     <string name="app_long_description">Ingin aplikasi absensi yang mudah dan cepat?
         \nSquare Checks solusi untuk Anda, dengan fitur

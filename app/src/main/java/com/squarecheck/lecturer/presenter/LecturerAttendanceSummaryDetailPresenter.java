@@ -3,8 +3,8 @@ package com.squarecheck.lecturer.presenter;
 import com.squarecheck.R;
 import com.squarecheck.lecturer.contract.LecturerAttendanceSummaryDetailContract;
 import com.squarecheck.shared.callback.RequestCallback;
-import com.squarecheck.student.model.AttendanceStatusItem;
-import com.squarecheck.student.model.PresenceModel;
+import com.squarecheck.shared.model.AttendanceStatusItem;
+import com.squarecheck.shared.model.PresenceModel;
 
 import java.util.Arrays;
 import java.util.List;

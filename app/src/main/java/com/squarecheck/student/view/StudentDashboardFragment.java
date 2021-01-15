@@ -7,7 +7,6 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
-import android.widget.Toast;
 
 import androidx.annotation.Nullable;
 import androidx.recyclerview.widget.LinearLayoutManager;
@@ -21,14 +20,15 @@ import com.squarecheck.databinding.ContentStudentDashboardBinding;
 import com.squarecheck.databinding.DashboardAttendanceToolbarBinding;
 import com.squarecheck.databinding.StudentDashboardToolbarBinding;
 import com.squarecheck.login.view.LoginActivity;
+import com.squarecheck.shared.Constants;
+import com.squarecheck.shared.model.AttendanceStatusItem;
+import com.squarecheck.shared.model.ScheduleModel;
+import com.squarecheck.shared.model.SubjectModel;
 import com.squarecheck.student.adapter.ListSubjectRecyclerViewAdapter;
 import com.squarecheck.student.adapter.StudentAttendanceSummaryRecyclerViewAdapter;
 import com.squarecheck.student.contract.StudentDashboardContract;
-import com.squarecheck.student.model.AttendanceStatusItem;
 import com.squarecheck.student.model.NotificationPresenceItem;
-import com.squarecheck.student.model.ScheduleModel;
 import com.squarecheck.student.model.StudentModel;
-import com.squarecheck.student.model.SubjectModel;
 
 import org.jetbrains.annotations.NotNull;
 
@@ -37,9 +37,6 @@ import java.util.List;
 public class StudentDashboardFragment extends BaseFragment<StudentDashboardActivity, StudentDashboardContract.Presenter> implements StudentDashboardContract.View {
     private ContentStudentDashboardBinding binding;
 
-    public final static String SUBJECT_ID = "SUBJECT_ID";
-    public final static String TITLE_ID = "TITLE_ID";
-    public final static String PRESENCE_ID = "PRESENCE_ID";
     private DashboardAttendanceToolbarBinding additionalLayout;
     private StudentDashboardToolbarBinding titleLayoutBinding;
 
@@ -65,12 +62,6 @@ public class StudentDashboardFragment extends BaseFragment<StudentDashboardActiv
     }
 
     @Override
-    public void onStart() {
-        super.onStart();
-        presenter.start();
-    }
-
-    @Override
     public void startLoading() {
 
     }
@@ -81,16 +72,11 @@ public class StudentDashboardFragment extends BaseFragment<StudentDashboardActiv
     }
 
     @Override
-    public void showError(String errorMessage) {
-        Toast.makeText(getContext(), errorMessage, Toast.LENGTH_SHORT).show();
-    }
-
-    @Override
     public void redirectToAttendanceDetail(SubjectModel subject) {
         Intent intent = new Intent(activity, StudentAttendanceDetailActivity.class);
 
-        intent.putExtra(SUBJECT_ID, subject.getId());
-        intent.putExtra(TITLE_ID, presenter.showNextTitle(subject));
+        intent.putExtra(Constants.SUBJECT_ID, subject.getId());
+        intent.putExtra(Constants.TITLE_ID, presenter.showNextTitle(subject));
         startActivity(intent);
     }
 
@@ -147,7 +133,7 @@ public class StudentDashboardFragment extends BaseFragment<StudentDashboardActiv
     @Override
     public void redirectToNotificationSuccess(NotificationPresenceItem data) {
         Intent intent = new Intent(getContext(), StudentAttendanceNotificationActivity.class);
-        intent.putExtra(PRESENCE_ID, new Gson().toJson(data));
+        intent.putExtra(Constants.PRESENCE_ID, new Gson().toJson(data));
 
         startActivity(intent);
     }

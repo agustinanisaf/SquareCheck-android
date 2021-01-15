@@ -10,7 +10,7 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.squarecheck.BR;
 import com.squarecheck.R;
-import com.squarecheck.student.model.AttendanceStatusItem;
+import com.squarecheck.shared.model.AttendanceStatusItem;
 
 import java.util.List;
 

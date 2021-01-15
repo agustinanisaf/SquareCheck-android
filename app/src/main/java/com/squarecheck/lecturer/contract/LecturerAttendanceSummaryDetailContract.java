@@ -3,20 +3,14 @@ package com.squarecheck.lecturer.contract;
 import com.squarecheck.base.presenter.BasePresenter;
 import com.squarecheck.base.view.BaseView;
 import com.squarecheck.shared.callback.RequestCallback;
+import com.squarecheck.shared.model.AttendanceStatusItem;
+import com.squarecheck.shared.model.PresenceModel;
 import com.squarecheck.shared.model.Title;
-import com.squarecheck.student.model.AttendanceStatusItem;
-import com.squarecheck.student.model.PresenceModel;
 
 import java.util.List;
 
 public interface LecturerAttendanceSummaryDetailContract {
-    interface View extends BaseView<LecturerAttendanceSummaryDetailContract.Presenter> {
-        void startLoading();
-
-        void endLoading();
-
-        void showError(String errorMessage);
-
+    interface View extends BaseView<Presenter> {
         void showStudentAttendances(List<PresenceModel> data);
 
         void showTitle(Title title);
