@@ -3,4 +3,14 @@
     <dimen name="appbar_corner_radius">16dp</dimen>
     <dimen name="margin8dp">8dp</dimen>
     <dimen name="gutter16dp">16dp</dimen>
+    <!--  About Us Page  -->
+    <dimen name="about_rectangle_width">36dp</dimen>
+    <dimen name="about_rectangle_height">4dp</dimen>
+    <dimen name="about_circle_diameter">133dp</dimen>
+    <dimen name="about_chapter_font">20sp</dimen>
+    <dimen name="about_subchapter_font">16sp</dimen>
+    <dimen name="profile_picture_diameter">100dp</dimen>
+    <dimen name="sponsor_height">40dp</dimen>
+    <dimen name="logo_margin">10dp</dimen>
+    <dimen name="about_padding">32dp</dimen>
 </resources>
