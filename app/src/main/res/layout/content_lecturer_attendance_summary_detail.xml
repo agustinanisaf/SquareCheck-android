@@ -61,7 +61,7 @@
             android:layout_marginTop="50dp"
             android:layout_marginEnd="@dimen/gutter"
             android:background="@color/black10p"
-            android:padding="@dimen/gutter">
+            android:padding="@dimen/gutter16dp">
 
             <TextView
                 android:id="@+id/tv_student_id_header"
@@ -69,7 +69,6 @@
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:text="@string/student_id_header"
-                android:textAlignment="center"
                 android:textColor="@color/black"
                 android:textStyle="bold" />
 
@@ -89,7 +88,7 @@
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:text="@string/student_status_header"
-                android:textAlignment="center"
+                android:textAlignment="textEnd"
                 android:textColor="@color/black"
                 android:textStyle="bold" />
         </LinearLayout>
@@ -99,6 +98,8 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:layout_below="@id/recycler_header"
+            android:paddingStart="@dimen/gutter16dp"
+            android:paddingEnd="@dimen/gutter16dp"
             tools:itemCount="6"
             tools:listitem="@layout/lecturer_attendance_layout" />
     </RelativeLayout>

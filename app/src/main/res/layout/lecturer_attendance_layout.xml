@@ -18,16 +18,17 @@
             android:id="@+id/tv_student_id"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_weight="1"
             android:text="@{data.nrp}"
-            android:textAlignment="center"
             tools:text="@string/student_id_placeholder" />
 
         <TextView
             android:id="@+id/tv_student_name"
-            android:layout_width="wrap_content"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
+            android:paddingStart="@dimen/gutter16dp"
+            android:paddingEnd="@dimen/gutter16dp"
+            android:singleLine="true"
             android:text="@{data.name}"
             android:textAlignment="textStart"
             tools:text="@string/student_name_placeholder" />
@@ -36,9 +37,8 @@
             android:id="@+id/tv_student_status"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_weight="1"
             android:text="@{data.status}"
-            android:textAlignment="textStart"
+            android:textAlignment="textEnd"
             android:textColor="@{context.getColor(data.color)}"
             tools:text="@string/hadir_label"
             tools:textColor="@color/hadir" />

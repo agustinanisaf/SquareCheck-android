@@ -24,7 +24,7 @@ android {
         }
         release {
             buildConfigField 'String', 'baseUrl', '"https://api.square-check.me/"'
-            minifyEnabled true
+            minifyEnabled false
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
         }
     }
@@ -53,7 +53,7 @@ dependencies {
 
     implementation 'com.github.kizitonwose:CalendarView:1.0.0'
 
-    implementation 'com.google.code.gson:gson:2.8.5'
+    implementation 'com.google.code.gson:gson:2.8.6'
     def retrofit_ver = "2.9.0"
     implementation "com.squareup.retrofit2:retrofit:$retrofit_ver"
     implementation "com.squareup.retrofit2:converter-gson:$retrofit_ver"
