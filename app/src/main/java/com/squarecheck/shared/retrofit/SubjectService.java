@@ -14,6 +14,6 @@ public interface SubjectService {
     @GET("subjects")
     Call<APIResponseCollection<List<SubjectModel>>> getSubjects();
 
-    @GET("subjects/{id}/attendances")
+    @GET("subjects/{id}/attendances?order_by=+time")
     Call<APIResponseCollection<List<ScheduleModel>>> getAttendances(@Path("id") Integer subjectId);
 }

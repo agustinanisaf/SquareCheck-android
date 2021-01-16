@@ -28,7 +28,7 @@ public class AttendanceItem {
             case "hadir":
                 color = R.color.hadir;
                 break;
-            case "ijin":
+            case "izin":
                 color = R.color.ijin;
                 break;
             case "alpa":
