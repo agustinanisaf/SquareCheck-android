@@ -85,10 +85,10 @@ public class StudentDashboardInteractor implements StudentDashboardContract.Inte
 
     private List<AttendanceStatusItem> processAttendanceStats(List<ScheduleModel> data) {
         if (data.size() > 0) {
-            AttendanceStatusItem presenceStat = new AttendanceStatusItem(String.valueOf(data.stream().filter(d -> d.getAttendances() != null && d.getAttendances().size() != 0 && d.getAttendances().get(0).getStatus().equals("hadir")).count()), "Hadir", R.color.hadir);
-            AttendanceStatusItem excuseStat = new AttendanceStatusItem(String.valueOf(data.stream().filter(d -> d.getAttendances() != null && d.getAttendances().size() != 0 && d.getAttendances().get(0).getStatus().equals("izin")).count()), "Izin", R.color.ijin);
-            AttendanceStatusItem lateStat = new AttendanceStatusItem(String.valueOf(data.stream().filter(d -> d.getAttendances() != null && d.getAttendances().size() != 0 && d.getAttendances().get(0).getStatus().equals("terlambat")).count()), "Terlambat", R.color.telat);
-            AttendanceStatusItem absentStat = new AttendanceStatusItem(String.valueOf(data.stream().filter(d -> d.getAttendances() != null && d.getAttendances().size() != 0 && d.getAttendances().get(0).getStatus().equals("alpa")).count()), "Alpa", R.color.alpa);
+            AttendanceStatusItem presenceStat = new AttendanceStatusItem(String.valueOf(data.stream().filter(d -> d.getHadir() == 1).count()), "Hadir", R.color.hadir);
+            AttendanceStatusItem excuseStat = new AttendanceStatusItem(String.valueOf(data.stream().filter(d -> d.getIzin() == 1).count()), "Izin", R.color.ijin);
+            AttendanceStatusItem lateStat = new AttendanceStatusItem(String.valueOf(data.stream().filter(d -> d.getTerlambat() == 1).count()), "Terlambat", R.color.telat);
+            AttendanceStatusItem absentStat = new AttendanceStatusItem(String.valueOf(data.stream().filter(d -> d.getAlpa() == 1).count()), "Alpa", R.color.alpa);
             return Arrays.asList(presenceStat, excuseStat, lateStat, absentStat);
         }
         return Arrays.asList(

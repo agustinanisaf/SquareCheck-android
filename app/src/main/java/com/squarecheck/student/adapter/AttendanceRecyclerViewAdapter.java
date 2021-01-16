@@ -27,7 +27,7 @@ public class AttendanceRecyclerViewAdapter extends BaseRecyclerAdapter<List<Atte
     protected AttendanceItem getDataAtPosition(int position) {
         AttendanceItem item = data.get(position);
 
-        int background = (position % 2 == 0) ? R.color.white : R.color.gray;
+        int background = (position % 2 == 0) ? R.color.white : R.color.whitebone;
         item.setBackground(background);
 
         return item;
